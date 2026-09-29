@@ -78,10 +78,12 @@ export const TESTIMONIAL_PORTRAITS = {
   alex: asset('testimonial-alex.png'),
 };
 
+// Figma "3d ornament" (46:79). The left and mid coils use a different source image than the
+// right coil; the file shipped as ornament-ring.png is that coil (shared with sign-in/register).
 export const HERO_ORNAMENTS = [
   {
     id: 'squiggle-left',
-    src: asset('ornament-squiggle.png'),
+    src: asset('ornament-ring.png'),
     className: 'home-ornament-squiggle-left',
     tone: ORNAMENT_TONE_LIME,
     width: 385,
@@ -89,7 +91,7 @@ export const HERO_ORNAMENTS = [
   },
   {
     id: 'squiggle-mid',
-    src: asset('ornament-squiggle.png'),
+    src: asset('ornament-ring.png'),
     className: 'home-ornament-squiggle-mid',
     tone: ORNAMENT_TONE_PAPER,
     width: 175,
@@ -98,7 +100,7 @@ export const HERO_ORNAMENTS = [
   {
     id: 'ring',
     src: asset('cone-a.png'),
-    className: 'home-ornament-ring',
+    className: 'home-ornament-cone home-ornament-ring',
     tone: ORNAMENT_TONE_PAPER,
     width: 342,
     height: 342,
@@ -106,7 +108,7 @@ export const HERO_ORNAMENTS = [
   {
     id: 'cylinder',
     src: asset('cone-b.png'),
-    className: 'home-ornament-cylinder',
+    className: 'home-ornament-cone home-ornament-cylinder',
     tone: ORNAMENT_TONE_LIME,
     width: 370,
     height: 370,
@@ -114,7 +116,7 @@ export const HERO_ORNAMENTS = [
   {
     id: 'prism',
     src: asset('cone-c.png'),
-    className: 'home-ornament-prism',
+    className: 'home-ornament-cone home-ornament-prism',
     tone: ORNAMENT_TONE_PAPER,
     width: 188,
     height: 188,

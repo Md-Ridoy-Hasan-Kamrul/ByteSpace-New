@@ -14,9 +14,9 @@
   --home-progress-fill: 56%;
   --home-radius-card: 1.5rem;
   --home-radius-pill: 1.5rem;
-  --home-font-display: Poppins, "Segoe UI", sans-serif;
-  --home-font-body: Satoshi, "Segoe UI", sans-serif;
-  --home-font-brand: "Clash Display", Poppins, "Segoe UI", sans-serif;
+  --home-font-display: Poppins, 'Segoe UI', sans-serif;
+  --home-font-body: Satoshi, 'Segoe UI', sans-serif;
+  --home-font-brand: 'Clash Display', Poppins, 'Segoe UI', sans-serif;
   width: 100%;
   background: var(--home-white);
   color: var(--home-ink);
@@ -74,7 +74,7 @@
   position: relative;
   overflow: hidden;
   background-color: var(--home-blue);
-  background-image: url("/home/hero-grid.svg");
+  background-image: url('/home/hero-grid.svg');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: min(100%, 90rem) auto;
@@ -93,7 +93,7 @@
   width: min(72rem, 140vw);
   height: min(72rem, 140vw);
   transform: translateX(-50%);
-  background: url("/home/hero-glow.svg") center / contain no-repeat;
+  background: url('/home/hero-glow.svg') center / contain no-repeat;
   pointer-events: none;
 }
 
@@ -102,6 +102,16 @@
   position: absolute;
   isolation: isolate;
   pointer-events: none;
+}
+
+/* Figma draws each ornament image slightly outside its frame (46:86, 46:106). */
+.home-ornament-art {
+  position: absolute;
+  inset: 0 0.47% -0.47% -0.93%;
+}
+
+.home-ornament-cone .home-ornament-art {
+  inset: -0.22% 0.56% -0.28% -1.05%;
 }
 
 .home-ornament img {
@@ -130,26 +140,8 @@
   background: #f5f5f6;
 }
 
-.home-ornament-squiggle-left .home-ornament-tint,
-.home-ornament-squiggle-mid .home-ornament-tint,
-.home-ornament-squiggle-right .home-ornament-tint {
-  mask-image: url("/home/ornament-squiggle.png");
-}
-
 .home-ornament-squiggle-mid {
   transform: scaleX(-1);
-}
-
-.home-ornament-ring .home-ornament-tint {
-  mask-image: url("/home/cone-a.png");
-}
-
-.home-ornament-cylinder .home-ornament-tint {
-  mask-image: url("/home/cone-b.png");
-}
-
-.home-ornament-prism .home-ornament-tint {
-  mask-image: url("/home/cone-c.png");
 }
 
 .home-header {
@@ -460,7 +452,7 @@
   cursor: pointer;
 }
 
-.home-topic[aria-pressed="true"] {
+.home-topic[aria-pressed='true'] {
   border-color: var(--home-ink);
   background: var(--home-ink);
   color: var(--home-white);
@@ -728,7 +720,7 @@
   position: relative;
   overflow: hidden;
   background-color: var(--home-blue);
-  background-image: url("/home/hero-grid.svg");
+  background-image: url('/home/hero-grid.svg');
   background-size: cover;
   color: var(--home-canvas);
   text-align: center;
@@ -945,7 +937,9 @@
     height: calc(min(100vw, 90rem) * var(--hero-artboard-height) / var(--hero-artboard-width));
     min-height: 0;
     padding-bottom: 0;
-    background-size: min(100vw, 90rem) 100%;
+    /* One tile per artboard width, centred on the artboard, so the 120px grid runs edge to edge on wide screens. */
+    background-repeat: repeat-x;
+    background-size: min(100%, 90rem) 100%;
   }
 
   .home-hero-frame {
@@ -969,44 +963,46 @@
     z-index: 2;
   }
 
+  /* Hero_Frame coordinates of the Figma "3d ornament" frames (already absolute; do not add the group offset). */
   .home-ornament-squiggle-left {
-    left: calc(-236 / var(--hero-artboard-width) * 100%);
-    top: calc(442 / var(--hero-artboard-height) * 100%);
+    left: calc(-118 / var(--hero-artboard-width) * 100%);
+    top: calc(221 / var(--hero-artboard-height) * 100%);
     width: calc(385 / var(--hero-artboard-width) * 100%);
     height: calc(385 / var(--hero-artboard-height) * 100%);
   }
 
+  /* Flipped horizontally in Figma, so its box starts at 358 - 175. */
   .home-ornament-squiggle-mid {
-    left: calc(240 / var(--hero-artboard-width) * 100%);
-    top: calc(698 / var(--hero-artboard-height) * 100%);
+    left: calc(183 / var(--hero-artboard-width) * 100%);
+    top: calc(477 / var(--hero-artboard-height) * 100%);
     width: calc(175 / var(--hero-artboard-width) * 100%);
     height: calc(175 / var(--hero-artboard-height) * 100%);
   }
 
   .home-ornament-ring {
-    left: calc(-100 / var(--hero-artboard-width) * 100%);
-    top: calc(903 / var(--hero-artboard-height) * 100%);
+    left: calc(18 / var(--hero-artboard-width) * 100%);
+    top: calc(682 / var(--hero-artboard-height) * 100%);
     width: calc(342 / var(--hero-artboard-width) * 100%);
     height: calc(342 / var(--hero-artboard-height) * 100%);
   }
 
   .home-ornament-cylinder {
-    left: calc(1113 / var(--hero-artboard-width) * 100%);
-    top: calc(442 / var(--hero-artboard-height) * 100%);
+    left: calc(1231 / var(--hero-artboard-width) * 100%);
+    top: calc(221 / var(--hero-artboard-height) * 100%);
     width: calc(370 / var(--hero-artboard-width) * 100%);
     height: calc(370 / var(--hero-artboard-height) * 100%);
   }
 
   .home-ornament-prism {
-    left: calc(988 / var(--hero-artboard-width) * 100%);
-    top: calc(685 / var(--hero-artboard-height) * 100%);
+    left: calc(1106 / var(--hero-artboard-width) * 100%);
+    top: calc(464 / var(--hero-artboard-height) * 100%);
     width: calc(188 / var(--hero-artboard-width) * 100%);
     height: calc(188 / var(--hero-artboard-height) * 100%);
   }
 
   .home-ornament-squiggle-right {
-    left: calc(1009 / var(--hero-artboard-width) * 100%);
-    top: calc(893 / var(--hero-artboard-height) * 100%);
+    left: calc(1127 / var(--hero-artboard-width) * 100%);
+    top: calc(672 / var(--hero-artboard-height) * 100%);
     width: calc(330 / var(--hero-artboard-width) * 100%);
     height: calc(330 / var(--hero-artboard-height) * 100%);
   }
@@ -1119,4 +1115,3 @@
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
-
