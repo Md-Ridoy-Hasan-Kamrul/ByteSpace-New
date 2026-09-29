@@ -586,6 +586,159 @@
   color: var(--home-body);
 }
 
+/* Home "Discover Your Passion" section, measured from Figma (12:101, 21:33, 21:56, 21:63, 33:683). */
+.home-discovery {
+  padding-block: 4.5rem 0.5rem;
+}
+
+.home-discovery .home-section-copy {
+  max-width: 57.3125rem;
+}
+
+.home-discovery .home-section-copy h2 {
+  max-width: 36.75rem;
+  margin-inline: auto;
+}
+
+.home-discovery .home-section-copy p {
+  font-weight: 400;
+}
+
+.home-discovery .home-topics {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3125rem;
+  max-width: none;
+  margin-top: 2.625rem;
+}
+
+.home-topic-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.3125rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-discovery .home-topic {
+  border: 0;
+  border-radius: 1.5rem;
+  background: var(--home-canvas);
+  color: var(--home-body);
+  padding: 0.75rem 1rem;
+  font-family: var(--home-font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.home-discovery .home-topic[aria-pressed='true'] {
+  background: var(--home-lime);
+  color: var(--home-ink);
+}
+
+.home-discovery .home-topic-more {
+  display: block;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--home-blue);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.home-discovery .home-course-grid {
+  margin-top: 4.8125rem;
+}
+
+.home-discovery .home-course-card {
+  padding: 15px 15px 19.8px;
+}
+
+.home-discovery .home-course-media {
+  height: auto;
+  aspect-ratio: 341 / 195.145;
+  background: #443131;
+}
+
+.home-discovery .home-course-chips {
+  top: 150px;
+  right: auto;
+  bottom: auto;
+  left: 12px;
+  flex-wrap: nowrap;
+  gap: 12px;
+}
+
+.home-discovery .home-course-chips span {
+  padding: 6px 12px;
+  border-radius: 1.5rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.home-discovery .home-course-body {
+  gap: 1rem;
+  margin-top: 20.855px;
+}
+
+.home-discovery .home-course-body > div {
+  min-width: 0;
+}
+
+.home-discovery .home-course-body h3 {
+  max-width: 17.5rem;
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-discovery .home-creator {
+  line-height: 1.6;
+}
+
+.home-discovery .home-score {
+  align-self: start;
+  line-height: 1.6;
+}
+
+.home-discovery .home-level {
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 1.5rem;
+  line-height: 1.2;
+}
+
+.home-discovery .home-avatars li + li {
+  margin-left: -8px;
+}
+
+.home-discovery .home-avatars-extra span {
+  color: var(--home-ink);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.home-discovery .home-price {
+  display: flex;
+  align-items: flex-end;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.home-discovery .home-price span {
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
 .home-category-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

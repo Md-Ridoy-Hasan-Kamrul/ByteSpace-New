@@ -86,25 +86,27 @@ export const HEADER_BAG = {
   href: '#courses',
 };
 
-export const COURSE_TOPICS = [
-  FEATURED_TOPIC,
-  'Music',
-  'Drawing & Painting',
-  'Marketing',
-  'Animation',
-  'Social Media',
-  'UI/UX Design',
-  'Creative Marketing',
-  'Digital Illustration',
-  'Film & Video',
-  'Crafts',
-  'Freelance & Entrepreneurship',
-  'Graphic Design',
-  'Photography',
-  'Productivity',
-  'Web Development',
-  'Data Science',
-  'Cooking',
+// Rows as laid out in Figma (Tab_Categories, Frame 6, Frame 7); "+ More" closes the last row.
+export const COURSE_TOPIC_ROWS = [
+  [
+    FEATURED_TOPIC,
+    'Music',
+    'Drawing & Painting',
+    'Marketing',
+    'Animation',
+    'Social Media',
+    'UI/UX Design',
+    'Creative Marketing',
+  ],
+  [
+    'Digital Illustration',
+    'Film & Video',
+    'Crafts',
+    'Freelance & Entrepreneurship',
+    'Graphic Design',
+    'Photography',
+  ],
+  ['Productivity', 'Web Development', 'Data Science', 'Cooking'],
 ];
 
 export const MORE_TOPICS_LABEL = '+ More';
