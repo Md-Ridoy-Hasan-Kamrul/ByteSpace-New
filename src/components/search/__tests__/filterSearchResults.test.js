@@ -1,14 +1,14 @@
 import { HOME_COURSES } from '../../home/homeData';
-import {
-  ALL_CATEGORIES,
-  ALL_LEVELS,
-  FIRST_PAGE,
-  PAGE_SIZE,
-  SORT_TITLE,
-} from '../searchCopy';
+import { ALL_CATEGORIES, ALL_LEVELS, FIRST_PAGE, PAGE_SIZE, SORT_TITLE } from '../searchCopy';
 import { filterSearchResults, paginateCourses } from '../filterSearchResults';
 
-const featured = { query: '', topic: 'Featured', level: ALL_LEVELS, category: ALL_CATEGORIES, sort: 'Most relevant' };
+const featured = {
+  query: '',
+  topic: 'Featured',
+  level: ALL_LEVELS,
+  category: ALL_CATEGORIES,
+  sort: 'Most relevant',
+};
 
 describe('filterSearchResults', () => {
   it('returns the featured catalog when no extra filters are set', () => {

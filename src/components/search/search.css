@@ -1,74 +1,61 @@
+/* Search page, Figma "Search Page" (55:117), 1440 wide. */
 .search-page {
-  --search-hero-pad: 2.5rem;
-  --search-copy-width: 39rem;
-  --search-copy-offset: 1.5rem;
-  --search-gap: 0.75rem;
-  --search-field-height: 3.25rem;
-  --search-field-radius: 0.75rem;
-  --search-field-pad: 1.25rem;
-  --search-field-size: 1.125rem;
   --search-focus-width: 2px;
   --search-focus-offset: 2px;
-  --search-scope-height: 3rem;
-  --search-scope-radius: 1.5rem;
-  --search-control-height: 3rem;
-  --search-control-radius: 0.75rem;
-  --search-control-size: 0.95rem;
-  --search-control-pad: 1rem;
-  --search-title-fluid: 4vw;
   --search-menu-offset: 0.35rem;
   --search-menu-pad: 0.35rem;
   --search-option-block: 0.5rem;
   --search-option-inline: 0.75rem;
-  --search-topics-offset: 1.25rem;
-  --search-pager-offset: 2.5rem;
-  --search-pager-size: 2.5rem;
-  --search-gutter: 2rem;
-  --search-title-min: 1.75rem;
-  --search-title-max: 2.75rem;
-  --search-layer: 2;
   --search-menu-layer: 3;
-  --search-line: 1px;
-  --search-weight: 500;
-  --search-weight-strong: 600;
-  --search-disabled: 0.4;
-  --search-pill: 999px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.search-page .home-hero {
-  min-height: 0;
-  padding-bottom: var(--search-hero-pad);
+/* Hero (55:844): 360px blue band with the 120px page grid, header on top. */
+.search-hero {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--home-blue);
+  background-image: url('/home/hero-grid.svg');
+  background-repeat: repeat-x;
+  background-position: center top;
+  background-size: 90rem 64rem;
+  color: var(--home-canvas);
+  padding-bottom: 3rem;
 }
 
+/* Title at y 164, 32px above the search row (55:857). */
 .search-hero-copy {
   position: relative;
-  z-index: var(--search-layer);
-  width: min(100% - var(--search-gutter), var(--search-copy-width));
-  margin: var(--search-copy-offset) auto 0;
+  z-index: 2;
+  width: min(100% - 2rem, 39rem);
+  margin: 1.5rem auto 0;
   text-align: center;
 }
 
 .search-hero-copy h1 {
-  color: var(--home-white);
-  font-size: clamp(var(--search-title-min), var(--search-title-fluid), var(--search-title-max));
+  color: var(--home-canvas);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 .search-bar {
   display: flex;
-  align-items: center;
-  gap: var(--search-gap);
-  margin-top: var(--search-copy-offset);
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .search-field {
   display: flex;
   flex: 1;
   align-items: center;
-  gap: var(--search-gap);
-  height: var(--search-field-height);
-  border-radius: var(--search-field-radius);
+  gap: 0.5rem;
+  height: 3.25rem;
+  border-radius: 1.5rem;
   background: var(--home-white);
-  padding-inline: var(--search-field-pad);
+  padding-inline: 1.5rem;
 }
 
 .search-field input {
@@ -76,7 +63,13 @@
   border: 0;
   background: transparent;
   color: var(--home-ink);
-  font-size: var(--search-field-size);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.search-field input::placeholder {
+  color: var(--home-muted);
+  opacity: 1;
 }
 
 .search-field input:focus-visible,
@@ -91,44 +84,56 @@
 .search-bar button {
   display: inline-flex;
   align-items: center;
-  gap: var(--search-menu-offset);
-  height: var(--search-scope-height);
+  justify-content: center;
+  gap: 0.5rem;
   border: 0;
-  border-radius: var(--search-scope-radius);
+  border-radius: 1.5rem;
   background: var(--home-lime);
   color: var(--home-ink);
-  padding-inline: var(--search-field-pad);
-  font-size: var(--search-field-size);
-  font-weight: var(--search-weight);
+  padding: 12px 24px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
   cursor: pointer;
 }
 
+/* Results column: toolbar 72px under the hero, topics 32px lower, grid 77px lower, pagination 72px
+   under the grid and 72px above the footer. */
+.search-page .home-section {
+  padding-block: 4.5rem;
+}
+
+/* Toolbar (55:168): 48px white pills, #ced0d3 border, 16px apart; sort pill on the right. */
 .search-toolbar {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: var(--search-gap);
+  gap: 1rem;
 }
 
 .search-toolbar-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--search-gap);
+  gap: 1rem;
 }
 
 .search-filter,
 .search-select > button {
   display: inline-flex;
   align-items: center;
-  gap: var(--search-option-block);
-  min-height: var(--search-control-height);
-  border: var(--search-line) solid var(--home-line);
-  border-radius: var(--search-control-radius);
+  justify-content: center;
+  gap: 4px;
+  border: 1px solid var(--home-line);
+  border-radius: 1.5rem;
   background: var(--home-white);
-  color: var(--home-ink);
-  padding-inline: var(--search-control-pad);
-  font-size: var(--search-control-size);
+  color: var(--home-body);
+  padding: 11px 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -145,8 +150,8 @@
   margin: 0;
   padding: var(--search-menu-pad);
   list-style: none;
-  border: var(--search-line) solid var(--home-line);
-  border-radius: var(--search-control-radius);
+  border: 1px solid var(--home-line);
+  border-radius: 0.75rem;
   background: var(--home-white);
 }
 
@@ -163,54 +168,103 @@
   background: var(--home-canvas);
 }
 
-.search-topics {
-  margin-top: var(--search-topics-offset);
+/* Topic row (55:1819): the home pills, spread across the 1200px row. */
+.search-page .search-topics {
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: none;
+  margin: 2rem 0 0;
 }
 
-.search-page .home-topic[aria-pressed='true'] {
-  border-color: var(--home-lime);
-  background: var(--home-lime);
-  color: var(--home-ink);
+.search-page .search-results {
+  margin-top: 77px;
 }
 
+/* Pagination (55:834): bordered prev/next pills, Poppins 20px numbers 24px apart,
+   the current page in #ced0d3. */
 .search-pagination {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--search-menu-offset);
-  margin-top: var(--search-pager-offset);
+  gap: 24px;
+  margin-top: 4.5rem;
 }
 
 .search-pagination button {
-  display: grid;
-  place-items: center;
-  min-width: var(--search-pager-size);
-  height: var(--search-pager-size);
   border: 0;
-  border-radius: var(--search-pill);
   background: transparent;
-  color: var(--home-body);
   cursor: pointer;
 }
 
-.search-pagination button[aria-current='page'] {
-  background: var(--home-canvas);
-  color: var(--home-ink);
-  font-weight: var(--search-weight-strong);
+.search-pagination > button:not(.search-page-number) {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--home-line);
+  border-radius: 1.5rem;
+  background: var(--home-white);
+  padding: 11px 15px;
 }
 
 .search-pagination button:disabled {
   cursor: default;
-  opacity: var(--search-disabled);
+}
+
+.search-page-number {
+  padding: 0;
+  color: var(--home-ink);
+  font-family: var(--home-font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+}
+
+.search-page-number[aria-current='page'] {
+  color: var(--home-line);
+}
+
+@media (min-width: 1020px) {
+  .search-hero {
+    height: 360px;
+    padding-bottom: 0;
+  }
+
+  .search-hero .home-header {
+    height: 120px;
+    min-height: 0;
+    padding-block: 0;
+  }
+
+  .search-hero-copy {
+    width: auto;
+    margin-top: 44px;
+  }
+
+  .search-bar {
+    justify-content: center;
+  }
+
+  .search-field {
+    flex: none;
+    width: 461px;
+  }
+}
+
+/* Figma's toolbar starts at x 119 and its card grid is 1199px wide from x 121. */
+@media (min-width: 1280px) {
+  .search-toolbar {
+    margin-left: -1px;
+  }
+
+  .search-page .search-results {
+    width: 1199px;
+    margin-left: 1px;
+  }
 }
 
 @media (max-width: 424px) {
   .search-bar {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .search-bar button {
-    justify-content: center;
   }
 }

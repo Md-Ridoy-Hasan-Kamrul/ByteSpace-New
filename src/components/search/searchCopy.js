@@ -40,6 +40,18 @@ export const CATEGORY_OPTIONS = [
 ];
 export const SORT_OPTIONS = [SORT_RELEVANT, SORT_TITLE];
 
+// Figma Search Page (55:117) Material icons.
+const icon = (name) => `/search/icon-${name}.svg`;
+export const SEARCH_ICONS = {
+  chevronDown: icon('chevron-down'),
+  filter: icon('filter'),
+  level: icon('level'),
+  category: icon('category'),
+  sort: icon('sort'),
+  previous: icon('prev'),
+  next: icon('next'),
+};
+
 export const SEO_SEARCH = {
   title: 'Find Your Next Course | ByteSpace',
   description: 'Search ByteSpace courses by topic, level, and category.',

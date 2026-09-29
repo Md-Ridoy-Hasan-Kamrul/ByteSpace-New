@@ -28,7 +28,10 @@ const applySort = (courses, sort) => {
 };
 
 export const filterSearchResults = (courses, { query, topic, level, category, sort }) =>
-  applySort(applyCategory(applyLevel(filterCourses(courses, { query, topic }), level), category), sort);
+  applySort(
+    applyCategory(applyLevel(filterCourses(courses, { query, topic }), level), category),
+    sort,
+  );
 
 const pageCountFor = (total, pageSize) => Math.max(FIRST_PAGE, Math.ceil(total / pageSize));
 

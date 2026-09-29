@@ -639,7 +639,7 @@
   list-style: none;
 }
 
-.home-discovery .home-topic {
+:is(.home-discovery, .search-page) .home-topic {
   border: 0;
   border-radius: 1.5rem;
   background: var(--home-canvas);
@@ -652,7 +652,7 @@
   white-space: nowrap;
 }
 
-.home-discovery .home-topic[aria-pressed='true'] {
+:is(.home-discovery, .search-page) .home-topic[aria-pressed='true'] {
   background: var(--home-lime);
   color: var(--home-ink);
 }
@@ -676,17 +676,17 @@
 
 /* Figma Course_Card_1: shared by the discovery grid, the growth-section illustration card and
    other Figma-exact card placements (.home-figma-card, e.g. the register showcase). */
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-card {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results) .home-course-card {
   padding: 15px 15px 19.8px;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-media {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results) .home-course-media {
   height: auto;
   aspect-ratio: 341 / 195.145;
   background: #443131;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-chips {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results) .home-course-chips {
   top: 150px;
   right: auto;
   bottom: auto;
@@ -695,23 +695,27 @@
   gap: 12px;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-chips span {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results)
+  .home-course-chips
+  span {
   padding: 6px 12px;
   border-radius: 1.5rem;
   line-height: 1.2;
   white-space: nowrap;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-body {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results) .home-course-body {
   gap: 1rem;
   margin-top: 20.855px;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-body > div {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results)
+  .home-course-body
+  > div {
   min-width: 0;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-body h3 {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results) .home-course-body h3 {
   max-width: 17.5rem;
   overflow: hidden;
   color: #000;
@@ -719,47 +723,49 @@
   white-space: nowrap;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-creator {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results) .home-creator {
   line-height: 1.6;
 }
 
 /* Figma is 18px text + 24px star; reduced one step at the user's request. */
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-score {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results) .home-score {
   align-self: start;
   font-size: 1rem;
   line-height: 1.6;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-score img {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results) .home-score img {
   width: 1.25rem;
   height: 1.25rem;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-level {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results) .home-level {
   gap: 4px;
   padding: 6px 12px;
   border-radius: 1.5rem;
   line-height: 1.2;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-avatars li + li {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results) .home-avatars li + li {
   margin-left: -8px;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-avatars-extra span {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results)
+  .home-avatars-extra
+  span {
   color: var(--home-ink);
   font-weight: 500;
   line-height: 1.2;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-price {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results) .home-price {
   display: flex;
   align-items: flex-end;
   letter-spacing: -0.01em;
   line-height: 1.2;
 }
 
-:is(.home-discovery, .home-growth-course, .home-figma-card) .home-price span {
+:is(.home-discovery, .home-growth-course, .home-figma-card, .search-results) .home-price span {
   letter-spacing: 0;
   line-height: 1.6;
 }

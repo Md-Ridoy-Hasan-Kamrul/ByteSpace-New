@@ -16,7 +16,7 @@ const SearchContent = memo(() => {
 
   return (
     <div className="home-page search-page">
-      <div className="home-hero search-hero">
+      <div className="search-hero">
         <HomeHeader />
         <SearchHero
           query={catalog.query}

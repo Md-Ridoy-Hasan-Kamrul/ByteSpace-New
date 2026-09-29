@@ -35,7 +35,10 @@ describe('SearchContent', () => {
     expect(screen.getByRole('button', { name: 'Level' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Category' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Most relevant' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Featured' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: 'Featured' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     SEARCH_TOPICS.forEach((topic) => {
       expect(screen.getByRole('button', { name: topic })).toBeInTheDocument();
     });
@@ -50,7 +53,9 @@ describe('SearchContent', () => {
 
     expect(screen.getByRole('searchbox', { name: 'Search' })).toHaveValue('big data');
     expect(screen.getByRole('heading', { name: 'the Power of Big Data' })).toBeInTheDocument();
-    expect(screen.queryByRole('heading', { name: 'Learn Figma from Basic' })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('heading', { name: 'Learn Figma from Basic' }),
+    ).not.toBeInTheDocument();
   });
 
   it('filters the grid from the search field', async () => {
@@ -61,7 +66,9 @@ describe('SearchContent', () => {
     await user.click(screen.getByRole('button', { name: 'Courses' }));
 
     expect(screen.getByRole('heading', { name: 'the Power of Big Data' })).toBeInTheDocument();
-    expect(screen.queryByRole('heading', { name: 'Learn Figma from Basic' })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('heading', { name: 'Learn Figma from Basic' }),
+    ).not.toBeInTheDocument();
   });
 
   it('filters the grid when a topic chip is selected', async () => {

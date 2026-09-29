@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
-import { ChevronDown } from 'lucide-react';
 import { ICON_SEARCH, ICON_SIZE } from '../home/homeAssets';
-import { SEARCH_FIELD_LABEL, SEARCH_SCOPE_LABEL, SEARCH_TITLE } from './searchCopy';
+import { SEARCH_FIELD_LABEL, SEARCH_ICONS, SEARCH_SCOPE_LABEL, SEARCH_TITLE } from './searchCopy';
 
 const SearchHero = memo(({ query, onQueryChange, onSubmit }) => (
   <div className="search-hero-copy">
@@ -20,7 +19,7 @@ const SearchHero = memo(({ query, onQueryChange, onSubmit }) => (
       </label>
       <button type="submit">
         {SEARCH_SCOPE_LABEL}
-        <ChevronDown size={ICON_SIZE} aria-hidden="true" />
+        <img src={SEARCH_ICONS.chevronDown} alt="" width={ICON_SIZE} height={ICON_SIZE} />
       </button>
     </form>
   </div>
