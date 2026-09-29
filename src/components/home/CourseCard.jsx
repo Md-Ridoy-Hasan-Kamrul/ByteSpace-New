@@ -24,37 +24,37 @@ const CourseMedia = memo(({ course }) => (
 
 CourseMedia.displayName = 'CourseMedia';
 
-const CourseCard = memo(({ course }) => (
+const CourseCard = memo(({ course, ratingIcon = ICON_STAR_OUTLINE, extraBadge = LEARNER_MORE }) => (
   <article className="home-course-card">
     <Link to={courseDetailsPath(course.id)} className="home-course-link">
       <CourseMedia course={course} />
       <div className="home-course-body">
-      <div>
-        <h3>{course.title}</h3>
-        <p className="home-creator">
-          by <span>{course.creator}</span>
+        <div>
+          <h3>{course.title}</h3>
+          <p className="home-creator">
+            by <span>{course.creator}</span>
+          </p>
+        </div>
+        <p className="home-score">
+          {course.ratingLabel}
+          <img src={ratingIcon} alt="" width={ICON_SIZE} height={ICON_SIZE} />
         </p>
-      </div>
-      <p className="home-score">
-        {course.ratingLabel}
-        <img src={ICON_STAR_OUTLINE} alt="" width={ICON_SIZE} height={ICON_SIZE} />
-      </p>
-      <div className="home-course-row">
-        <p className="home-level">
-          <img src={ICON_LEVEL} alt="" width={LEVEL_ICON_SIZE} height={LEVEL_ICON_SIZE} />
-          {course.level}
+        <div className="home-course-row">
+          <p className="home-level">
+            <img src={ICON_LEVEL} alt="" width={LEVEL_ICON_SIZE} height={LEVEL_ICON_SIZE} />
+            {course.level}
+          </p>
+          <AvatarStack
+            avatars={course.learnerAvatars}
+            extraLabel={course.extraLearnersLabel}
+            badgeSrc={extraBadge}
+            size={COURSE_AVATAR_SIZE}
+          />
+        </div>
+        <p className="home-price">
+          {course.priceLabel}
+          <span>{course.billingLabel}</span>
         </p>
-        <AvatarStack
-          avatars={course.learnerAvatars}
-          extraLabel={course.extraLearnersLabel}
-          badgeSrc={LEARNER_MORE}
-          size={COURSE_AVATAR_SIZE}
-        />
-      </div>
-      <p className="home-price">
-        {course.priceLabel}
-        <span>{course.billingLabel}</span>
-      </p>
       </div>
     </Link>
   </article>

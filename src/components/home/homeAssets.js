@@ -26,6 +26,10 @@ export const HERO_STUDENT = asset('hero-student.png');
 export const GROWTH_CREATOR = asset('growth-creator.png');
 export const AVATAR_MORE = asset('avatar-more.svg');
 export const LEARNER_MORE = asset('learner-more.svg');
+export const LEARNER_MORE_DARK = asset('learner-more-dark.svg');
+export const ICON_STAR_LIME = asset('icon-star-lime.svg');
+export const GROWTH_GLOW = asset('growth-glow.svg');
+export const GROWTH_GLOW_LIME = asset('growth-glow-lime.svg');
 
 const portrait = (fileName, id) => ({ id, src: asset(fileName) });
 
@@ -135,3 +139,27 @@ export const HERO_ORNAMENTS = [
     height: 330,
   },
 ];
+
+// Figma Frame 15 lime squiggles (34:981, 34:1006), positioned inside their illustration boxes.
+export const GROWTH_ORNAMENTS = {
+  course: [
+    {
+      id: 'growth-squiggle-course',
+      src: asset('ornament-squiggle.png'),
+      className: 'home-growth-squiggle-course',
+      tone: ORNAMENT_TONE_LIME,
+      width: 215,
+      height: 215,
+    },
+  ],
+  creator: [
+    {
+      id: 'growth-squiggle-creator',
+      src: asset('ornament-ring.png'),
+      className: 'home-growth-squiggle-creator',
+      tone: ORNAMENT_TONE_LIME,
+      width: 215,
+      height: 215,
+    },
+  ],
+};
