@@ -183,3 +183,10 @@ export const CTA_ORNAMENTS = [
   ctaOrnament('ring', 'cone-a.png', ORNAMENT_TONE_LIME, 342, 'home-ornament-cone'),
   ctaOrnament('cylinder', 'cone-b.png', ORNAMENT_TONE_PAPER, 370, 'home-ornament-cone'),
 ];
+
+// Figma Testimonials_Frame blurred ellipses (34:1314, 34:1311, 34:1313).
+export const COMMUNITY_GLOWS = [
+  { id: 'lime', src: asset('glow-lime.svg') },
+  { id: 'soft', src: asset('glow-soft.svg') },
+  { id: 'blue', src: asset('glow-blue.svg') },
+];

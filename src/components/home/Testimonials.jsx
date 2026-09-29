@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { PORTRAIT_SIZE } from './homeAssets';
+import { COMMUNITY_GLOWS, PORTRAIT_SIZE } from './homeAssets';
 import { COMMUNITY_BODY, COMMUNITY_TITLE, TESTIMONIALS } from './homeData';
 
 const TestimonialCard = memo(({ testimonial }) => (
@@ -17,6 +17,14 @@ TestimonialCard.displayName = 'TestimonialCard';
 
 const Testimonials = memo(() => (
   <section className="home-community" aria-label="Community">
+    {COMMUNITY_GLOWS.map((glow) => (
+      <img
+        key={glow.id}
+        className={`home-community-glow home-community-glow-${glow.id}`}
+        src={glow.src}
+        alt=""
+      />
+    ))}
     <div className="home-wrap">
       <div className="home-community-intro">
         <h2>{COMMUNITY_TITLE}</h2>

@@ -805,28 +805,66 @@
   background: var(--home-lime);
 }
 
+/* Home "Discover What Our Community Is Saying" section, Figma Testimonials_Frame (34:1175), 1440 x 784.
+   Content (1204px wide at x 118) sits 74px from the top and 57px from the bottom. */
 .home-community {
   position: relative;
   overflow: hidden;
   background: var(--home-paper);
-  padding-block: 4.5rem;
+  padding-block: 74px 57px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.home-community-glow {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+}
+
+/* Ellipse boxes plus their 40px blur bleed, on a centred 1440 frame. */
+.home-community-glow-lime {
+  top: -281px;
+  left: calc(50% + 82px);
+  width: 1217px;
+  height: 1217px;
+}
+
+.home-community-glow-soft {
+  top: -178px;
+  left: calc(50% - 365px);
+  width: 752px;
+  height: 752px;
+}
+
+.home-community-glow-blue {
+  top: 109px;
+  left: calc(50% - 1202px);
+  width: 1217px;
+  height: 1217px;
+}
+
+.home-community .home-wrap {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 2.5rem, 75.25rem);
 }
 
 .home-community-intro {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .home-community h2 {
-  color: var(--home-ink);
+  color: #000;
   font-size: clamp(1.75rem, 4vw, 2.75rem);
 }
 
 .home-community p {
-  color: var(--home-body);
+  color: var(--home-copy);
   font-size: 1.125rem;
+  font-weight: 400;
   line-height: 1.6;
 }
 
@@ -1427,16 +1465,12 @@
   }
 }
 
-.home-community-intro {
-  align-items: end;
-}
-
+/* Cards keep their own heights (Figma aligns them to the top: 432 / 436 / 407). */
 .home-testimonial-grid {
-  position: relative;
-  z-index: 1;
   display: grid;
-  gap: 1.5rem;
-  margin-top: 4rem;
+  align-items: start;
+  gap: 1.5rem 41px;
+  margin-top: 72px;
 }
 
 .home-testimonial {
@@ -1453,10 +1487,18 @@
 }
 
 .home-testimonial h3 {
+  color: #000;
   font-size: 1.25rem;
+  line-height: 28px;
 }
 
-.home-testimonial p:first-of-type {
+/* Figma's first card uses a 1.2 line height for the name (24px), the others 28px. */
+.home-testimonial:first-child h3 {
+  line-height: 1.2;
+}
+
+/* Role line only (the quote is also the first <p> among the card's direct children). */
+.home-testimonial div > p {
   color: var(--home-blue);
 }
 
@@ -1593,9 +1635,19 @@
     justify-content: space-between;
   }
 
+  /* Heading 577px + 43px gap + paragraph 580px, bottom-aligned. */
   .home-community-intro {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 43px;
+  }
+
+  .home-community-intro h2 {
+    flex: 0 1 577px;
+  }
+
+  .home-community-intro p {
+    flex: 0 1 580px;
   }
 }
 
