@@ -771,6 +771,30 @@
   text-decoration: none;
 }
 
+/* Home "Explore Diverse Learning Paths" section, measured from Figma (34:684, 34:725).
+   Cards end 120px above the growth section (Frame 15 at y 3120). */
+.home-paths {
+  padding-bottom: 7.5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.home-paths .home-section-copy {
+  max-width: 57.3125rem;
+}
+
+.home-paths .home-section-copy p {
+  font-weight: 400;
+}
+
+.home-paths .home-category-grid {
+  margin-top: 4.25rem;
+}
+
+.home-paths .home-category-card {
+  line-height: 1.2;
+}
+
 .home-category-icon {
   display: grid;
   place-items: center;
@@ -1286,5 +1310,15 @@
 
   .home-category-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  /* Six 167px squares with 40px gaps across the 1200px content width. */
+  .home-paths .home-category-grid {
+    gap: 2.5rem;
+  }
+
+  .home-paths .home-category-card {
+    min-height: 0;
+    aspect-ratio: 1;
   }
 }
