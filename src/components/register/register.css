@@ -1,0 +1,323 @@
+.register-page {
+  --register-blue: #003be2;
+  --register-lime: #d4fb20;
+  --register-ink: #242528;
+  --register-muted: #82868e;
+  --register-body: #4b4c53;
+  --register-white: #ffffff;
+  --register-field: #e5e6e8;
+  --register-danger: #b42318;
+  --register-canvas: #f5f5f6;
+  --register-font-display: Poppins, "Segoe UI", sans-serif;
+  --register-font-body: Satoshi, "Segoe UI", sans-serif;
+  --register-content: 90rem;
+  --register-form-width: 36.1875rem;
+  --register-radius-card: 1.5rem;
+  --register-radius-field: 0.75rem;
+  --register-field-height: 3.25rem;
+  --register-field-pad: 1.5rem;
+  --register-line: 1px;
+  --register-focus: 2px;
+  --register-busy: 0.7;
+  --register-space-2xs: 0.35rem;
+  --register-space-xs: 0.5rem;
+  --register-space-sm: 0.75rem;
+  --register-space-md: 1rem;
+  --register-space-lg: 1.5rem;
+  --register-space-xl: 1.75rem;
+  --register-space-2xl: 2rem;
+  --register-space-3xl: 2.5rem;
+  --register-space-4xl: 3rem;
+  --register-shell-pad: 1rem;
+  --register-shell-block: 1.25rem;
+  --register-card-pad-block: 1.5rem;
+  --register-card-pad-inline: 1.25rem;
+  --register-form-gap: 1.25rem;
+  --register-story-title: 16rem;
+  --register-story-size: 1.25rem;
+  --register-story-copy: 28rem;
+  --register-title: clamp(2rem, 8vw, 2.75rem);
+  --register-label-size: 0.875rem;
+  --register-copy-size: 0.875rem;
+  --register-input-size: 1.125rem;
+  --register-leading-title: 1.3;
+  --register-leading-copy: 1.6;
+  --register-leading-display: 1.15;
+  --register-track: -0.01em;
+  --register-weight-medium: 500;
+  --register-weight-semibold: 600;
+  --register-layer-back: 1;
+  --register-layer-front: 2;
+  --register-layer-students: 3;
+  --register-ring-width: 6rem;
+  --register-ring-left: 38%;
+  --register-cone-width: 5.5rem;
+  --register-cone-top: 11rem;
+  --register-prism-width: 6.5rem;
+  --register-front-top: 9.5rem;
+  --register-students-top: 24rem;
+  --register-students-pad-inline: 1.1rem;
+  --register-students-pad-end: 1.15rem;
+  --register-showcase-height: 36rem;
+  --register-course-width: 16.5rem;
+  --register-course-offset: 7.5rem;
+  --register-media-height: 7.5rem;
+  --register-students-width: 14.5rem;
+  --register-ornament: 7.5rem;
+  min-height: 100vh;
+  background-color: var(--register-blue);
+  background-image: url("/home/hero-grid.svg");
+  background-size: cover;
+  background-position: center;
+  color: var(--register-white);
+  font-family: var(--register-font-body);
+}
+
+.register-shell {
+  width: min(100% - (var(--register-shell-pad) * 2), var(--register-content));
+  margin-inline: auto;
+  padding-block: 1.25rem var(--register-space-3xl);
+}
+
+.register-logo {
+  display: inline-flex;
+}
+
+.register-layout {
+  display: grid;
+  gap: var(--register-space-lg);
+  margin-top: var(--register-space-lg);
+}
+
+.register-story h2 {
+  max-width: var(--register-story-title);
+  font-family: var(--register-font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.register-story > p {
+  max-width: var(--register-story-copy);
+  margin-top: var(--register-space-sm);
+  color: var(--register-canvas);
+  font-size: var(--register-copy-size);
+  line-height: 1.6;
+}
+
+.register-showcase {
+  display: none;
+}
+
+.register-card {
+  border-radius: var(--register-radius-card);
+  background: var(--register-white);
+  color: var(--register-ink);
+  padding: var(--register-card-pad-block) var(--register-card-pad-inline) var(--register-space-xl);
+}
+
+.register-eyebrow {
+  color: var(--register-blue);
+  font-size: var(--register-input-size);
+  font-weight: 500;
+}
+
+.register-card h1 {
+  margin-top: var(--register-space-2xs);
+  font-family: var(--register-font-display);
+  font-size: var(--register-title);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.register-card form {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: var(--register-space-xl);
+}
+
+.register-field {
+  display: grid;
+  gap: var(--register-space-xs);
+}
+
+.register-field label {
+  font-size: var(--register-copy-size);
+  font-weight: 500;
+}
+
+.register-field input {
+  width: 100%;
+  height: var(--register-field-height);
+  border: var(--register-line) solid var(--register-field);
+  border-radius: var(--register-radius-field);
+  padding-inline: var(--register-field-pad);
+  color: var(--register-ink);
+  font-size: var(--register-input-size);
+  background: var(--register-white);
+}
+
+.register-field input::placeholder {
+  color: var(--register-muted);
+}
+
+.register-field input:focus-visible,
+.register-card button:focus-visible,
+.register-switch a:focus-visible,
+.register-logo:focus-visible {
+  outline: var(--register-focus) solid var(--register-blue);
+  outline-offset: var(--register-focus);
+}
+
+.register-error {
+  color: var(--register-danger);
+  font-size: var(--register-copy-size);
+}
+
+.register-actions {
+  display: flex;
+  justify-content: stretch;
+}
+
+.register-card button {
+  width: 100%;
+  min-height: var(--register-field-height);
+  border: 0;
+  border-radius: var(--register-radius-card);
+  background: var(--register-lime);
+  color: var(--register-ink);
+  font-size: var(--register-input-size);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.register-card button:disabled {
+  cursor: wait;
+  opacity: var(--register-busy);
+}
+
+.register-switch {
+  margin-top: var(--register-space-lg);
+  color: var(--register-body);
+  font-size: var(--register-space-md);
+  text-align: center;
+}
+
+.register-switch a {
+  color: var(--register-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-switch a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 375px) {
+  .register-page {
+    --register-shell-pad: 1.25rem;
+    --register-card-pad-block: 2rem;
+    --register-card-pad-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 425px) {
+  .register-page {
+    --register-copy-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .register-page {
+    --register-shell-pad: 2rem;
+    --register-card-pad-block: 3rem;
+    --register-card-pad-inline: 2.5rem;
+  }
+
+  .register-actions {
+    justify-content: flex-end;
+  }
+
+  .register-card button {
+    width: auto;
+    padding-inline: var(--register-space-3xl);
+  }
+
+  .register-switch {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1020px) {
+  .register-page {
+    --register-copy-size: 1.125rem;
+    --register-card-pad-block: 3.9375rem;
+    --register-card-pad-inline: 3.8125rem;
+  }
+
+  .register-layout {
+    grid-template-columns: minmax(0, 1fr) var(--register-form-width);
+    align-items: center;
+    gap: var(--register-space-2xl);
+  }
+
+  .register-showcase {
+    position: relative;
+    display: block;
+    min-height: var(--register-showcase-height);
+    margin-top: var(--register-space-lg);
+  }
+
+  .register-ornament,
+  .register-course,
+  .register-students {
+    position: absolute;
+  }
+
+  .register-ornament {
+    width: var(--register-ornament);
+    pointer-events: none;
+  }
+
+  .register-ornament-ring {
+    top: 0;
+    left: 38%;
+    width: 6rem;
+  }
+
+  .register-ornament-cone {
+    top: 11rem;
+    left: 0;
+    width: 5.5rem;
+  }
+
+  .register-ornament-prism {
+    right: 0;
+    bottom: var(--register-space-md);
+    width: 6.5rem;
+  }
+
+  .register-course {
+    width: var(--register-course-width);
+  }
+
+  .register-course-back {
+    top: var(--register-space-lg);
+    left: 0;
+    z-index: 1;
+  }
+
+  .register-course-front {
+    top: 9.5rem;
+    left: var(--register-course-offset);
+    z-index: 2;
+  }
+
+  .register-course .home-course-media {
+    height: var(--register-media-height);
+  }
+
+  .register-course .home-course-body h3,
+  .register-course .home-price {
+    font-size: va

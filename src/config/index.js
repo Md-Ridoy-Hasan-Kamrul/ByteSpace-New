@@ -9,6 +9,7 @@ export const ROUTES = {
   SERVICES: '/services',
   CONTACT: '/contact',
   LOGIN: '/login',
+  REGISTER: '/register',
   ADMIN: '/admin',
   ADMIN_DASHBOARD: '/admin/dashboard',
   ADMIN_EMAILS: '/admin/emails',

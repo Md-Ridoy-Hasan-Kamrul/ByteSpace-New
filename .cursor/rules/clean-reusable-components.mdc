@@ -1,0 +1,30 @@
+---
+description: Write clean, well-structured code with reusable components
+alwaysApply: true
+---
+
+# Clean, reusable components
+
+Write clean, well-structured code with reusable components.
+
+- One component does one job. A page composes sections; a section composes smaller pieces.
+- Extract anything used twice (markup, logic, or constants) into a shared component, hook, or named constant.
+- Keep props small and explicit. Do not pass unused data through a component.
+- Name files and components for what they render (`CourseCard`, `PartnerStrip`), and put them in the feature folder that owns them.
+
+```jsx
+// Bad: one component owns the title, the list, and the card markup
+function Courses({ courses }) {
+  return courses.map((course) => (
+    <article key={course.id}>
+      <h3>{course.title}</h3>
+      <p>{course.priceLabel}</p>
+    </article>
+  ));
+}
+
+// Good: the list composes a reusable card
+function CourseList({ courses }) {
+  return courses.map((course) => <CourseCard key={course.id} course={course} />);
+}
+```
