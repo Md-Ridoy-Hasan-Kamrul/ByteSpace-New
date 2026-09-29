@@ -1,4 +1,4 @@
-import { ROUTES } from '../../config';
+import { creatorProfilePath, PRIMARY_CREATOR_ID, ROUTES } from '../../config';
 import {
   CATEGORY_ICONS,
   COURSE_IMAGES,
@@ -73,7 +73,7 @@ export const YEAR_TO_DATE_AMOUNT = '$1,200.38';
 export const HEADER_LINKS = [
   { label: 'Home', to: ROUTES.HOME },
   { label: 'Courses', to: ROUTES.SEARCH },
-  { label: 'Creators', href: '#creators' },
+  { label: 'Creators', to: creatorProfilePath(PRIMARY_CREATOR_ID) },
 ];
 
 export const HEADER_ACTIONS = [

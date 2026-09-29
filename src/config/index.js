@@ -29,6 +29,8 @@ export const ROUTES = {
 
 export const courseDetailsPath = (courseId) => ROUTES.COURSE_DETAILS.replace(':courseId', courseId);
 
+export const PRIMARY_CREATOR_ID = 'purepearl';
+
 export const creatorProfilePath = (creatorId) =>
   ROUTES.CREATOR_PROFILE.replace(':creatorId', creatorId);
 

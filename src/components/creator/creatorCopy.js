@@ -1,7 +1,8 @@
+import { PRIMARY_CREATOR_ID } from '../../config';
 import { HOME_COURSES } from '../home/homeData';
 import { CREATOR_PORTRAIT } from './creatorAssets';
 
-export const CREATOR_ID = 'purepearl';
+export const CREATOR_ID = PRIMARY_CREATOR_ID;
 export const CREATOR_BADGE = 'Creator';
 export const FOLLOW_LABEL = 'Follow';
 export const PRODUCTS_COUNT = '3';

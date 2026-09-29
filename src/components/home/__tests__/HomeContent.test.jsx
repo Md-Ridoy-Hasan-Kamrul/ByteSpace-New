@@ -147,7 +147,10 @@ describe('HomeContent', () => {
 
     expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/');
     expect(screen.getByRole('link', { name: 'Courses' })).toHaveAttribute('href', '/search');
-    expect(screen.getByRole('link', { name: 'Creators' })).toHaveAttribute('href', '#creators');
+    expect(screen.getByRole('link', { name: 'Creators' })).toHaveAttribute(
+      'href',
+      '/creators/purepearl',
+    );
     expect(screen.getByRole('link', { name: 'Sign In' })).toHaveAttribute('href', '/sign-in');
     expect(screen.getByRole('link', { name: 'Join Us' })).toHaveAttribute('href', '/register');
     expect(screen.getByRole('link', { name: 'Shopping bag' })).toHaveAttribute('href', '#courses');
