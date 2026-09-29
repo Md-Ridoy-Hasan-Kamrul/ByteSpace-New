@@ -72,7 +72,7 @@ export const YEAR_TO_DATE_AMOUNT = '$1,200.38';
 
 export const HEADER_LINKS = [
   { label: 'Home', to: ROUTES.HOME },
-  { label: 'Courses', href: '#courses' },
+  { label: 'Courses', to: ROUTES.SEARCH },
   { label: 'Creators', href: '#creators' },
 ];
 
