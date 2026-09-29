@@ -14,8 +14,12 @@ import {
 
 export const ABOUT_TAB = 'About';
 export const LESSONS_TAB = 'Lesson';
+export const LESSONS_ABOUT_LABEL = 'Lessons';
 export const REVIEWS_TAB = 'Reviews';
 export const COURSE_TABS = [ABOUT_TAB, LESSONS_TAB, REVIEWS_TAB];
+
+export const courseTabLabel = (tabId, activeTab) =>
+  tabId === LESSONS_TAB && activeTab === ABOUT_TAB ? LESSONS_ABOUT_LABEL : tabId;
 
 export const SHARE_LABEL = 'Share';
 export const PLAY_LABEL = 'Play preview';
@@ -85,8 +89,7 @@ export const REVIEW_ROLE = 'UI/UX Designer';
 export const REVIEW_TIME = 'a year ago';
 export const REVIEW_RATING = STAR_TOTAL;
 
-export const starFilterLabel = (score) =>
-  `${score} ${score === STAR_SLOTS[0] ? 'star' : 'stars'}`;
+export const starFilterLabel = (score) => `${score} ${score === STAR_SLOTS[0] ? 'star' : 'stars'}`;
 
 export const REVIEW_COPY = {
   summaryHeading: 'What Learners Are Saying',

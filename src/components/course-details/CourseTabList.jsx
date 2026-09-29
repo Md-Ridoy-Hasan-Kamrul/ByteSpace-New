@@ -1,10 +1,10 @@
 import React, { memo, useCallback } from 'react';
-import { COURSE_TABS } from './courseDetailsCopy';
+import { COURSE_TABS, courseTabLabel } from './courseDetailsCopy';
 
-const CourseTab = memo(({ label, isSelected, onSelect }) => {
+const CourseTab = memo(({ tabId, label, isSelected, onSelect }) => {
   const handleSelect = useCallback(() => {
-    onSelect(label);
-  }, [label, onSelect]);
+    onSelect(tabId);
+  }, [tabId, onSelect]);
 
   return (
     <button type="button" aria-pressed={isSelected} onClick={handleSelect}>
@@ -17,8 +17,14 @@ CourseTab.displayName = 'CourseTab';
 
 const CourseTabList = memo(({ tab, onSelect }) => (
   <div className="course-tabs" role="group" aria-label="Course sections">
-    {COURSE_TABS.map((label) => (
-      <CourseTab key={label} label={label} isSelected={label === tab} onSelect={onSelect} />
+    {COURSE_TABS.map((tabId) => (
+      <CourseTab
+        key={tabId}
+        tabId={tabId}
+        label={courseTabLabel(tabId, tab)}
+        isSelected={tabId === tab}
+        onSelect={onSelect}
+      />
     ))}
   </div>
 ));

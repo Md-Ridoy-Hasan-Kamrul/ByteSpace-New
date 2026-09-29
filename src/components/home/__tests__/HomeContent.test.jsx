@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import toast from 'react-hot-toast';
 import HomeContent from '../HomeContent';
@@ -86,8 +86,12 @@ describe('HomeContent', () => {
     mockNavigate.mockClear();
     renderHome();
 
-    await user.type(screen.getByRole('searchbox', { name: /course, topic, creator/i }), 'big data');
-    await user.click(screen.getByRole('button', { name: /^search$/i }));
+    const search = screen.getByRole('search');
+    await user.type(
+      within(search).getByRole('searchbox', { name: /course, topic, creator/i }),
+      'big data',
+    );
+    await user.click(within(search).getByRole('button', { name: /^search$/i }));
 
     expect(mockNavigate).toHaveBeenCalledWith('/search?q=big+data');
   });
@@ -107,7 +111,9 @@ describe('HomeContent', () => {
       'false',
     );
     expect(screen.getByRole('heading', { name: 'the Power of Big Data' })).toBeInTheDocument();
-    expect(screen.queryByRole('heading', { name: 'Learn Figma from Basic' })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('heading', { name: 'Learn Figma from Basic' }),
+    ).not.toBeInTheDocument();
   });
 
   it('shows an empty state when nothing matches', async () => {
@@ -123,8 +129,9 @@ describe('HomeContent', () => {
     const user = userEvent.setup();
     renderHome();
 
-    await user.type(screen.getByRole('textbox', { name: /email/i }), 'not-an-email');
-    await user.click(screen.getByRole('button', { name: /subscribe/i }));
+    const email = screen.getByRole('textbox', { name: /email/i });
+    await user.type(email, 'not-an-email');
+    await user.click(within(email.closest('form')).getByRole('button', { name: 'Search' }));
 
     expect(screen.getByRole('alert')).toHaveTextContent(/valid email/i);
     expect(toast.success).not.toHaveBeenCalled();
@@ -134,8 +141,9 @@ describe('HomeContent', () => {
     const user = userEvent.setup();
     renderHome();
 
-    await user.type(screen.getByRole('textbox', { name: /email/i }), 'learner@bytespace.com');
-    await user.click(screen.getByRole('button', { name: /subscribe/i }));
+    const email = screen.getByRole('textbox', { name: /email/i });
+    await user.type(email, 'learner@bytespace.com');
+    await user.click(within(email.closest('form')).getByRole('button', { name: 'Search' }));
 
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
     expect(toast.success).toHaveBeenCalledTimes(1);
@@ -154,7 +162,10 @@ describe('HomeContent', () => {
     expect(screen.getByRole('link', { name: 'Sign In' })).toHaveAttribute('href', '/sign-in');
     expect(screen.getByRole('link', { name: 'Join Us' })).toHaveAttribute('href', '/register');
     expect(screen.getByRole('link', { name: 'Shopping bag' })).toHaveAttribute('href', '#courses');
-    expect(screen.getByRole('link', { name: 'Join as Creator' })).toHaveAttribute('href', '/register');
+    expect(screen.getByRole('link', { name: 'Join as Creator' })).toHaveAttribute(
+      'href',
+      '/register',
+    );
   });
 
   it('opens and closes the mobile header menu', async () => {

@@ -14,8 +14,6 @@ import {
 import BrandLockup from './BrandLockup';
 import HomeLink from './HomeLink';
 
-const NEWSLETTER_BUTTON_LABEL = 'Subscribe';
-
 const FooterLinks = memo(() => (
   <div className="home-footer-links">
     {FOOTER_LINK_GROUPS.map((group) => (
@@ -52,7 +50,7 @@ const NewsletterForm = memo(() => {
           aria-invalid={Boolean(error)}
           aria-describedby={error ? 'newsletter-error' : undefined}
         />
-        <button type="submit" className="home-button" aria-label={NEWSLETTER_BUTTON_LABEL}>
+        <button type="submit" className="home-button">
           {SEARCH_BUTTON_LABEL}
         </button>
       </div>

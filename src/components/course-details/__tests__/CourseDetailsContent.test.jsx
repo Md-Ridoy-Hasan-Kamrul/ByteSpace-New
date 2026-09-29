@@ -7,6 +7,7 @@ import {
   ABOUT_TAB,
   COURSE_DETAILS,
   ENROLL_SUCCESS_MESSAGE,
+  LESSONS_ABOUT_LABEL,
   LESSONS_TAB,
   REVIEWS_TAB,
   SHARE_SUCCESS_MESSAGE,
@@ -51,6 +52,10 @@ describe('CourseDetailsContent', () => {
     expect(screen.getByRole('button', { name: 'Share' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Play preview' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: ABOUT_TAB })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: LESSONS_ABOUT_LABEL })).toHaveAttribute(
+      'aria-pressed',
+      'false',
+    );
     expect(screen.getByRole('heading', { name: 'Description' })).toBeInTheDocument();
     expect(screen.getByText(COURSE_DETAILS.description[0])).toBeInTheDocument();
     expect(screen.getAllByRole('img', { name: /sneak peek/i })).toHaveLength(
@@ -76,7 +81,7 @@ describe('CourseDetailsContent', () => {
     const user = userEvent.setup();
     renderDetails();
 
-    await user.click(screen.getByRole('button', { name: LESSONS_TAB }));
+    await user.click(screen.getByRole('button', { name: LESSONS_ABOUT_LABEL }));
 
     expect(screen.getByRole('button', { name: LESSONS_TAB })).toHaveAttribute(
       'aria-pressed',
@@ -99,6 +104,10 @@ describe('CourseDetailsContent', () => {
     expect(screen.getByRole('button', { name: REVIEWS_TAB })).toHaveAttribute(
       'aria-pressed',
       'true',
+    );
+    expect(screen.getByRole('button', { name: LESSONS_TAB })).toHaveAttribute(
+      'aria-pressed',
+      'false',
     );
     expect(screen.getByRole('heading', { name: 'What Learners Are Saying' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'PurePearl Studio' })).toBeInTheDocument();
