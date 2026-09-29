@@ -1313,32 +1313,118 @@
   }
 }
 
+/* Home "Unlock Your Potential as a Creator" CTA, Figma CTA_Frame (34:1161), 1440 x 488. */
 .home-cta {
+  --cta-size: min(100cqw, 90rem);
   position: relative;
   overflow: hidden;
+  container-type: inline-size;
   background-color: var(--home-blue);
+  /* Same 120px grid as the hero, at its true 1440 x 1024 size, centred and repeated sideways. */
   background-image: url('/home/hero-grid.svg');
-  background-size: cover;
+  background-repeat: repeat-x;
+  background-position: center top;
+  background-size: 90rem 64rem;
   color: var(--home-canvas);
   text-align: center;
   padding-block: 5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.home-cta .home-wrap {
+  position: relative;
+  z-index: 1;
 }
 
 .home-cta h2 {
-  max-width: 44rem;
+  max-width: 44.375rem;
   margin-inline: auto;
   font-size: clamp(1.75rem, 4vw, 2.75rem);
 }
 
 .home-cta p {
-  max-width: 60rem;
-  margin: 2rem auto 0;
+  max-width: 60.25rem;
+  margin: 2.5rem auto 0;
   font-size: 1.125rem;
+  font-weight: 400;
   line-height: 1.6;
 }
 
 .home-cta .home-button {
   margin-top: 2.5rem;
+}
+
+@media (min-width: 1020px) {
+  /* Content (319px) sits centred in the 488px frame: 85px above, 84px below. */
+  .home-cta {
+    padding-block: 85px 84px;
+  }
+
+  /* Ornament boxes in CTA_Frame coordinates, scaled with the 1440 frame and anchored to the
+     nearer edge (like the hero), so they bleed off the sides on wide screens as in Figma. */
+  .home-cta .home-ornament {
+    width: calc(var(--cta-w) * var(--cta-size) / 1440);
+    aspect-ratio: 1;
+    top: calc(var(--cta-y) * var(--cta-size) / 1440);
+  }
+
+  .home-cta-coil-left,
+  .home-cta-coil-small,
+  .home-cta-cone,
+  .home-cta-ring {
+    left: calc(var(--cta-x) * var(--cta-size) / 1440);
+  }
+
+  .home-cta-prism,
+  .home-cta-coil-right,
+  .home-cta-cylinder {
+    right: calc(var(--cta-r) * var(--cta-size) / 1440);
+  }
+
+  .home-cta-prism {
+    --cta-r: 172;
+    --cta-y: 0;
+    --cta-w: 188;
+  }
+
+  .home-cta-coil-right {
+    --cta-r: 0;
+    --cta-y: 289;
+    --cta-w: 330;
+  }
+
+  .home-cta-coil-left {
+    --cta-x: -118;
+    --cta-y: -162;
+    --cta-w: 385;
+  }
+
+  /* Flipped horizontally in Figma, so its box starts at 353 - 175. */
+  .home-cta-coil-small {
+    --cta-x: 178;
+    --cta-y: 5;
+    --cta-w: 175;
+    transform: scaleX(-1);
+  }
+
+  .home-cta-cone {
+    --cta-x: -48;
+    --cta-y: 225;
+    --cta-w: 188;
+  }
+
+  .home-cta-ring {
+    --cta-x: 20;
+    --cta-y: 299;
+    --cta-w: 342;
+  }
+
+  .home-cta-cylinder {
+    --cta-r: -156;
+    --cta-y: 6;
+    --cta-w: 370;
+  }
 }
 
 .home-community-intro {

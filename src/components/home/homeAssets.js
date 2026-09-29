@@ -163,3 +163,23 @@ export const GROWTH_ORNAMENTS = {
     },
   ],
 };
+
+// Figma CTA_Frame "Group 6" (46:78), in Figma paint order.
+const ctaOrnament = (id, fileName, tone, size, className = '') => ({
+  id,
+  src: asset(fileName),
+  className: `${className} home-cta-${id}`.trim(),
+  tone,
+  width: size,
+  height: size,
+});
+
+export const CTA_ORNAMENTS = [
+  ctaOrnament('prism', 'cone-c.png', ORNAMENT_TONE_LIME, 188, 'home-ornament-cone'),
+  ctaOrnament('coil-right', 'ornament-squiggle.png', ORNAMENT_TONE_LIME, 330),
+  ctaOrnament('coil-left', 'ornament-ring.png', ORNAMENT_TONE_LIME, 385),
+  ctaOrnament('coil-small', 'ornament-ring.png', ORNAMENT_TONE_PAPER, 175),
+  ctaOrnament('cone', 'cone-d.png', ORNAMENT_TONE_PAPER, 188, 'home-ornament-cone'),
+  ctaOrnament('ring', 'cone-a.png', ORNAMENT_TONE_LIME, 342, 'home-ornament-cone'),
+  ctaOrnament('cylinder', 'cone-b.png', ORNAMENT_TONE_PAPER, 370, 'home-ornament-cone'),
+];
