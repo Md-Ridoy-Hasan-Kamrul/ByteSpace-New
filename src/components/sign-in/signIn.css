@@ -42,58 +42,45 @@
   outline-offset: var(--register-focus);
 }
 
-@media (min-width: 1020px) {
-  .sign-in-showcase {
-    --sign-in-front-top: 0;
-    --sign-in-course-width: 16rem;
-    --sign-in-front-left: 6.5rem;
-    --sign-in-back-top: 7.5rem;
-    --sign-in-students-top: 18.5rem;
-    --sign-in-students-left: 3.25rem;
-    --sign-in-ring-size: 5rem;
-    --sign-in-ring-left: 5.5rem;
-    --sign-in-squiggle-size: 6rem;
-    --sign-in-squiggle-top: 11rem;
-    --sign-in-cone-size: 6.5rem;
-    min-height: 32rem;
+/* Login form, Figma "Login" Register_Frame (49:220): a 683px content column, split into the form
+   (370px), the social block (141px) and the "New user?" line (26px) with 73px between them. */
+@media (min-width: 1280px) {
+  .register-page .sign-in-card {
+    padding-bottom: 40px;
   }
 
-  .sign-in-showcase .register-course {
-    width: var(--sign-in-course-width);
+  .register-page .sign-in-social {
+    margin-top: 73px;
   }
 
-  .sign-in-showcase .register-course-front {
-    top: var(--sign-in-front-top);
-    left: var(--sign-in-front-left);
+  /* 200px rules, 11px gaps, "or" in #888 (Figma 50:349). */
+  .register-page .sign-in-divider {
+    grid-template-columns: 200px auto 200px;
+    justify-content: start;
+    gap: 11px;
+    color: #888;
+    font-size: 1.125rem;
+    line-height: 29px;
   }
 
-  .sign-in-showcase .register-course-back {
-    top: var(--sign-in-back-top);
-    left: 0;
+  .register-page .sign-in-divider span {
+    background: #d1d1d1;
   }
 
-  .sign-in-showcase .register-students {
-    top: var(--sign-in-students-top);
-    left: var(--sign-in-students-left);
+  .register-page .sign-in-providers {
+    gap: 16px;
+    margin-top: 40px;
   }
 
-  .sign-in-ornament-ring {
-    top: var(--register-space-lg);
-    left: var(--sign-in-ring-left);
-    width: var(--sign-in-ring-size);
+  .register-page .sign-in-social-button {
+    width: 72px;
+    height: 72px;
+    border-color: #d1d1d1;
+    border-radius: 24px;
   }
 
-  .sign-in-ornament-squiggle {
-    top: var(--sign-in-squiggle-top);
-    right: 0;
-    width: var(--sign-in-squiggle-size);
-  }
-
-  .sign-in-ornament-cone {
-    top: auto;
-    bottom: 0;
-    left: 0;
-    width: var(--sign-in-cone-size);
+  .register-page .sign-in-card .register-switch {
+    margin-top: 73px;
+    color: #888;
   }
 }
-

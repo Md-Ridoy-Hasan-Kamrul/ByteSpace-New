@@ -12,7 +12,7 @@ export const EMAIL_REQUIRED = 'Enter your email.';
 export const EMAIL_INVALID = 'Enter a valid email address.';
 export const PASSWORD_REQUIRED = 'Enter a password.';
 
-export const SOCIAL_ICON_SIZE = 24;
+export const SOCIAL_ICON_SIZE = 40;
 export const SOCIAL_PROVIDERS = [
   { id: 'facebook', label: 'Continue with Facebook', icon: '/sign-in/facebook.svg' },
   { id: 'google', label: 'Continue with Google', icon: '/sign-in/google.svg' },

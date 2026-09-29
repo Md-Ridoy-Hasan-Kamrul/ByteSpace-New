@@ -7,8 +7,9 @@ import RegisterShowcase from './RegisterShowcase';
 import '../home/home.css';
 import './register.css';
 
-const AuthScreen = memo(({ title, body, showcase, variant, children }) => (
-  <main className={variant ? `register-page register-page-${variant}` : 'register-page'}>
+// Shared Figma auth layout for Register (47:351) and Login (49:195).
+const AuthScreen = memo(({ title, body, children }) => (
+  <main className="register-page">
     <div className="register-shell">
       <Link to={ROUTES.HOME} className="register-logo" aria-label={BRAND_NAME}>
         <img src={HOME_LOGO} alt="" width={LOGO_WIDTH} height={LOGO_HEIGHT} />
@@ -17,7 +18,7 @@ const AuthScreen = memo(({ title, body, showcase, variant, children }) => (
         <section className="register-story">
           <h2>{title}</h2>
           <p>{body}</p>
-          {showcase ?? <RegisterShowcase />}
+          <RegisterShowcase />
         </section>
         {children}
       </div>

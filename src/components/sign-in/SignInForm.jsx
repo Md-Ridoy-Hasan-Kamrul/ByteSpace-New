@@ -19,7 +19,7 @@ const SignInForm = memo(() => {
   const { values, errors, handleFieldChange, handleSubmit } = useSignInForm();
 
   return (
-    <section className="register-card" aria-labelledby="sign-in-title">
+    <section className="register-card sign-in-card" aria-labelledby="sign-in-title">
       <p className="register-eyebrow">{SIGN_IN_EYEBROW}</p>
       <h1 id="sign-in-title">{WELCOME_BACK_TITLE}</h1>
       <form noValidate onSubmit={handleSubmit}>

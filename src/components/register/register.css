@@ -46,24 +46,6 @@
   --register-track: -0.01em;
   --register-weight-medium: 500;
   --register-weight-semibold: 600;
-  --register-layer-back: 1;
-  --register-layer-front: 2;
-  --register-layer-students: 3;
-  --register-ring-width: 6rem;
-  --register-ring-left: 38%;
-  --register-cone-width: 5.5rem;
-  --register-cone-top: 11rem;
-  --register-prism-width: 6.5rem;
-  --register-front-top: 9.5rem;
-  --register-students-top: 24rem;
-  --register-students-pad-inline: 1.1rem;
-  --register-students-pad-end: 1.15rem;
-  --register-showcase-height: 36rem;
-  --register-course-width: 16.5rem;
-  --register-course-offset: 7.5rem;
-  --register-media-height: 7.5rem;
-  --register-students-width: 14.5rem;
-  --register-ornament: 7.5rem;
   min-height: 100vh;
   background-color: var(--register-blue);
   background-image: url('/home/hero-grid.svg');
@@ -255,14 +237,6 @@
     --register-card-pad-block: 3.9375rem;
     --register-card-pad-inline: 3.8125rem;
     --register-form-width: 28rem;
-    --register-media-height: 5.25rem;
-    --register-course-width: 13.25rem;
-    --register-course-offset: 6.75rem;
-    --register-front-top: 10.5rem;
-    --register-students-top: 21.5rem;
-    --register-students-width: 12.5rem;
-    --register-showcase-height: 32rem;
-    --register-cone-top: 8.5rem;
   }
 
   .register-layout {
@@ -271,82 +245,13 @@
     gap: var(--register-space-2xl);
   }
 
-  .register-showcase {
-    position: relative;
-    display: block;
-    min-height: var(--register-showcase-height);
-    margin-top: var(--register-space-lg);
-  }
-
-  .register-ornament,
   .register-course,
   .register-students {
     position: absolute;
   }
 
-  .register-ornament {
-    width: var(--register-ornament);
-    pointer-events: none;
-  }
-
-  .register-ornament-ring {
-    top: 0;
-    left: var(--register-ring-left);
-    width: var(--register-ring-width);
-  }
-
-  .register-ornament-cone {
-    top: var(--register-cone-top);
-    left: 0;
-    width: var(--register-cone-width);
-  }
-
-  .register-ornament-prism {
-    right: 0;
-    bottom: var(--register-space-md);
-    width: var(--register-prism-width);
-  }
-
-  .register-course {
-    width: var(--register-course-width);
-  }
-
-  .register-course-back {
-    top: var(--register-space-lg);
-    left: 0;
-    z-index: var(--register-layer-back);
-  }
-
-  .register-course-front {
-    top: var(--register-front-top);
-    left: var(--register-course-offset);
-    z-index: var(--register-layer-front);
-  }
-
-  /* Compact showcase cards (sign-in). The register page uses the Figma-exact card instead. */
-  .register-page:not(.register-page-register) .register-course .home-course-card {
-    padding: var(--register-space-sm);
-  }
-
-  .register-page:not(.register-page-register) .register-course .home-course-media {
-    height: var(--register-media-height);
-  }
-
-  .register-page:not(.register-page-register) .register-course .home-course-body {
-    gap: var(--register-space-2xs) var(--register-space-xs);
-    margin-top: var(--register-space-xs);
-  }
-
-  .register-page:not(.register-page-register) .register-course .home-course-body h3,
-  .register-page:not(.register-page-register) .register-course .home-price {
-    font-size: var(--register-space-md);
-  }
-
   /* Figma "Happy Students" card (49:132): 258px, lime, 16px padding and radius, 8px gap. */
   .register-students {
-    top: var(--register-students-top);
-    left: var(--register-space-xs);
-    z-index: var(--register-layer-students);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -410,34 +315,13 @@
     font-weight: 700;
     line-height: 1.5;
   }
-
-  /* The register page shows its Figma showcase only where the full 1440 layout fits (>= 1280px). */
-  .register-page-register .register-showcase {
-    display: none;
-  }
 }
 
+/* Auth pages, Figma "Register" (47:351) and "Login" (49:195), 1440 x 1024. Positions are Figma frame
+   coordinates; showcase items are measured from the story block at (122, 120). The showcase only
+   appears where the full 1440 layout fits (>= 1280px). */
 @media (min-width: 1280px) {
   .register-page {
-    --register-form-width: 36.1875rem;
-    --register-course-width: 16.5rem;
-    --register-course-offset: 9.5rem;
-    --register-front-top: 12.25rem;
-    --register-students-top: 25.5rem;
-    --register-students-width: 14.5rem;
-    --register-media-height: 6rem;
-    --register-showcase-height: 38rem;
-  }
-
-  .register-layout {
-    gap: var(--register-space-4xl);
-  }
-}
-
-/* Register page, Figma "Register" (47:351), 1440 x 1024. Positions are Figma frame coordinates;
-   showcase items are measured from the story block at (122, 120). */
-@media (min-width: 1280px) {
-  .register-page-register {
     background-image: url('/home/grid-tile.svg');
     background-repeat: repeat;
     background-size: 120px 120px;
@@ -447,32 +331,32 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  .register-page-register .register-shell {
+  .register-page .register-shell {
     position: relative;
     width: min(100%, 90rem);
     min-height: 1024px;
     padding: 0;
   }
 
-  .register-page-register .register-logo {
+  .register-page .register-logo {
     position: absolute;
     top: 35px;
     left: 122px;
   }
 
-  .register-page-register .register-layout {
+  .register-page .register-layout {
     display: block;
     margin: 0;
   }
 
-  .register-page-register .register-story {
+  .register-page .register-story {
     position: absolute;
     top: 120px;
     left: 122px;
     width: 475px;
   }
 
-  .register-page-register .register-story h2 {
+  .register-page .register-story h2 {
     max-width: none;
     color: var(--register-canvas);
     font-size: 1.25rem;
@@ -481,14 +365,14 @@
     white-space: nowrap;
   }
 
-  .register-page-register .register-story > p {
+  .register-page .register-story > p {
     max-width: 475px;
     margin-top: 16px;
     font-size: 1.125rem;
     line-height: 1.6;
   }
 
-  .register-page-register .register-showcase {
+  .register-page .register-showcase {
     position: static;
     display: block;
     min-height: 0;
@@ -496,37 +380,37 @@
   }
 
   /* Cards and the students card keep Figma paint order; ornaments (z-index 2) sit on top. */
-  .register-page-register .register-course,
-  .register-page-register .register-students {
+  .register-page .register-course,
+  .register-page .register-students {
     z-index: auto;
   }
 
-  .register-page-register .register-course {
+  .register-page .register-course {
     width: 373px;
   }
 
-  .register-page-register .register-course-back {
+  .register-page .register-course-back {
     top: 274px;
     left: 0;
   }
 
-  .register-page-register .register-course-front {
+  .register-page .register-course-front {
     top: 185px;
     left: 111px;
   }
 
-  .register-page-register .register-students {
+  .register-page .register-students {
     top: 620px;
     left: 226px;
   }
 
-  .register-page-register .register-showcase .home-ornament {
+  .register-page .register-showcase .home-ornament {
     right: auto;
     bottom: auto;
   }
 
   /* Flipped horizontally in Figma, so its box starts at 645 - 175 (frame x 470). */
-  .register-page-register .register-ornament-coil {
+  .register-page .register-ornament-coil {
     top: 506px;
     left: 348px;
     width: 175px;
@@ -534,14 +418,14 @@
     transform: scaleX(-1);
   }
 
-  .register-page-register .register-ornament-ring {
+  .register-page .register-ornament-ring {
     top: 200px;
     left: 29px;
     width: 146px;
     height: 146px;
   }
 
-  .register-page-register .register-ornament-prism {
+  .register-page .register-ornament-prism {
     top: 582px;
     left: -25px;
     width: 188px;
@@ -549,7 +433,7 @@
   }
 
   /* Register_Frame: 579 x 784 at (50% + 21px, 120); content inset 61 / 63 / 51. */
-  .register-page-register .register-card {
+  .register-page .register-card {
     position: absolute;
     top: 120px;
     left: calc(50% + 21px);
@@ -559,35 +443,35 @@
   }
 
   /* Whole-pixel line heights: Figma rounds these text boxes (29 / 106 / 17 / 22 / 26px). */
-  .register-page-register .register-eyebrow {
+  .register-page .register-eyebrow {
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 29px;
   }
 
-  .register-page-register .register-card h1 {
+  .register-page .register-card h1 {
     margin-top: 0;
     font-size: 2.75rem;
     line-height: 53px;
     letter-spacing: -0.01em;
   }
 
-  .register-page-register .register-card form {
+  .register-page .register-card form {
     gap: 24px;
     margin-top: 40px;
   }
 
-  .register-page-register .register-field {
+  .register-page .register-field {
     gap: 8px;
   }
 
-  .register-page-register .register-field label {
+  .register-page .register-field label {
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 17px;
   }
 
-  .register-page-register .register-field input {
+  .register-page .register-field input {
     height: 52px;
     padding-inline: 24px;
     border-radius: 12px;
@@ -595,7 +479,7 @@
     line-height: 1.6;
   }
 
-  .register-page-register .register-actions button {
+  .register-page .register-actions button {
     min-height: 0;
     padding: 12px 24px;
     border-radius: 24px;
@@ -604,14 +488,14 @@
     line-height: 22px;
   }
 
-  .register-page-register .register-switch {
+  .register-page .register-switch {
     margin-top: 122px;
     font-size: 1rem;
     line-height: 26px;
     text-align: center;
   }
 
-  .register-page-register .register-switch a {
+  .register-page .register-switch a {
     font-weight: 400;
   }
 }

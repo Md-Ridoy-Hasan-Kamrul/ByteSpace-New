@@ -3,9 +3,9 @@ import { validateSignInForm } from '../validateSignInForm';
 
 describe('validateSignInForm', () => {
   it('accepts an email and password', () => {
-    expect(
-      validateSignInForm({ email: 'designer@example.com', password: 'bytespace' }),
-    ).toEqual({});
+    expect(validateSignInForm({ email: 'designer@example.com', password: 'bytespace' })).toEqual(
+      {},
+    );
   });
 
   it('requires both fields when the form is blank', () => {
