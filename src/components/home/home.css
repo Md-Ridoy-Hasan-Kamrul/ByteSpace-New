@@ -1502,9 +1502,24 @@
   color: var(--home-blue);
 }
 
+/* Home footer, Figma Footer (34:1256), 1440 x 525: content at (120, 71), 48px below. */
 .home-footer {
   border-top: 1px solid var(--home-line);
-  padding-block: 4rem 2.5rem;
+  background: var(--home-white);
+  color: var(--home-ink);
+  padding-block: 71px 48px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Figma logo group: mark at (0, 0), wordmark at (37, 7). */
+.home-footer .home-logo {
+  align-items: flex-start;
+}
+
+.home-footer .home-brand {
+  margin-top: 7px;
+  line-height: normal;
 }
 
 .home-footer-grid {
@@ -1512,17 +1527,28 @@
   gap: 2.5rem;
 }
 
+.home-footer-grid > div > p {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
 .home-newsletter {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 1.5rem;
+  margin-top: 45px;
+}
+
+.home-newsletter p {
+  font-size: 0.75rem;
+  line-height: 1.6;
 }
 
 .home-newsletter-row {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1.5rem;
 }
 
 .home-newsletter input {
@@ -1530,8 +1556,17 @@
   width: 100%;
   padding-inline: 1.5rem;
   border: 1px solid var(--home-line);
-  border-radius: 999px;
+  border-radius: 100px;
+  background: var(--home-white);
+  color: var(--home-ink);
   font: inherit;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.home-newsletter input::placeholder {
+  color: var(--home-ink);
+  opacity: 1;
 }
 
 .home-newsletter-error {
@@ -1550,6 +1585,8 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
 .home-legal {
@@ -1557,10 +1594,11 @@
   flex-direction: column;
   gap: 1rem;
   margin-top: 3rem;
-  padding-top: 1.5rem;
+  padding-top: 22px;
   border-top: 1px solid var(--home-line);
   color: var(--home-ink);
   font-size: 0.75rem;
+  line-height: 1.6;
 }
 
 .home-legal ul {
@@ -1570,6 +1608,49 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+@media (min-width: 1020px) {
+  /* Newsletter column 528px, 92px gap, three 167px link columns 40px apart. */
+  .home-footer .home-footer-grid {
+    display: flex;
+    align-items: flex-start;
+    gap: 92px;
+  }
+
+  .home-footer .home-footer-grid > div {
+    flex: 0 0 528px;
+  }
+
+  .home-footer .home-newsletter-row {
+    align-items: flex-start;
+  }
+
+  .home-footer .home-newsletter input {
+    flex: none;
+    width: 376px;
+  }
+
+  .home-footer .home-newsletter > p:last-child {
+    max-width: 504px;
+  }
+
+  .home-footer .home-footer-links {
+    display: flex;
+    gap: 40px;
+    width: 580px;
+  }
+
+  /* Figma reserves an invisible 24px column heading + 24px gap above the links. */
+  .home-footer .home-footer-links ul {
+    flex: none;
+    width: 167px;
+    padding-top: 48px;
+  }
+
+  .home-footer .home-legal {
+    margin-top: 130px;
+  }
 }
 
 .sr-only {
