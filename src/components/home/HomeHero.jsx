@@ -3,6 +3,7 @@ import { useHeroSearchRedirect } from '../../hooks/useHeroSearchRedirect';
 import {
   AVATAR_MORE,
   HERO_AVATAR_SIZE,
+  HERO_EDGE_ORNAMENTS,
   HERO_STUDENT,
   ICON_SEARCH,
   ICON_SIZE,
@@ -98,6 +99,9 @@ const HomeHero = memo(() => {
 
   return (
     <section className="home-hero" aria-label="Introduction">
+      <div className="home-hero-edges">
+        <OrnamentField ornaments={HERO_EDGE_ORNAMENTS} />
+      </div>
       <div className="home-hero-frame">
         <div className="home-hero-glow" />
         <OrnamentField />

@@ -86,6 +86,14 @@
   position: relative;
 }
 
+/* Full-width layer for the ornaments that bleed off the hero's left and right edges. */
+.home-hero-edges {
+  --hero-artboard-size: min(100%, 90rem);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
 .home-hero-glow {
   position: absolute;
   left: 50%;
@@ -964,11 +972,20 @@
   }
 
   /* Hero_Frame coordinates of the Figma "3d ornament" frames (already absolute; do not add the group offset). */
+  /* Edge ornaments: offsets and sizes scale with the artboard, but are measured from the hero edges. */
   .home-ornament-squiggle-left {
-    left: calc(-118 / var(--hero-artboard-width) * 100%);
+    left: calc(-118 / var(--hero-artboard-width) * var(--hero-artboard-size));
     top: calc(221 / var(--hero-artboard-height) * 100%);
-    width: calc(385 / var(--hero-artboard-width) * 100%);
-    height: calc(385 / var(--hero-artboard-height) * 100%);
+    width: calc(385 / var(--hero-artboard-width) * var(--hero-artboard-size));
+    aspect-ratio: 1;
+  }
+
+  /* Figma x = 1231, width 370: overhangs the 1440 frame edge by 161. */
+  .home-ornament-cylinder {
+    right: calc(-161 / var(--hero-artboard-width) * var(--hero-artboard-size));
+    top: calc(221 / var(--hero-artboard-height) * 100%);
+    width: calc(370 / var(--hero-artboard-width) * var(--hero-artboard-size));
+    aspect-ratio: 1;
   }
 
   /* Flipped horizontally in Figma, so its box starts at 358 - 175. */
@@ -984,13 +1001,6 @@
     top: calc(682 / var(--hero-artboard-height) * 100%);
     width: calc(342 / var(--hero-artboard-width) * 100%);
     height: calc(342 / var(--hero-artboard-height) * 100%);
-  }
-
-  .home-ornament-cylinder {
-    left: calc(1231 / var(--hero-artboard-width) * 100%);
-    top: calc(221 / var(--hero-artboard-height) * 100%);
-    width: calc(370 / var(--hero-artboard-width) * 100%);
-    height: calc(370 / var(--hero-artboard-height) * 100%);
   }
 
   .home-ornament-prism {

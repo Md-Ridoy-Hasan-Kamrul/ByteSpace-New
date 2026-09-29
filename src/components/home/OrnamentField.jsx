@@ -15,8 +15,8 @@ const Ornament = memo(({ ornament }) => (
 
 Ornament.displayName = 'Ornament';
 
-const OrnamentField = memo(() =>
-  HERO_ORNAMENTS.map((ornament) => <Ornament key={ornament.id} ornament={ornament} />),
+const OrnamentField = memo(({ ornaments = HERO_ORNAMENTS }) =>
+  ornaments.map((ornament) => <Ornament key={ornament.id} ornament={ornament} />),
 );
 
 OrnamentField.displayName = 'OrnamentField';

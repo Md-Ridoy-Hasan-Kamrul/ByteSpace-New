@@ -80,7 +80,9 @@ export const TESTIMONIAL_PORTRAITS = {
 
 // Figma "3d ornament" (46:79). The left and mid coils use a different source image than the
 // right coil; the file shipped as ornament-ring.png is that coil (shared with sign-in/register).
-export const HERO_ORNAMENTS = [
+// Bleed off the hero's left/right edges (Figma crops them at the frame edge), so they are
+// anchored to the hero edges rather than the centred 1440 artboard on wide screens.
+export const HERO_EDGE_ORNAMENTS = [
   {
     id: 'squiggle-left',
     src: asset('ornament-ring.png'),
@@ -89,6 +91,17 @@ export const HERO_ORNAMENTS = [
     width: 385,
     height: 385,
   },
+  {
+    id: 'cylinder',
+    src: asset('cone-b.png'),
+    className: 'home-ornament-cone home-ornament-cylinder',
+    tone: ORNAMENT_TONE_LIME,
+    width: 370,
+    height: 370,
+  },
+];
+
+export const HERO_ORNAMENTS = [
   {
     id: 'squiggle-mid',
     src: asset('ornament-ring.png'),
@@ -104,14 +117,6 @@ export const HERO_ORNAMENTS = [
     tone: ORNAMENT_TONE_PAPER,
     width: 342,
     height: 342,
-  },
-  {
-    id: 'cylinder',
-    src: asset('cone-b.png'),
-    className: 'home-ornament-cone home-ornament-cylinder',
-    tone: ORNAMENT_TONE_LIME,
-    width: 370,
-    height: 370,
   },
   {
     id: 'prism',
