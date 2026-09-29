@@ -1,4 +1,5 @@
-import { ROUTES } from '../../config';
+import { creatorProfilePath } from '../../config';
+import { CREATOR_ID } from '../creator/creatorCopy';
 import { HOME_COURSES } from '../home/homeData';
 import {
   CHECK_ICON,
@@ -74,13 +75,75 @@ export const COURSE_MODULES = [
     body: "Adapt your digital creations for 'Mobile Platforms' and optimize for 'Social Media.' Ensure widespread accessibility and engagement across diverse digital landscapes.",
   },
 ];
+
+export const ALL_RATING = 'all';
+export const ALL_RATING_LABEL = 'All rating';
+export const STAR_TOTAL = 5;
+export const STAR_SLOTS = [1, 2, 3, 4, 5];
+export const RATING_FILTERS = [5, 4, 3, 2, 1];
+export const REVIEW_ROLE = 'UI/UX Designer';
+export const REVIEW_TIME = 'a year ago';
+export const REVIEW_RATING = STAR_TOTAL;
+
+export const starFilterLabel = (score) =>
+  `${score} ${score === STAR_SLOTS[0] ? 'star' : 'stars'}`;
+
+export const REVIEW_COPY = {
+  summaryHeading: 'What Learners Are Saying',
+  summaryBody:
+    "Discover what our learners have to say about their experience with 'Build Digital Assets: A Comprehensive Guide.' Read reviews and ratings from individuals who have embarked on the transformative journey of mastering digital asset creation.",
+  ratingsLabel: 'Ratings',
+  ratingsScore: '4.7',
+  listHeading: 'Individual Reviews:',
+  filtersLabel: 'Filter reviews by rating',
+};
+
+export const RATING_ROWS = [
+  { id: 'rating-5', count: '720', fillClass: 'course-rating-fill-5' },
+  { id: 'rating-4', count: '120', fillClass: 'course-rating-fill-4' },
+  { id: 'rating-3', count: '21', fillClass: 'course-rating-fill-3' },
+  { id: 'rating-2', count: '12', fillClass: 'course-rating-fill-2' },
+  { id: 'rating-1', count: '16', fillClass: 'course-rating-fill-1' },
+];
+
+export const COURSE_REVIEWS = [
+  {
+    id: 'purepearl',
+    name: 'PurePearl Studio',
+    avatar: 'purepearl',
+    body: '"The course provided me with a comprehensive understanding of digital asset creation. The lessons were in-depth, practical, and immediately applicable to my work. Highly recommended!"',
+  },
+  {
+    id: 'albert',
+    name: 'Albert Flores',
+    avatar: 'albert',
+    body: "This course transformed my approach to digital design. The combination of theory, hands-on exercises, and real-world applications made it a truly enriching experience. Excited to implement what I've learned!",
+  },
+  {
+    id: 'cody',
+    name: 'Cody Fisher',
+    avatar: 'cody',
+    body: 'The project showcase and critique module created a collaborative environment where I could showcase my work, receive valuable feedback, and refine my skills. It added a unique and valuable dimension to the learning process.',
+  },
+  {
+    id: 'brooklyn',
+    name: 'Brooklyn Simmons',
+    avatar: 'brooklyn',
+    body: 'The lessons on optimizing digital assets for various platforms were particularly insightful. The course adapts to the evolving digital landscape, and the engaging content kept me motivated throughout.',
+  },
+].map((review) => ({
+  ...review,
+  role: REVIEW_ROLE,
+  time: REVIEW_TIME,
+  rating: REVIEW_RATING,
+}));
 export const INCLUDES_HEADING = 'This course include';
 export const CREATOR_PREFIX = 'by';
 export const PRICE_SUFFIX = '/lifetime';
 export const ENROLL_PITCH = 'Ready to Dive In? Enroll Now and Start Building Your Digital Future!';
 export const ENROLL_SUCCESS_MESSAGE = 'You are enrolled in this course.';
 export const SHARE_SUCCESS_MESSAGE = 'Course link copied.';
-export const PROFILE_HREF = `${ROUTES.HOME}#creators`;
+export const PROFILE_HREF = creatorProfilePath(CREATOR_ID);
 
 const DESCRIPTION = [
   'Embark on an enlightening exploration into the world of digital creation with our comprehensive course, "Build Digital Assets: A Comprehensive Guide." This transformative learning experience invites you to delve deep into the intricacies of crafting impactful digital content. From laying the groundwork with foundational concepts to mastering advanced techniques, this guide is meticulously curated to empower you with the skills essential for navigating the dynamic landscape of digital asset creation.',
@@ -139,7 +202,6 @@ export const COURSE_DETAILS = {
   ratingIcon: RATING_ICON,
   studentsLabel: '199 Students',
   studentsIcon: STUDENTS_ICON,
-  reviewSummary: '4.8 from 172 reviews',
   poster: PREVIEW_POSTER,
   lessonSummary: '112 Lessons (24 hours)',
   lessons: LESSONS,

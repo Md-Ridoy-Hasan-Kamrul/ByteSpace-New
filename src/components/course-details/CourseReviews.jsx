@@ -1,12 +1,24 @@
 import React, { memo } from 'react';
-import { REVIEWS_TAB } from './courseDetailsCopy';
+import { useCourseReviews } from '../../hooks/useCourseReviews';
+import { REVIEW_COPY } from './courseDetailsCopy';
+import CourseRatingFilters from './CourseRatingFilters';
+import CourseRatingSummary from './CourseRatingSummary';
+import CourseReviewList from './CourseReviewList';
 
-const CourseReviews = memo(({ course }) => (
-  <section className="course-panel" aria-label={REVIEWS_TAB}>
-    <h2>{course.reviewSummary}</h2>
-    <p>{course.ratingLabel}</p>
-  </section>
-));
+const CourseReviews = memo(() => {
+  const reviews = useCourseReviews();
+
+  return (
+    <div className="course-panel course-reviews-panel">
+      <h2>{REVIEW_COPY.summaryHeading}</h2>
+      <p>{REVIEW_COPY.summaryBody}</p>
+      <CourseRatingSummary />
+      <h2>{REVIEW_COPY.listHeading}</h2>
+      <CourseRatingFilters rating={reviews.rating} onSelect={reviews.handleRatingSelect} />
+      <CourseReviewList reviews={reviews.reviews} />
+    </div>
+  );
+});
 
 CourseReviews.displayName = 'CourseReviews';
 

@@ -4,7 +4,6 @@ import {
   createRoutesFromElements,
   Route,
   Navigate,
-  Link,
   useLocation,
 } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -25,6 +24,8 @@ const Register = lazy(() => import('../pages/Register'));
 const SignIn = lazy(() => import('../pages/SignIn'));
 const Search = lazy(() => import('../pages/Search'));
 const CourseDetails = lazy(() => import('../pages/CourseDetails'));
+const CreatorProfile = lazy(() => import('../pages/CreatorProfile'));
+const NotFoundPage = lazy(() => import('../pages/NotFound'));
 
 // Admin pages — each lazy-loaded so they only download when visited
 const Dashboard = lazy(() => import('../pages/admin/Dashboard'));
@@ -41,16 +42,6 @@ const AdminMessages = lazy(() => import('../pages/admin/Messages'));
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-screen">
     <div className="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin" />
-  </div>
-);
-
-const NotFound = () => (
-  <div className="flex flex-col items-center justify-center min-h-screen gap-4 text-center px-4">
-    <h1 className="text-6xl font-bold text-gray-800">404</h1>
-    <p className="text-xl text-gray-500">Page not found</p>
-    <Link to={ROUTES.HOME} className="mt-2 text-blue-600 hover:underline text-sm font-medium">
-      Back to Home
-    </Link>
   </div>
 );
 
@@ -133,6 +124,15 @@ const router = createBrowserRouter(
       />
 
       <Route
+        path={ROUTES.CREATOR_PROFILE}
+        element={
+          <Suspense fallback={<PageLoader />}>
+            <CreatorProfile />
+          </Suspense>
+        }
+      />
+
+      <Route
         path={ROUTES.ADMIN}
         element={
           <Suspense fallback={<PageLoader />}>
@@ -155,7 +155,14 @@ const router = createBrowserRouter(
         <Route path={seg(ROUTES.ADMIN_MESSAGES)} element={<AdminMessages />} />
       </Route>
 
-      <Route path="*" element={<NotFound />} />
+      <Route
+        path="*"
+        element={
+          <Suspense fallback={<PageLoader />}>
+            <NotFoundPage />
+          </Suspense>
+        }
+      />
     </>,
   ),
 );

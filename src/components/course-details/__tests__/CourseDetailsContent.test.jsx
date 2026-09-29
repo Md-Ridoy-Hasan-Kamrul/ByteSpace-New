@@ -66,7 +66,10 @@ describe('CourseDetailsContent', () => {
       expect(screen.getByText(item.label)).toBeInTheDocument();
     });
     expect(screen.getByText(COURSE_DETAILS.studioName)).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'See Full Profile' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'See Full Profile' })).toHaveAttribute(
+      'href',
+      '/creators/purepearl',
+    );
   });
 
   it('shows the lesson list when Lessons is selected', async () => {
@@ -97,7 +100,8 @@ describe('CourseDetailsContent', () => {
       'aria-pressed',
       'true',
     );
-    expect(screen.getByRole('heading', { name: COURSE_DETAILS.reviewSummary })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'What Learners Are Saying' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'PurePearl Studio' })).toBeInTheDocument();
   });
 
   it('opens the lesson list from the preview control', async () => {

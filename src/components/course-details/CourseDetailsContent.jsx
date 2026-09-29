@@ -13,18 +13,12 @@ import '../home/home.css';
 import './course-details.css';
 
 const COURSE_PANELS = {
-  [ABOUT_TAB]: CourseAbout,
-  [REVIEWS_TAB]: CourseReviews,
+  [ABOUT_TAB]: (course) => <CourseAbout course={course} />,
+  [LESSONS_TAB]: () => <CourseLessons />,
+  [REVIEWS_TAB]: () => <CourseReviews />,
 };
 
-const renderCoursePanel = (tab, course) => {
-  if (tab === LESSONS_TAB) {
-    return <CourseLessons />;
-  }
-
-  const Panel = COURSE_PANELS[tab];
-  return <Panel course={course} />;
-};
+const renderCoursePanel = (tab, course) => COURSE_PANELS[tab](course);
 
 const CourseDetailsContent = memo(({ course = COURSE_DETAILS }) => {
   const details = useCourseDetails();
