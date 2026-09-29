@@ -76,6 +76,16 @@ export const HEADER_LINKS = [
   { label: 'Creators', href: '#creators' },
 ];
 
+export const HEADER_ACTIONS = [
+  { label: 'Sign In', to: ROUTES.SIGN_IN },
+  { label: 'Join Us', to: ROUTES.REGISTER },
+];
+
+export const HEADER_BAG = {
+  label: 'Shopping bag',
+  href: '#courses',
+};
+
 export const COURSE_TOPICS = [
   FEATURED_TOPIC,
   'Music',
@@ -227,7 +237,7 @@ export const FOOTER_LINK_GROUPS = [
     { label: 'Sport', href: '#categories' },
   ],
   [
-    { label: 'Become a Creator', href: '#creators' },
+    { label: 'Become a Creator', to: ROUTES.REGISTER },
     { label: 'Affiliate Program', href: '#creators' },
     { label: 'Contact', to: ROUTES.CONTACT },
     { label: 'Help', href: '#newsletter' },

@@ -142,6 +142,18 @@ describe('HomeContent', () => {
     expect(screen.getByText(/you are subscribed/i)).toBeInTheDocument();
   });
 
+  it('points the navbar at home, courses, creators, sign in, and join us', () => {
+    renderHome();
+
+    expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: 'Courses' })).toHaveAttribute('href', '#courses');
+    expect(screen.getByRole('link', { name: 'Creators' })).toHaveAttribute('href', '#creators');
+    expect(screen.getByRole('link', { name: 'Sign In' })).toHaveAttribute('href', '/sign-in');
+    expect(screen.getByRole('link', { name: 'Join Us' })).toHaveAttribute('href', '/register');
+    expect(screen.getByRole('link', { name: 'Shopping bag' })).toHaveAttribute('href', '#courses');
+    expect(screen.getByRole('link', { name: 'Join as Creator' })).toHaveAttribute('href', '/register');
+  });
+
   it('opens and closes the mobile header menu', async () => {
     const user = userEvent.setup();
     renderHome();

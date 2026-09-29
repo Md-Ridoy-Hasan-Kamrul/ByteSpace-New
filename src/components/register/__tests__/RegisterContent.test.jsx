@@ -54,7 +54,7 @@ describe('RegisterContent', () => {
     expect(screen.getByLabelText('Email')).toHaveAttribute('placeholder', 'designer@example.com');
     expect(screen.getByLabelText('Password')).toHaveAttribute('placeholder', '********');
     expect(screen.getByRole('button', { name: 'Continue' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Login' })).toHaveAttribute('href', ROUTES.LOGIN);
+    expect(screen.getByRole('link', { name: 'Login' })).toHaveAttribute('href', ROUTES.SIGN_IN);
     expect(screen.getByText('Build Digital Asset')).toBeInTheDocument();
     expect(screen.getByText('the Power of Big Data')).toBeInTheDocument();
     expect(screen.getByText('Happy Students')).toBeInTheDocument();
@@ -97,6 +97,6 @@ describe('RegisterContent', () => {
       password: 'bytespace',
     });
     expect(toast.success).toHaveBeenCalledWith(REGISTER_SUCCESS);
-    expect(mockNavigate).toHaveBeenCalledWith(ROUTES.LOGIN);
+    expect(mockNavigate).toHaveBeenCalledWith(ROUTES.SIGN_IN);
   });
 });

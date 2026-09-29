@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
+import { ROUTES } from '../../config';
 import { CTA_BODY, CTA_BUTTON_LABEL, CTA_TITLE } from './homeData';
+import HomeLink from './HomeLink';
 import OrnamentField from './OrnamentField';
 
 const CreatorCta = memo(() => (
@@ -8,9 +10,9 @@ const CreatorCta = memo(() => (
     <div className="home-wrap">
       <h2>{CTA_TITLE}</h2>
       <p>{CTA_BODY}</p>
-      <a className="home-button" href="#newsletter">
+      <HomeLink className="home-button" to={ROUTES.REGISTER}>
         {CTA_BUTTON_LABEL}
-      </a>
+      </HomeLink>
     </div>
   </section>
 ));

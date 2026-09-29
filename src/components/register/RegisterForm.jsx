@@ -41,7 +41,7 @@ const RegisterForm = memo(() => {
         </div>
       </form>
       <p className="register-switch">
-        {ALREADY_HAVE_ACCOUNT} <Link to={ROUTES.LOGIN}>{LOGIN_LABEL}</Link>
+        {ALREADY_HAVE_ACCOUNT} <Link to={ROUTES.SIGN_IN}>{LOGIN_LABEL}</Link>
       </p>
     </section>
   );

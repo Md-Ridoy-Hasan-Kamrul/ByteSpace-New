@@ -163,7 +163,7 @@
 }
 
 .register-field input:focus-visible,
-.register-card button:focus-visible,
+.register-actions button:focus-visible,
 .register-switch a:focus-visible,
 .register-logo:focus-visible {
   outline: var(--register-focus) solid var(--register-blue);
@@ -180,7 +180,7 @@
   justify-content: stretch;
 }
 
-.register-card button {
+.register-actions button {
   width: 100%;
   min-height: var(--register-field-height);
   border: 0;
@@ -192,7 +192,7 @@
   cursor: pointer;
 }
 
-.register-card button:disabled {
+.register-actions button:disabled {
   cursor: wait;
   opacity: var(--register-busy);
 }
@@ -206,7 +206,7 @@
 
 .register-switch a {
   color: var(--register-blue);
-  font-weight: 600;
+  font-weight: var(--register-weight-semibold);
   text-decoration: none;
 }
 
@@ -239,7 +239,7 @@
     justify-content: flex-end;
   }
 
-  .register-card button {
+  .register-actions button {
     width: auto;
     padding-inline: var(--register-space-3xl);
   }
@@ -254,6 +254,15 @@
     --register-copy-size: 1.125rem;
     --register-card-pad-block: 3.9375rem;
     --register-card-pad-inline: 3.8125rem;
+    --register-form-width: 28rem;
+    --register-media-height: 5.25rem;
+    --register-course-width: 13.25rem;
+    --register-course-offset: 6.75rem;
+    --register-front-top: 10.5rem;
+    --register-students-top: 21.5rem;
+    --register-students-width: 12.5rem;
+    --register-showcase-height: 32rem;
+    --register-cone-top: 8.5rem;
   }
 
   .register-layout {
@@ -314,8 +323,17 @@
     z-index: var(--register-layer-front);
   }
 
+  .register-course .home-course-card {
+    padding: var(--register-space-sm);
+  }
+
   .register-course .home-course-media {
     height: var(--register-media-height);
+  }
+
+  .register-course .home-course-body {
+    gap: var(--register-space-2xs) var(--register-space-xs);
+    margin-top: var(--register-space-xs);
   }
 
   .register-course .home-course-body h3,
@@ -333,21 +351,28 @@
     border-radius: var(--register-radius-card);
     background: var(--register-lime);
     color: var(--register-ink);
-    padding: var(--register-space-md) var(--register-students-pad-inline) var(--register-students-pad-end);
+    padding:
+      var(--register-space-md) var(--register-students-pad-inline) var(--register-students-pad-end);
   }
 
   .register-students-score {
     display: inline-flex;
     align-items: center;
     gap: var(--register-space-2xs);
-    font-weight: 600;
+    font-weight: var(--register-weight-semibold);
   }
 }
 
 @media (min-width: 1280px) {
   .register-page {
-    --register-course-width: 18rem;
-    --register-course-offset: 9rem;
+    --register-form-width: 36.1875rem;
+    --register-course-width: 16.5rem;
+    --register-course-offset: 9.5rem;
+    --register-front-top: 12.25rem;
+    --register-students-top: 25.5rem;
+    --register-students-width: 14.5rem;
+    --register-media-height: 6rem;
+    --register-showcase-height: 38rem;
   }
 
   .register-layout {

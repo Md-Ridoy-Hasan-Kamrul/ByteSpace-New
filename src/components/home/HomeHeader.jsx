@@ -3,7 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { ROUTES } from '../../config';
 import { useHomeMenu } from '../../hooks/useHomeMenu';
 import { ICON_BAG, ICON_SIZE } from './homeAssets';
-import { HEADER_LINKS } from './homeData';
+import { HEADER_ACTIONS, HEADER_BAG, HEADER_LINKS } from './homeData';
 import BrandLockup from './BrandLockup';
 import HomeLink from './HomeLink';
 
@@ -31,9 +31,8 @@ const HomeHeader = memo(() => {
           <HeaderLinks links={HEADER_LINKS} />
         </nav>
         <div className="home-desktop-actions">
-          <HomeLink to={ROUTES.LOGIN}>Sign In</HomeLink>
-          <HomeLink href="#creators">Join Us</HomeLink>
-          <HomeLink href="#courses" label="Shopping bag">
+          <HeaderLinks links={HEADER_ACTIONS} />
+          <HomeLink href={HEADER_BAG.href} label={HEADER_BAG.label}>
             <img src={ICON_BAG} alt="" width={ICON_SIZE} height={ICON_SIZE} />
           </HomeLink>
         </div>
@@ -50,12 +49,7 @@ const HomeHeader = memo(() => {
       {isOpen ? (
         <nav className="home-wrap home-mobile-nav" aria-label="Mobile">
           <HeaderLinks links={HEADER_LINKS} onNavigate={handleClose} />
-          <HomeLink to={ROUTES.LOGIN} onClick={handleClose}>
-            Sign In
-          </HomeLink>
-          <HomeLink href="#creators" onClick={handleClose}>
-            Join Us
-          </HomeLink>
+          <HeaderLinks links={HEADER_ACTIONS} onNavigate={handleClose} />
         </nav>
       ) : null}
     </header>

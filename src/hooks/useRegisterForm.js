@@ -25,16 +25,20 @@ export const useRegisterForm = () => {
     setErrors((current) => ({ ...current, [name]: '', form: '' }));
   }, []);
 
+  const finishRegistration = useCallback(() => {
+    toast.success(REGISTER_SUCCESS);
+    navigate(ROUTES.SIGN_IN);
+  }, [navigate]);
+
   const applyRegistrationResult = useCallback(
     (result) => {
       if (!result.ok) {
         setErrors({ form: result.message });
         return;
       }
-      toast.success(REGISTER_SUCCESS);
-      navigate(ROUTES.LOGIN);
+      finishRegistration();
     },
-    [navigate],
+    [finishRegistration],
   );
 
   const completeRegistration = useCallback(
@@ -58,9 +62,9 @@ export const useRegisterForm = () => {
       const nextErrors = validateRegisterForm(values);
       setErrors(nextErrors);
       if (hasRegisterErrors(nextErrors)) {
-        return;
+        return undefined;
       }
-      completeRegistration(values);
+      return completeRegistration(values);
     },
     [completeRegistration, values],
   );

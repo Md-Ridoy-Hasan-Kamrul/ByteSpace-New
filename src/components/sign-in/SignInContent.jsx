@@ -1,0 +1,14 @@
+import React, { memo } from 'react';
+import AuthScreen from '../register/AuthScreen';
+import { SIGN_IN_BODY, SIGN_IN_TITLE } from './signInCopy';
+import SignInForm from './SignInForm';
+
+const SignInContent = memo(() => (
+  <AuthScreen title={SIGN_IN_TITLE} body={SIGN_IN_BODY}>
+    <SignInForm />
+  </AuthScreen>
+));
+
+SignInContent.displayName = 'SignInContent';
+
+export default SignInContent;
