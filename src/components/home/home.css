@@ -1,4 +1,7 @@
-.home-page {
+/* Design tokens. The auth pages (register / sign-in) reuse home components such as CourseCard and
+   OrnamentField, so they need the same tokens even though they are not .home-page. */
+.home-page,
+.register-page {
   --home-blue: #003be2;
   --home-lime: #d4fb20;
   --home-ink: #242528;
@@ -17,8 +20,17 @@
   --home-font-display: Poppins, 'Segoe UI', sans-serif;
   --home-font-body: Satoshi, 'Segoe UI', sans-serif;
   --home-font-brand: 'Clash Display', Poppins, 'Segoe UI', sans-serif;
+}
+
+.home-page {
   width: 100%;
   background: var(--home-white);
+  color: var(--home-ink);
+  font-family: var(--home-font-body);
+}
+
+/* Course cards also render outside .home-page (auth showcases), so they set their own base colours. */
+.home-course-card {
   color: var(--home-ink);
   font-family: var(--home-font-body);
 }
@@ -26,6 +38,7 @@
 .home-page h1,
 .home-page h2,
 .home-page h3,
+.home-course-card h3,
 .home-display {
   font-family: var(--home-font-display);
   font-weight: 600;
@@ -661,18 +674,19 @@
   margin-top: 4.8125rem;
 }
 
-/* Figma Course_Card_1: shared by the discovery grid and the growth-section illustration card. */
-:is(.home-discovery, .home-growth-course) .home-course-card {
+/* Figma Course_Card_1: shared by the discovery grid, the growth-section illustration card and
+   other Figma-exact card placements (.home-figma-card, e.g. the register showcase). */
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-card {
   padding: 15px 15px 19.8px;
 }
 
-:is(.home-discovery, .home-growth-course) .home-course-media {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-media {
   height: auto;
   aspect-ratio: 341 / 195.145;
   background: #443131;
 }
 
-:is(.home-discovery, .home-growth-course) .home-course-chips {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-chips {
   top: 150px;
   right: auto;
   bottom: auto;
@@ -681,23 +695,23 @@
   gap: 12px;
 }
 
-:is(.home-discovery, .home-growth-course) .home-course-chips span {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-chips span {
   padding: 6px 12px;
   border-radius: 1.5rem;
   line-height: 1.2;
   white-space: nowrap;
 }
 
-:is(.home-discovery, .home-growth-course) .home-course-body {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-body {
   gap: 1rem;
   margin-top: 20.855px;
 }
 
-:is(.home-discovery, .home-growth-course) .home-course-body > div {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-body > div {
   min-width: 0;
 }
 
-:is(.home-discovery, .home-growth-course) .home-course-body h3 {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-course-body h3 {
   max-width: 17.5rem;
   overflow: hidden;
   color: #000;
@@ -705,47 +719,47 @@
   white-space: nowrap;
 }
 
-:is(.home-discovery, .home-growth-course) .home-creator {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-creator {
   line-height: 1.6;
 }
 
 /* Figma is 18px text + 24px star; reduced one step at the user's request. */
-:is(.home-discovery, .home-growth-course) .home-score {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-score {
   align-self: start;
   font-size: 1rem;
   line-height: 1.6;
 }
 
-:is(.home-discovery, .home-growth-course) .home-score img {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-score img {
   width: 1.25rem;
   height: 1.25rem;
 }
 
-:is(.home-discovery, .home-growth-course) .home-level {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-level {
   gap: 4px;
   padding: 6px 12px;
   border-radius: 1.5rem;
   line-height: 1.2;
 }
 
-:is(.home-discovery, .home-growth-course) .home-avatars li + li {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-avatars li + li {
   margin-left: -8px;
 }
 
-:is(.home-discovery, .home-growth-course) .home-avatars-extra span {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-avatars-extra span {
   color: var(--home-ink);
   font-weight: 500;
   line-height: 1.2;
 }
 
-:is(.home-discovery, .home-growth-course) .home-price {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-price {
   display: flex;
   align-items: flex-end;
   letter-spacing: -0.01em;
   line-height: 1.2;
 }
 
-:is(.home-discovery, .home-growth-course) .home-price span {
+:is(.home-discovery, .home-growth-course, .home-figma-card) .home-price span {
   letter-spacing: 0;
   line-height: 1.6;
 }
@@ -1129,31 +1143,33 @@
     width: 373px;
   }
 
-  .home-growth-course .home-course-card {
+  /* Illustration variant of Course_Card_1 (growth section, register showcase): 20/28px line heights,
+     white "26+" on a dark badge, 18px Medium rating with the 24px lime star. */
+  :is(.home-growth-course, .home-figma-card) .home-course-card {
     height: 384px;
   }
 
-  .home-growth-course .home-course-chips span,
-  .home-growth-course .home-creator,
-  .home-growth-course .home-level {
+  :is(.home-growth-course, .home-figma-card) .home-course-chips span,
+  :is(.home-growth-course, .home-figma-card) .home-creator,
+  :is(.home-growth-course, .home-figma-card) .home-level {
     line-height: 20px;
   }
 
-  .home-growth-course .home-course-body h3 {
+  :is(.home-growth-course, .home-figma-card) .home-course-body h3 {
     line-height: 28px;
   }
 
-  .home-growth-course .home-avatars-extra span {
+  :is(.home-growth-course, .home-figma-card) .home-avatars-extra span {
     color: var(--home-white);
   }
 
-  .home-growth-course .home-score {
+  :is(.home-growth-course, .home-figma-card) .home-score {
     font-size: 1.125rem;
     font-weight: 500;
     line-height: 28px;
   }
 
-  .home-growth-course .home-score img {
+  :is(.home-growth-course, .home-figma-card) .home-score img {
     width: 1.5rem;
     height: 1.5rem;
   }

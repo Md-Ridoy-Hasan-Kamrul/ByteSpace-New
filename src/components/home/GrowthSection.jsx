@@ -118,7 +118,8 @@ const CreatorIllustration = memo(() => (
       <div>
         <p className="home-growth-students-label">{HAPPY_STUDENTS_LABEL}</p>
         <p className="home-growth-students-rating">
-          <strong>{HAPPY_STUDENTS_RATING}</strong> {HAPPY_STUDENTS_COUNT}
+          <strong>{`${HAPPY_STUDENTS_RATING} `}</strong>
+          {HAPPY_STUDENTS_COUNT}
           <span className="home-growth-students-star">
             <img src={ICON_STAR} alt="" />
           </span>

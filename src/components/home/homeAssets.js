@@ -28,6 +28,8 @@ export const AVATAR_MORE = asset('avatar-more.svg');
 export const LEARNER_MORE = asset('learner-more.svg');
 export const LEARNER_MORE_DARK = asset('learner-more-dark.svg');
 export const ICON_STAR_LIME = asset('icon-star-lime.svg');
+export const ICON_STAR_BLUE = asset('icon-star-blue.svg');
+export const AVATAR_MORE_DARK = asset('avatar-more-dark.svg');
 export const GROWTH_GLOW = asset('growth-glow.svg');
 export const GROWTH_GLOW_LIME = asset('growth-glow-lime.svg');
 

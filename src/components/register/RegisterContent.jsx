@@ -4,7 +4,7 @@ import AuthScreen from './AuthScreen';
 import RegisterForm from './RegisterForm';
 
 const RegisterContent = memo(() => (
-  <AuthScreen title={SIGN_UP_TITLE} body={SIGN_UP_BODY}>
+  <AuthScreen title={SIGN_UP_TITLE} body={SIGN_UP_BODY} variant="register">
     <RegisterForm />
   </AuthScreen>
 ));

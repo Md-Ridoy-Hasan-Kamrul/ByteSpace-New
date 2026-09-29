@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none" shape-rendering="crispEdges">
+  <!-- One cell of the Figma 120px page grid: 2px white lines at 12%, vertical fills [0, 2), horizontal fills [118, 120). -->
+  <g fill="white" opacity="0.12">
+    <path d="M0 0h2v120H0zM0 118h120v2H0z" />
+  </g>
+</svg>

@@ -1,7 +1,6 @@
 import { HERO_STUDENT_AVATARS } from '../home/homeAssets';
 
 export const MIN_PASSWORD_LENGTH = 8;
-export const STUDENT_AVATAR_COUNT = 4;
 
 export const BRAND_NAME = 'ByteSpace';
 export const SIGN_UP_TITLE = 'Sign up and come in';
@@ -12,7 +11,8 @@ export const WELCOME_TITLE = 'Welcome to ByteSpace';
 export const CONTINUE_LABEL = 'Continue';
 export const ALREADY_HAVE_ACCOUNT = 'Already have an account?';
 export const LOGIN_LABEL = 'Login';
-export const STUDENTS_RATING = '4.5 (240)';
+export const STUDENTS_RATING = '4.5';
+export const STUDENTS_COUNT = '(240)';
 export const STUDENTS_LABEL = 'Happy Students';
 export const STUDENTS_EXTRA = '2K+';
 
@@ -62,7 +62,7 @@ export const SHOWCASE_COURSE_LAYOUT = [
   { id: 'big-data', placement: 'front' },
 ];
 
-export const REGISTER_STUDENT_AVATARS = HERO_STUDENT_AVATARS.slice(0, STUDENT_AVATAR_COUNT);
+export const REGISTER_STUDENT_AVATARS = HERO_STUDENT_AVATARS;
 
 export const SEO_REGISTER = {
   title: 'Create an Account | ByteSpace',
