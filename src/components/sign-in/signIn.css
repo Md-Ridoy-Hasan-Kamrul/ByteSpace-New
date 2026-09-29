@@ -1,5 +1,6 @@
 .sign-in-social {
   --sign-in-social-size: 4.5rem;
+  --sign-in-social-radius: 1rem;
   margin-top: var(--register-space-xl);
 }
 
@@ -31,7 +32,7 @@
   width: var(--sign-in-social-size);
   height: var(--sign-in-social-size);
   border: var(--register-line) solid var(--register-field);
-  border-radius: var(--register-radius-field);
+  border-radius: var(--sign-in-social-radius);
   background: var(--register-white);
   cursor: pointer;
 }
@@ -40,3 +41,59 @@
   outline: var(--register-focus) solid var(--register-blue);
   outline-offset: var(--register-focus);
 }
+
+@media (min-width: 1020px) {
+  .sign-in-showcase {
+    --sign-in-front-top: 0;
+    --sign-in-course-width: 16rem;
+    --sign-in-front-left: 6.5rem;
+    --sign-in-back-top: 7.5rem;
+    --sign-in-students-top: 18.5rem;
+    --sign-in-students-left: 3.25rem;
+    --sign-in-ring-size: 5rem;
+    --sign-in-ring-left: 5.5rem;
+    --sign-in-squiggle-size: 6rem;
+    --sign-in-squiggle-top: 11rem;
+    --sign-in-cone-size: 6.5rem;
+    min-height: 32rem;
+  }
+
+  .sign-in-showcase .register-course {
+    width: var(--sign-in-course-width);
+  }
+
+  .sign-in-showcase .register-course-front {
+    top: var(--sign-in-front-top);
+    left: var(--sign-in-front-left);
+  }
+
+  .sign-in-showcase .register-course-back {
+    top: var(--sign-in-back-top);
+    left: 0;
+  }
+
+  .sign-in-showcase .register-students {
+    top: var(--sign-in-students-top);
+    left: var(--sign-in-students-left);
+  }
+
+  .sign-in-ornament-ring {
+    top: var(--register-space-lg);
+    left: var(--sign-in-ring-left);
+    width: var(--sign-in-ring-size);
+  }
+
+  .sign-in-ornament-squiggle {
+    top: var(--sign-in-squiggle-top);
+    right: 0;
+    width: var(--sign-in-squiggle-size);
+  }
+
+  .sign-in-ornament-cone {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: var(--sign-in-cone-size);
+  }
+}
+

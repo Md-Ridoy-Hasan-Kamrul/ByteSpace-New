@@ -7,7 +7,7 @@ import RegisterShowcase from './RegisterShowcase';
 import '../home/home.css';
 import './register.css';
 
-const AuthScreen = memo(({ title, body, children }) => (
+const AuthScreen = memo(({ title, body, showcase, children }) => (
   <main className="register-page">
     <div className="register-shell">
       <Link to={ROUTES.HOME} className="register-logo" aria-label={BRAND_NAME}>
@@ -17,7 +17,7 @@ const AuthScreen = memo(({ title, body, children }) => (
         <section className="register-story">
           <h2>{title}</h2>
           <p>{body}</p>
-          <RegisterShowcase />
+          {showcase ?? <RegisterShowcase />}
         </section>
         {children}
       </div>

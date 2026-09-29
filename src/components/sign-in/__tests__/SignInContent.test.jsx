@@ -44,6 +44,10 @@ describe('SignInContent', () => {
       'href',
       ROUTES.REGISTER,
     );
+    expect(screen.getByText('or')).toBeInTheDocument();
+    expect(screen.getByText('Build Digital Asset')).toBeInTheDocument();
+    expect(screen.getByText('the Power of Big Data')).toBeInTheDocument();
+    expect(screen.getByText('Happy Students')).toBeInTheDocument();
   });
 
   it('shows inline errors and stays on the page when the form is blank', async () => {
