@@ -42,7 +42,7 @@ const CourseKeyPoints = memo(({ points, icon }) => (
 CourseKeyPoints.displayName = 'CourseKeyPoints';
 
 const CourseAbout = memo(({ course }) => (
-  <div className="course-panel">
+  <div className="course-panel course-about">
     <h2>{DESCRIPTION_HEADING}</h2>
     <CourseParagraphs paragraphs={course.description} />
     <h2>{SNEAK_PEEK_HEADING}</h2>
