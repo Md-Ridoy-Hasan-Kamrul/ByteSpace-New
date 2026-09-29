@@ -1,13 +1,10 @@
 import React, { memo } from 'react';
 import { useSEO } from '../hooks/useSEO';
 import HomeContent from '../components/home/HomeContent';
+import { SEO_HOME } from '../components/home/homeData';
 
 const Home = memo(() => {
-  useSEO({
-    title: '',
-    description: 'Welcome to our React application',
-    keywords: ['react', 'webpack', 'tailwind', 'router'],
-  });
+  useSEO(SEO_HOME);
 
   return <HomeContent />;
 });
