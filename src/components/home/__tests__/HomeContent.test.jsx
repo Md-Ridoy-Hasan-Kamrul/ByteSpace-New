@@ -41,6 +41,8 @@ describe('HomeContent', () => {
     expect(
       screen.getByRole('heading', { name: /get access to hundreds courses available/i }),
     ).toBeInTheDocument();
+    expect(document.querySelector('.home-ornament-squiggle-left .home-ornament-tint-lime')).not.toBeNull();
+    expect(document.querySelector('.home-ornament-cylinder .home-ornament-tint-lime')).not.toBeNull();
     expect(screen.getByText(HERO_SUBTITLE)).toBeInTheDocument();
     expect(
       screen.getByRole('heading', { name: /discover your passion, build your skills/i }),

@@ -98,27 +98,29 @@ const HomeHero = memo(() => {
 
   return (
     <section className="home-hero" aria-label="Introduction">
-      <div className="home-hero-glow" />
-      <OrnamentField />
-      <HomeHeader />
-      <div className="home-wrap home-hero-copy">
-        <h1>{HERO_TITLE}</h1>
-        <p>{HERO_SUBTITLE}</p>
-      </div>
-      <HeroSearch
-        query={search.query}
-        onQueryChange={search.handleQueryChange}
-        onSubmit={search.handleSearchSubmit}
-      />
-      <div className="home-wrap home-hero-stage">
-        <TopicCard />
-        <img
-          className="home-hero-student"
-          src={HERO_STUDENT}
-          alt="Student with headphones holding a laptop"
+      <div className="home-hero-frame">
+        <div className="home-hero-glow" />
+        <OrnamentField />
+        <HomeHeader />
+        <div className="home-wrap home-hero-copy">
+          <h1>{HERO_TITLE}</h1>
+          <p>{HERO_SUBTITLE}</p>
+        </div>
+        <HeroSearch
+          query={search.query}
+          onQueryChange={search.handleQueryChange}
+          onSubmit={search.handleSearchSubmit}
         />
-        <ProgressCard />
-        <StudentsCard />
+        <div className="home-wrap home-hero-stage">
+          <TopicCard />
+          <img
+            className="home-hero-student"
+            src={HERO_STUDENT}
+            alt="Student with headphones holding a laptop"
+          />
+          <ProgressCard />
+          <StudentsCard />
+        </div>
       </div>
     </section>
   );

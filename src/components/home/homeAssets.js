@@ -10,7 +10,8 @@ export const PARTNER_LOGO_WIDTH = 168;
 export const PARTNER_LOGO_HEIGHT = 42;
 export const PORTRAIT_SIZE = 80;
 export const LEVEL_ICON_SIZE = 20;
-export const ORNAMENT_RENDER_SIZE = 220;
+export const ORNAMENT_TONE_LIME = 'lime';
+export const ORNAMENT_TONE_PAPER = 'paper';
 
 const asset = (fileName) => `${HOME_ASSET_BASE}/${fileName}`;
 
@@ -78,10 +79,52 @@ export const TESTIMONIAL_PORTRAITS = {
 };
 
 export const HERO_ORNAMENTS = [
-  { id: 'ring-left', src: asset('ornament-ring.png'), className: 'home-ornament-ring-left' },
-  { id: 'squiggle-left', src: asset('ornament-squiggle.png'), className: 'home-ornament-squiggle-left' },
-  { id: 'cone-left', src: asset('cone-a.png'), className: 'home-ornament-cone-left' },
-  { id: 'cone-right', src: asset('cone-b.png'), className: 'home-ornament-cone-right' },
-  { id: 'prism', src: asset('cone-c.png'), className: 'home-ornament-prism' },
-  { id: 'squiggle-right', src: asset('ornament-squiggle.png'), className: 'home-ornament-squiggle-right' },
+  {
+    id: 'squiggle-left',
+    src: asset('ornament-squiggle.png'),
+    className: 'home-ornament-squiggle-left',
+    tone: ORNAMENT_TONE_LIME,
+    width: 385,
+    height: 385,
+  },
+  {
+    id: 'squiggle-mid',
+    src: asset('ornament-squiggle.png'),
+    className: 'home-ornament-squiggle-mid',
+    tone: ORNAMENT_TONE_PAPER,
+    width: 175,
+    height: 175,
+  },
+  {
+    id: 'ring',
+    src: asset('cone-a.png'),
+    className: 'home-ornament-ring',
+    tone: ORNAMENT_TONE_PAPER,
+    width: 342,
+    height: 342,
+  },
+  {
+    id: 'cylinder',
+    src: asset('cone-b.png'),
+    className: 'home-ornament-cylinder',
+    tone: ORNAMENT_TONE_LIME,
+    width: 370,
+    height: 370,
+  },
+  {
+    id: 'prism',
+    src: asset('cone-c.png'),
+    className: 'home-ornament-prism',
+    tone: ORNAMENT_TONE_PAPER,
+    width: 188,
+    height: 188,
+  },
+  {
+    id: 'squiggle-right',
+    src: asset('ornament-squiggle.png'),
+    className: 'home-ornament-squiggle-right',
+    tone: ORNAMENT_TONE_PAPER,
+    width: 330,
+    height: 330,
+  },
 ];

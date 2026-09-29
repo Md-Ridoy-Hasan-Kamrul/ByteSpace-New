@@ -1,17 +1,17 @@
 import React, { memo } from 'react';
-import { HERO_ORNAMENTS, ORNAMENT_RENDER_SIZE } from './homeAssets';
+import { HERO_ORNAMENTS } from './homeAssets';
+
+const Ornament = memo(({ ornament }) => (
+  <span className={`home-ornament ${ornament.className}`}>
+    <img src={ornament.src} alt="" width={ornament.width} height={ornament.height} />
+    <span className={`home-ornament-tint home-ornament-tint-${ornament.tone}`} />
+  </span>
+));
+
+Ornament.displayName = 'Ornament';
 
 const OrnamentField = memo(() =>
-  HERO_ORNAMENTS.map((ornament) => (
-    <img
-      key={ornament.id}
-      src={ornament.src}
-      alt=""
-      className={`home-ornament ${ornament.className}`}
-      width={ORNAMENT_RENDER_SIZE}
-      height={ORNAMENT_RENDER_SIZE}
-    />
-  )),
+  HERO_ORNAMENTS.map((ornament) => <Ornament key={ornament.id} ornament={ornament} />),
 );
 
 OrnamentField.displayName = 'OrnamentField';
