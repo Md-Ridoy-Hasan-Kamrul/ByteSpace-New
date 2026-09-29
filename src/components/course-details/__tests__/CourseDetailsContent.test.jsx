@@ -75,8 +75,12 @@ describe('CourseDetailsContent', () => {
 
     await user.click(screen.getByRole('button', { name: LESSONS_TAB }));
 
-    expect(screen.getByRole('button', { name: LESSONS_TAB })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: LESSONS_TAB })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     expect(screen.queryByRole('heading', { name: 'Description' })).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Explore the Modules' })).toBeInTheDocument();
     COURSE_DETAILS.lessons.forEach((lesson) => {
       expect(screen.getAllByText(lesson.title).length).toBeGreaterThan(0);
     });
@@ -89,7 +93,10 @@ describe('CourseDetailsContent', () => {
 
     await user.click(screen.getByRole('button', { name: REVIEWS_TAB }));
 
-    expect(screen.getByRole('button', { name: REVIEWS_TAB })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: REVIEWS_TAB })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     expect(screen.getByRole('heading', { name: COURSE_DETAILS.reviewSummary })).toBeInTheDocument();
   });
 
@@ -99,7 +106,10 @@ describe('CourseDetailsContent', () => {
 
     await user.click(screen.getByRole('button', { name: 'Play preview' }));
 
-    expect(screen.getByRole('button', { name: LESSONS_TAB })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: LESSONS_TAB })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
   });
 
   it('confirms enrollment', async () => {

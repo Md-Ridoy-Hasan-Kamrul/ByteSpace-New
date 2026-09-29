@@ -46,6 +46,18 @@
   --course-focus: 2px;
   --course-avatar-radius: 50%;
   --course-tracking: -0.01em;
+  --course-module-gap: 0.8125rem;
+  --course-module-text-gap: 0.25rem;
+  --course-module-copy: 39.875rem;
+  --course-progress-fill: 56.01%;
+  --course-progress-label: 0.875rem;
+  --course-progress-value: 2.25rem;
+  --course-progress-tracking: -0.36px;
+  --course-progress-bar: 0.5rem;
+  --course-progress-pad: 1rem;
+  --course-progress-radius: 1rem;
+  --course-progress-gap: 0.5rem;
+  --course-track: #e5e6e8;
 }
 
 .course-page .home-hero {
@@ -323,8 +335,105 @@
   max-width: var(--course-main-width);
 }
 
-.course-about h2 {
+.course-about h2,
+.course-lessons-panel h2 {
   letter-spacing: var(--course-heading-tracking);
+}
+
+.course-lessons-panel > p {
+  margin: 0;
+  max-width: var(--course-main-width);
+  color: var(--home-body);
+  font-size: var(--course-body);
+  font-weight: var(--course-weight-body);
+  line-height: var(--course-line);
+}
+
+.course-modules {
+  display: grid;
+  gap: var(--course-gap);
+}
+
+.course-module {
+  display: flex;
+  align-items: center;
+  gap: var(--course-module-gap);
+}
+
+.course-module-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  padding: var(--course-play-pad);
+  border-radius: var(--course-radius);
+  background: var(--home-lime);
+}
+
+.course-module-copy {
+  display: grid;
+  gap: var(--course-module-text-gap);
+  min-width: 0;
+}
+
+.course-module-copy h3 {
+  margin: 0;
+  color: var(--home-ink);
+  font-size: var(--course-body);
+  font-weight: var(--course-weight);
+  line-height: var(--course-title-line);
+}
+
+.course-module-copy p {
+  margin: 0;
+  max-width: var(--course-module-copy);
+  color: var(--home-body);
+  font-size: var(--course-body);
+  font-weight: var(--course-weight-body);
+  line-height: var(--course-line);
+}
+
+.course-progress {
+  display: grid;
+  gap: var(--course-progress-gap);
+  width: min(100%, var(--course-main-width));
+  padding: var(--course-progress-pad);
+  border: var(--course-hairline) solid var(--home-line);
+  border-radius: var(--course-progress-radius);
+  background: var(--home-white);
+}
+
+.course-progress-label,
+.course-progress-value {
+  margin: 0;
+  color: var(--home-ink);
+  line-height: var(--course-title-line);
+}
+
+.course-progress-label {
+  font-size: var(--course-progress-label);
+  font-weight: var(--course-weight);
+}
+
+.course-progress-value {
+  font-family: var(--home-font-display);
+  font-size: var(--course-progress-value);
+  font-weight: var(--course-weight-strong);
+  letter-spacing: var(--course-progress-tracking);
+}
+
+.course-progress-track {
+  height: var(--course-progress-bar);
+  overflow: hidden;
+  border-radius: var(--course-radius);
+  background: var(--course-track);
+}
+
+.course-progress-fill {
+  display: block;
+  width: var(--course-progress-fill);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--home-lime);
 }
 
 .course-copy {

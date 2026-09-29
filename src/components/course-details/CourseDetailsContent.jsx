@@ -2,12 +2,7 @@ import React, { memo } from 'react';
 import { useCourseDetails } from '../../hooks/useCourseDetails';
 import HomeFooter from '../home/HomeFooter';
 import HomeHeader from '../home/HomeHeader';
-import {
-  ABOUT_TAB,
-  COURSE_DETAILS,
-  LESSONS_TAB,
-  REVIEWS_TAB,
-} from './courseDetailsCopy';
+import { ABOUT_TAB, COURSE_DETAILS, LESSONS_TAB, REVIEWS_TAB } from './courseDetailsCopy';
 import CourseAbout from './CourseAbout';
 import CourseHero, { CoursePreview } from './CourseHero';
 import CourseLessons from './CourseLessons';
@@ -19,13 +14,20 @@ import './course-details.css';
 
 const COURSE_PANELS = {
   [ABOUT_TAB]: CourseAbout,
-  [LESSONS_TAB]: CourseLessons,
   [REVIEWS_TAB]: CourseReviews,
+};
+
+const renderCoursePanel = (tab, course) => {
+  if (tab === LESSONS_TAB) {
+    return <CourseLessons />;
+  }
+
+  const Panel = COURSE_PANELS[tab];
+  return <Panel course={course} />;
 };
 
 const CourseDetailsContent = memo(({ course = COURSE_DETAILS }) => {
   const details = useCourseDetails();
-  const Panel = COURSE_PANELS[details.tab];
 
   return (
     <div className="home-page course-page">
@@ -42,7 +44,7 @@ const CourseDetailsContent = memo(({ course = COURSE_DETAILS }) => {
       <section className="course-body">
         <div className="course-shell course-main">
           <CourseTabList tab={details.tab} onSelect={details.handleTabSelect} />
-          <Panel course={course} />
+          {renderCoursePanel(details.tab, course)}
         </div>
       </section>
       <HomeFooter />

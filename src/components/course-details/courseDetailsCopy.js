@@ -12,7 +12,7 @@ import {
 } from './courseDetailsAssets';
 
 export const ABOUT_TAB = 'About';
-export const LESSONS_TAB = 'Lessons';
+export const LESSONS_TAB = 'Lesson';
 export const REVIEWS_TAB = 'Reviews';
 export const COURSE_TABS = [ABOUT_TAB, LESSONS_TAB, REVIEWS_TAB];
 
@@ -23,6 +23,57 @@ export const PROFILE_LABEL = 'See Full Profile';
 export const DESCRIPTION_HEADING = 'Description';
 export const SNEAK_PEEK_HEADING = 'Sneak Peak';
 export const KEY_POINTS_HEADING = 'Key Points';
+
+export const LESSON_COPY = {
+  exploreHeading: 'Explore the Modules',
+  exploreBody:
+    'Immerse yourself in the course content as we break down each module into comprehensive lessons, providing practical insights and hands-on experiences.',
+  listHeading: 'Lesson List',
+  contentHeading: 'Lesson Content',
+  contentBody:
+    'Engage with each lesson through captivating video content, detailed textual explanations, and interactive elements. Download resources, complete assignments, and test your understanding with quizzes.',
+  trackingHeading: 'Lesson Progress Tracking',
+  trackingBody:
+    'Witness your growth as you complete lessons, with an intuitive progress tracking feature guiding you through your learning journey.',
+  progressLabel: 'Learning Progress',
+  progressValue: '55%',
+  progressPercent: 55,
+  progressMin: 0,
+  progressMax: 100,
+};
+
+export const COURSE_MODULES = [
+  {
+    id: 'module-1',
+    title: 'Module 1: Introduction to Digital Assets',
+    body: "Lay the groundwork with lessons like 'Understanding Digital Elements' and 'Navigating Design Software Tools.' Dive into the essentials of digital asset creation.",
+  },
+  {
+    id: 'module-2',
+    title: 'Module 2: Design Principles for Impact',
+    body: "Master the principles that drive impactful designs with lessons such as 'Color Theory in Digital Design' and 'Typography Essentials.' Elevate your visual communication skills.",
+  },
+  {
+    id: 'module-4',
+    title: 'Module 4: User-Centric Design Strategies',
+    body: "Understand 'Design Thinking in Digital Creation' and delve into 'User Experience (UX) Essentials.' Craft digital assets with a focus on user-centric design.",
+  },
+  {
+    id: 'module-5',
+    title: 'Module 5: Interactive Media and Engagement',
+    body: "Engage your audience with lessons like 'Creating Interactive Presentations' and 'Integrating Multimedia Elements.' Master the art of creating immersive digital experiences.",
+  },
+  {
+    id: 'module-6',
+    title: 'Module 6: Project Showcase and Critique',
+    body: "Perfect your presentation skills with 'Effective Presentation Techniques' and embrace collaboration with 'Peer Critique and Collaboration.' Showcase your work with confidence.",
+  },
+  {
+    id: 'module-7',
+    title: 'Module 7: Optimizing Digital Assets for Various Platforms',
+    body: "Adapt your digital creations for 'Mobile Platforms' and optimize for 'Social Media.' Ensure widespread accessibility and engagement across diverse digital landscapes.",
+  },
+];
 export const INCLUDES_HEADING = 'This course include';
 export const CREATOR_PREFIX = 'by';
 export const PRICE_SUFFIX = '/lifetime';
@@ -51,7 +102,12 @@ const KEY_POINTS = [
 const LESSONS = [
   { id: 'lesson-01', number: '01', title: 'Introduction to Digital Assets', duration: '12 mins' },
   { id: 'lesson-02', number: '02', title: 'Design Principles for Impacts', duration: '21 mins' },
-  { id: 'lesson-03', number: '03', title: 'Advanced Techniques in Digital Creation', duration: '16 mins' },
+  {
+    id: 'lesson-03',
+    number: '03',
+    title: 'Advanced Techniques in Digital Creation',
+    duration: '16 mins',
+  },
 ];
 
 const INCLUDES = [
