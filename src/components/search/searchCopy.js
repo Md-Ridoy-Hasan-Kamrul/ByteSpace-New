@@ -2,6 +2,7 @@ import { FEATURED_TOPIC } from '../home/homeData';
 
 export const SEARCH_TITLE = 'Find Your Next Course';
 export const SEARCH_FIELD_LABEL = 'Search';
+export const SEARCH_QUERY_PARAM = 'q';
 export const SEARCH_SCOPE_LABEL = 'Courses';
 export const FILTER_LABEL = 'Filter';
 export const LEVEL_LABEL = 'Level';

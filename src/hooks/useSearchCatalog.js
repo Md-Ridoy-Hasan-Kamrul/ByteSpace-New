@@ -1,16 +1,20 @@
 import { useCallback, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { FEATURED_TOPIC } from '../components/home/homeData';
 import { selectSearchPage } from '../components/search/filterSearchResults';
 import {
   ALL_CATEGORIES,
   ALL_LEVELS,
   FIRST_PAGE,
+  SEARCH_QUERY_PARAM,
   SORT_RELEVANT,
 } from '../components/search/searchCopy';
 
+const EMPTY_QUERY = '';
+
 const INITIAL_FILTERS = {
-  query: '',
-  activeQuery: '',
+  query: EMPTY_QUERY,
+  activeQuery: EMPTY_QUERY,
   topic: FEATURED_TOPIC,
   level: ALL_LEVELS,
   category: ALL_CATEGORIES,
@@ -18,8 +22,14 @@ const INITIAL_FILTERS = {
   page: FIRST_PAGE,
 };
 
+const filtersFromParams = (params) => {
+  const query = params.get(SEARCH_QUERY_PARAM) ?? EMPTY_QUERY;
+  return { ...INITIAL_FILTERS, query, activeQuery: query };
+};
+
 export const useSearchCatalog = (courses) => {
-  const [filters, setFilters] = useState(INITIAL_FILTERS);
+  const [searchParams] = useSearchParams();
+  const [filters, setFilters] = useState(() => filtersFromParams(searchParams));
 
   const results = useMemo(() => selectSearchPage(courses, filters), [courses, filters]);
 

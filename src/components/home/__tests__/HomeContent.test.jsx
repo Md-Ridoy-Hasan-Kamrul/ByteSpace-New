@@ -10,9 +10,10 @@ import {
   GROWTH_STATS,
   HERO_SUBTITLE,
   HOME_CATEGORIES,
-  HOME_COURSES,
   TESTIMONIALS,
 } from '../homeData';
+
+const mockNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
   Link: ({ children, to, ...props }) => (
@@ -20,6 +21,7 @@ jest.mock('react-router-dom', () => ({
       {children}
     </a>
   ),
+  useNavigate: () => mockNavigate,
 }));
 
 jest.mock('react-hot-toast', () => ({
@@ -79,17 +81,15 @@ describe('HomeContent', () => {
     });
   });
 
-  it('filters the course grid from the hero search', async () => {
+  it('opens the search page from the hero search', async () => {
     const user = userEvent.setup();
+    mockNavigate.mockClear();
     renderHome();
-
-    expect(screen.getAllByText(HOME_COURSES[0].title).length).toBeGreaterThan(0);
 
     await user.type(screen.getByRole('searchbox', { name: /course, topic, creator/i }), 'big data');
     await user.click(screen.getByRole('button', { name: /^search$/i }));
 
-    expect(screen.getByRole('heading', { name: 'the Power of Big Data' })).toBeInTheDocument();
-    expect(screen.queryByRole('heading', { name: HOME_COURSES[0].title })).not.toBeInTheDocument();
+    expect(mockNavigate).toHaveBeenCalledWith('/search?q=big+data');
   });
 
   it('filters courses when a topic chip is selected', async () => {

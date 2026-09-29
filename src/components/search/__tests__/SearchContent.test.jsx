@@ -4,12 +4,15 @@ import userEvent from '@testing-library/user-event';
 import SearchContent from '../SearchContent';
 import { EMPTY_RESULTS_MESSAGE, SEARCH_TOPICS } from '../searchCopy';
 
+const mockSearch = { value: '' };
+
 jest.mock('react-router-dom', () => ({
   Link: ({ children, to, ...props }) => (
     <a href={to} {...props}>
       {children}
     </a>
   ),
+  useSearchParams: () => [new URLSearchParams(mockSearch.value)],
 }));
 
 jest.mock('react-hot-toast', () => ({
@@ -18,6 +21,10 @@ jest.mock('react-hot-toast', () => ({
 }));
 
 describe('SearchContent', () => {
+  beforeEach(() => {
+    mockSearch.value = '';
+  });
+
   it('renders the search hero, filters, featured topics, and course grid', () => {
     render(<SearchContent />);
 
@@ -35,6 +42,15 @@ describe('SearchContent', () => {
     expect(screen.getByRole('heading', { name: 'Learn Figma from Basic' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'the Power of Big Data' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Page 1' })).toHaveAttribute('aria-current', 'page');
+  });
+
+  it('applies the query carried from the home hero', () => {
+    mockSearch.value = 'q=big+data';
+    render(<SearchContent />);
+
+    expect(screen.getByRole('searchbox', { name: 'Search' })).toHaveValue('big data');
+    expect(screen.getByRole('heading', { name: 'the Power of Big Data' })).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'Learn Figma from Basic' })).not.toBeInTheDocument();
   });
 
   it('filters the grid from the search field', async () => {

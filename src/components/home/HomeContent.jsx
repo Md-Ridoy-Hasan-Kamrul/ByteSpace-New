@@ -16,7 +16,7 @@ const HomeContent = memo(() => {
 
   return (
     <div className="home-page">
-      <HomeHero catalog={catalog} />
+      <HomeHero />
       <PartnerStrip />
       <CourseDiscovery catalog={catalog} />
       <CategoryPaths />
