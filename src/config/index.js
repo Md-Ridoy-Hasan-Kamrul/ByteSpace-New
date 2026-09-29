@@ -12,6 +12,7 @@ export const ROUTES = {
   SIGN_IN: '/sign-in',
   REGISTER: '/register',
   SEARCH: '/search',
+  COURSE_DETAILS: '/courses/:courseId',
   ADMIN: '/admin',
   ADMIN_DASHBOARD: '/admin/dashboard',
   ADMIN_EMAILS: '/admin/emails',
@@ -24,6 +25,8 @@ export const ROUTES = {
   ADMIN_PRICING: '/admin/pricing',
   ADMIN_MESSAGES: '/admin/messages',
 };
+
+export const courseDetailsPath = (courseId) => ROUTES.COURSE_DETAILS.replace(':courseId', courseId);
 
 export const API_CONFIG = {
   BASE_URL: process.env.REACT_APP_API_BASE_URL || 'https://backend.c4r.co.uk',

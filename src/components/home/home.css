@@ -403,6 +403,12 @@
   padding: 1rem;
 }
 
+.home-course-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
 .home-course-media {
   position: relative;
   height: 12.2rem;

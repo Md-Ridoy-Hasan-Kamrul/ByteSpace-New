@@ -1,4 +1,6 @@
 import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
+import { courseDetailsPath } from '../../config';
 import {
   COURSE_AVATAR_SIZE,
   ICON_LEVEL,
@@ -24,8 +26,9 @@ CourseMedia.displayName = 'CourseMedia';
 
 const CourseCard = memo(({ course }) => (
   <article className="home-course-card">
-    <CourseMedia course={course} />
-    <div className="home-course-body">
+    <Link to={courseDetailsPath(course.id)} className="home-course-link">
+      <CourseMedia course={course} />
+      <div className="home-course-body">
       <div>
         <h3>{course.title}</h3>
         <p className="home-creator">
@@ -52,7 +55,8 @@ const CourseCard = memo(({ course }) => (
         {course.priceLabel}
         <span>{course.billingLabel}</span>
       </p>
-    </div>
+      </div>
+    </Link>
   </article>
 ));
 
