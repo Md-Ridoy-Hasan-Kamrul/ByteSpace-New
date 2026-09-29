@@ -589,6 +589,9 @@
 /* Home "Discover Your Passion" section, measured from Figma (12:101, 21:33, 21:56, 21:63, 33:683). */
 .home-discovery {
   padding-block: 4.5rem 0.5rem;
+  /* macOS subpixel smoothing renders glyphs visibly heavier than Figma; grayscale matches the design's weight. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .home-discovery .home-section-copy {
@@ -705,9 +708,16 @@
   line-height: 1.6;
 }
 
+/* Figma is 18px text + 24px star; reduced one step at the user's request. */
 .home-discovery .home-score {
   align-self: start;
+  font-size: 1rem;
   line-height: 1.6;
+}
+
+.home-discovery .home-score img {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .home-discovery .home-level {
