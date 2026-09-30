@@ -274,6 +274,84 @@
   }
 }
 
+/* Mobile M / S (320-424px): tighter spacing and phone-sized type - the stacked search field keeps
+   its 48px height (flex: 1 collapsed it in the column), and the filter / topic pills are compact so
+   the three filters share one row. */
+@media (max-width: 424.98px) {
+  .search-hero {
+    padding-bottom: 2rem;
+  }
+
+  .search-hero-copy {
+    margin-top: 1rem;
+  }
+
+  .search-hero-copy h1 {
+    font-size: clamp(1.5rem, 7vw, 1.625rem);
+  }
+
+  .search-bar {
+    gap: 0.625rem;
+    margin-top: 1.25rem;
+  }
+
+  .search-field {
+    flex: none;
+    height: 3rem;
+    padding-inline: 1.125rem;
+  }
+
+  .search-field img {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .search-field input {
+    font-size: 1rem;
+  }
+
+  .search-bar button {
+    min-height: 3rem;
+    padding: 0 1.25rem;
+    font-size: 1rem;
+  }
+
+  .search-page .home-section {
+    padding-top: 2rem;
+  }
+
+  .search-toolbar,
+  .search-toolbar-filters {
+    gap: 0.5rem;
+  }
+
+  .search-filter,
+  .search-select > button {
+    padding: 7px 12px;
+    font-size: 0.875rem;
+  }
+
+  .search-filter img,
+  .search-select > button img {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .search-page .search-topics {
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .search-page .search-topics .home-topic {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.875rem;
+  }
+
+  .search-page .search-results {
+    margin-top: 2rem;
+  }
+}
+
 /* Mobile (320-767px): the 24px gaps pushed the pager wider than a 320px screen, and the 72px
    spacing above and below it is too tall on a phone. */
 @media (max-width: 767.98px) {
