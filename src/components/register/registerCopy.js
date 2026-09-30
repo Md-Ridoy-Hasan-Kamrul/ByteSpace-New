@@ -1,8 +1,8 @@
+import { ROUTES } from '../../config';
 import { HERO_STUDENT_AVATARS } from '../home/homeAssets';
 
 export const MIN_PASSWORD_LENGTH = 8;
 
-export const BRAND_NAME = 'ByteSpace';
 export const SIGN_UP_TITLE = 'Sign up and come in';
 export const SIGN_UP_BODY =
   'The registration process is straightforward, uncomplicated, and efficient, allowing users to sign up quickly, easily, and at no cost';
@@ -16,10 +16,16 @@ export const STUDENTS_COUNT = '(240)';
 export const STUDENTS_LABEL = 'Happy Students';
 export const STUDENTS_EXTRA = '2K+';
 
+export const REGISTER_CARD = {
+  eyebrow: CREATE_ACCOUNT_LABEL,
+  title: WELCOME_TITLE,
+  submit: CONTINUE_LABEL,
+  switchPrompt: ALREADY_HAVE_ACCOUNT,
+  switchLink: LOGIN_LABEL,
+  switchTo: ROUTES.SIGN_IN,
+};
+
 export const FULL_NAME_REQUIRED = 'Enter your full name.';
-export const EMAIL_REQUIRED = 'Enter your email.';
-export const EMAIL_INVALID = 'Enter a valid email address.';
-export const PASSWORD_REQUIRED = 'Enter a password.';
 export const PASSWORD_TOO_SHORT = `Use at least ${MIN_PASSWORD_LENGTH} characters.`;
 export const REGISTER_FAILED = 'We could not create your account. Please try again.';
 export const REGISTER_SUCCESS = 'Account created. Sign in to continue.';

@@ -1,16 +1,5 @@
-import { EMAIL_INVALID, EMAIL_REQUIRED, PASSWORD_REQUIRED } from './signInCopy';
-
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const emailError = (email) => {
-  if (!email.trim()) {
-    return EMAIL_REQUIRED;
-  }
-  if (!EMAIL_PATTERN.test(email.trim())) {
-    return EMAIL_INVALID;
-  }
-  return '';
-};
+import { PASSWORD_REQUIRED } from '../auth/authCopy';
+import { emailError } from '../auth/emailError';
 
 export const validateSignInForm = ({ email, password }) => {
   const errors = {};
@@ -23,5 +12,3 @@ export const validateSignInForm = ({ email, password }) => {
   }
   return errors;
 };
-
-export const hasSignInErrors = (errors) => Object.keys(errors).length > 0;

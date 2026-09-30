@@ -1,10 +1,5 @@
-import {
-  EMAIL_INVALID,
-  EMAIL_REQUIRED,
-  FULL_NAME_REQUIRED,
-  PASSWORD_REQUIRED,
-  PASSWORD_TOO_SHORT,
-} from '../registerCopy';
+import { EMAIL_INVALID, EMAIL_REQUIRED, PASSWORD_REQUIRED } from '../../auth/authCopy';
+import { FULL_NAME_REQUIRED, PASSWORD_TOO_SHORT } from '../registerCopy';
 import { MIN_PASSWORD_LENGTH, validateRegisterForm } from '../validateRegisterForm';
 
 const validAccount = {

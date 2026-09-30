@@ -1,32 +1,32 @@
 import React, { memo } from 'react';
-import HomeFooter from '../home/HomeFooter';
-import HomeHeader from '../home/HomeHeader';
 import { useSearchCatalog } from '../../hooks/useSearchCatalog';
-import SearchCourseGrid from './SearchCourseGrid';
+import CatalogToolbar from '../catalog/CatalogToolbar';
+import CourseGrid from '../home/CourseGrid';
+import SitePage from '../home/SitePage';
 import SearchHero from './SearchHero';
 import SearchPagination from './SearchPagination';
-import { SEARCH_COURSES } from './searchCopy';
-import SearchToolbar from './SearchToolbar';
+import { EMPTY_RESULTS_MESSAGE, SEARCH_COURSES } from './searchCopy';
 import SearchTopicList from './SearchTopicList';
-import '../home/home.css';
 import './search.css';
 
 const SearchContent = memo(() => {
   const catalog = useSearchCatalog(SEARCH_COURSES);
 
   return (
-    <div className="home-page search-page">
-      <div className="search-hero">
-        <HomeHeader />
+    <SitePage
+      name="search"
+      hero={
         <SearchHero
           query={catalog.query}
           onQueryChange={catalog.handleQueryChange}
           onSubmit={catalog.handleSearchSubmit}
         />
-      </div>
+      }
+    >
       <section id="courses" className="home-section">
         <div className="home-wrap">
-          <SearchToolbar
+          <CatalogToolbar
+            variant="search"
             level={catalog.level}
             category={catalog.category}
             sort={catalog.sort}
@@ -36,7 +36,11 @@ const SearchContent = memo(() => {
             onSortChange={catalog.handleSortChange}
           />
           <SearchTopicList topic={catalog.topic} onSelect={catalog.handleTopicSelect} />
-          <SearchCourseGrid courses={catalog.visibleCourses} />
+          <CourseGrid
+            courses={catalog.visibleCourses}
+            emptyMessage={EMPTY_RESULTS_MESSAGE}
+            className="search-results"
+          />
           <SearchPagination
             page={catalog.page}
             pageCount={catalog.pageCount}
@@ -44,8 +48,7 @@ const SearchContent = memo(() => {
           />
         </div>
       </section>
-      <HomeFooter />
-    </div>
+    </SitePage>
   );
 });
 

@@ -2,10 +2,10 @@ import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../config';
 import { HOME_LOGO, LOGO_HEIGHT, LOGO_WIDTH } from '../home/homeAssets';
-import { BRAND_NAME } from './registerCopy';
-import RegisterShowcase from './RegisterShowcase';
+import { BRAND_NAME } from '../home/homeData';
+import RegisterShowcase from '../register/RegisterShowcase';
 import '../home/home.css';
-import './register.css';
+import '../register/register.css';
 
 // Shared Figma auth layout for Register (47:351) and Login (49:195).
 const AuthScreen = memo(({ title, body, children }) => (

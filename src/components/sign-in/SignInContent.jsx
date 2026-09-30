@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import AuthScreen from '../register/AuthScreen';
+import AuthScreen from '../auth/AuthScreen';
 import { SIGN_IN_BODY, SIGN_IN_TITLE } from './signInCopy';
 import SignInForm from './SignInForm';
 import './signIn.css';

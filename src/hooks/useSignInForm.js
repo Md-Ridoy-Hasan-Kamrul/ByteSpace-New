@@ -1,20 +1,15 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { ROUTES } from '../config';
 import { EMPTY_SIGN_IN, SIGN_IN_SUCCESS } from '../components/sign-in/signInCopy';
-import { hasSignInErrors, validateSignInForm } from '../components/sign-in/validateSignInForm';
+import { validateSignInForm } from '../components/sign-in/validateSignInForm';
+import { hasErrors } from '../utils/validation';
+import { useFormFields } from './useFormFields';
 
 export const useSignInForm = () => {
   const navigate = useNavigate();
-  const [values, setValues] = useState(EMPTY_SIGN_IN);
-  const [errors, setErrors] = useState({});
-
-  const handleFieldChange = useCallback((event) => {
-    const { name, value } = event.target;
-    setValues((current) => ({ ...current, [name]: value }));
-    setErrors((current) => ({ ...current, [name]: '' }));
-  }, []);
+  const { values, errors, setErrors, handleFieldChange } = useFormFields(EMPTY_SIGN_IN);
 
   const finishSignIn = useCallback(() => {
     toast.success(SIGN_IN_SUCCESS);
@@ -26,12 +21,12 @@ export const useSignInForm = () => {
       event.preventDefault();
       const nextErrors = validateSignInForm(values);
       setErrors(nextErrors);
-      if (hasSignInErrors(nextErrors)) {
+      if (hasErrors(nextErrors)) {
         return;
       }
       finishSignIn();
     },
-    [finishSignIn, values],
+    [finishSignIn, setErrors, values],
   );
 
   return { values, errors, handleFieldChange, handleSubmit };

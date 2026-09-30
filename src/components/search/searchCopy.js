@@ -45,10 +45,6 @@ export const SORT_OPTIONS = [SORT_RELEVANT, SORT_TITLE];
 const icon = (name) => `/search/icon-${name}.svg`;
 export const SEARCH_ICONS = {
   chevronDown: icon('chevron-down'),
-  filter: icon('filter'),
-  level: icon('level'),
-  category: icon('category'),
-  sort: icon('sort'),
   previous: icon('prev'),
   next: icon('next'),
 };

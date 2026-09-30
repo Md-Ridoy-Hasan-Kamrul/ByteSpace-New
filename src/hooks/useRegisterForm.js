@@ -8,22 +8,14 @@ import {
   REGISTER_SUCCESS,
 } from '../components/register/registerCopy';
 import { submitRegistration } from '../components/register/submitRegistration';
-import {
-  hasRegisterErrors,
-  validateRegisterForm,
-} from '../components/register/validateRegisterForm';
+import { validateRegisterForm } from '../components/register/validateRegisterForm';
+import { hasErrors } from '../utils/validation';
+import { useFormFields } from './useFormFields';
 
 export const useRegisterForm = () => {
   const navigate = useNavigate();
-  const [values, setValues] = useState(EMPTY_REGISTER_ACCOUNT);
-  const [errors, setErrors] = useState({});
+  const { values, errors, setErrors, handleFieldChange } = useFormFields(EMPTY_REGISTER_ACCOUNT);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleFieldChange = useCallback((event) => {
-    const { name, value } = event.target;
-    setValues((current) => ({ ...current, [name]: value }));
-    setErrors((current) => ({ ...current, [name]: '', form: '' }));
-  }, []);
 
   const finishRegistration = useCallback(() => {
     toast.success(REGISTER_SUCCESS);
@@ -38,7 +30,7 @@ export const useRegisterForm = () => {
       }
       finishRegistration();
     },
-    [finishRegistration],
+    [finishRegistration, setErrors],
   );
 
   const completeRegistration = useCallback(
@@ -61,12 +53,12 @@ export const useRegisterForm = () => {
       event.preventDefault();
       const nextErrors = validateRegisterForm(values);
       setErrors(nextErrors);
-      if (hasRegisterErrors(nextErrors)) {
+      if (hasErrors(nextErrors)) {
         return undefined;
       }
       return completeRegistration(values);
     },
-    [completeRegistration, values],
+    [completeRegistration, setErrors, values],
   );
 
   return { values, errors, isSubmitting, handleFieldChange, handleSubmit };

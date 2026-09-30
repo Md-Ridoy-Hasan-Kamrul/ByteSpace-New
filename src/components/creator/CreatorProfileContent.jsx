@@ -1,12 +1,11 @@
 import React, { memo } from 'react';
 import { useCreatorCatalog } from '../../hooks/useCreatorCatalog';
 import { useCreatorFollow } from '../../hooks/useCreatorFollow';
-import HomeFooter from '../home/HomeFooter';
-import HomeHeader from '../home/HomeHeader';
-import CreatorCourseGrid from './CreatorCourseGrid';
+import CatalogToolbar from '../catalog/CatalogToolbar';
+import CourseGrid from '../home/CourseGrid';
+import SitePage from '../home/SitePage';
+import { EMPTY_COURSES_MESSAGE } from './creatorCopy';
 import CreatorIntro from './CreatorIntro';
-import CreatorToolbar from './CreatorToolbar';
-import '../home/home.css';
 import './creator.css';
 
 const CreatorProfileContent = memo(({ creator }) => {
@@ -14,9 +13,9 @@ const CreatorProfileContent = memo(({ creator }) => {
   const follow = useCreatorFollow();
 
   return (
-    <div className="home-page creator-page">
-      <div className="creator-hero">
-        <HomeHeader />
+    <SitePage
+      name="creator"
+      hero={
         <div className="home-wrap">
           <CreatorIntro
             creator={creator}
@@ -24,10 +23,12 @@ const CreatorProfileContent = memo(({ creator }) => {
             onFollow={follow.handleFollowToggle}
           />
         </div>
-      </div>
+      }
+    >
       <section className="creator-catalog">
         <div className="home-wrap">
-          <CreatorToolbar
+          <CatalogToolbar
+            variant="creator"
             level={catalog.level}
             category={catalog.category}
             sort={catalog.sort}
@@ -36,11 +37,15 @@ const CreatorProfileContent = memo(({ creator }) => {
             onCategoryChange={catalog.handleCategoryChange}
             onSortChange={catalog.handleSortChange}
           />
-          <CreatorCourseGrid courses={catalog.visibleCourses} />
+          <CourseGrid
+            courses={catalog.visibleCourses}
+            emptyMessage={EMPTY_COURSES_MESSAGE}
+            className="home-figma-card"
+            emptyClassName="creator-empty"
+          />
         </div>
       </section>
-      <HomeFooter />
-    </div>
+    </SitePage>
   );
 });
 

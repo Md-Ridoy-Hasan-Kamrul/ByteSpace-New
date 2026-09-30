@@ -6,7 +6,7 @@ import {
   EMPTY_COURSES_MESSAGE,
   MORE_TOPICS_LABEL,
 } from './homeData';
-import CourseCard from './CourseCard';
+import CourseGrid from './CourseGrid';
 
 const TopicButton = memo(({ topic, isSelected, onTopicSelect }) => {
   const handleSelect = useCallback(() => {
@@ -49,22 +49,6 @@ const TopicList = memo(({ topic, onTopicSelect }) => (
 
 TopicList.displayName = 'TopicList';
 
-const CourseGrid = memo(({ courses }) => {
-  if (courses.length === 0) {
-    return <p className="home-empty">{EMPTY_COURSES_MESSAGE}</p>;
-  }
-
-  return (
-    <div className="home-course-grid">
-      {courses.map((course) => (
-        <CourseCard key={course.id} course={course} />
-      ))}
-    </div>
-  );
-});
-
-CourseGrid.displayName = 'CourseGrid';
-
 const CourseDiscovery = memo(({ catalog }) => (
   <section id="courses" className="home-section home-discovery">
     <div className="home-wrap">
@@ -73,7 +57,7 @@ const CourseDiscovery = memo(({ catalog }) => (
         <p>{DISCOVERY_BODY}</p>
       </div>
       <TopicList topic={catalog.topic} onTopicSelect={catalog.handleTopicSelect} />
-      <CourseGrid courses={catalog.visibleCourses} />
+      <CourseGrid courses={catalog.visibleCourses} emptyMessage={EMPTY_COURSES_MESSAGE} />
     </div>
   </section>
 ));

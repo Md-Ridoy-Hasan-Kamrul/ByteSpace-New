@@ -1,23 +1,6 @@
-import {
-  EMAIL_INVALID,
-  EMAIL_REQUIRED,
-  FULL_NAME_REQUIRED,
-  MIN_PASSWORD_LENGTH,
-  PASSWORD_REQUIRED,
-  PASSWORD_TOO_SHORT,
-} from './registerCopy';
-
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const emailError = (email) => {
-  if (!email.trim()) {
-    return EMAIL_REQUIRED;
-  }
-  if (!EMAIL_PATTERN.test(email.trim())) {
-    return EMAIL_INVALID;
-  }
-  return '';
-};
+import { PASSWORD_REQUIRED } from '../auth/authCopy';
+import { emailError } from '../auth/emailError';
+import { FULL_NAME_REQUIRED, MIN_PASSWORD_LENGTH, PASSWORD_TOO_SHORT } from './registerCopy';
 
 const passwordError = (password) => {
   if (!password) {
@@ -44,7 +27,5 @@ export const validateRegisterForm = ({ fullName, email, password }) => {
   }
   return errors;
 };
-
-export const hasRegisterErrors = (errors) => Object.keys(errors).length > 0;
 
 export { MIN_PASSWORD_LENGTH };

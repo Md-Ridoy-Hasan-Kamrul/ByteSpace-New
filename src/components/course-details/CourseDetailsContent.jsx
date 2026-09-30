@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import { useCourseDetails } from '../../hooks/useCourseDetails';
-import HomeFooter from '../home/HomeFooter';
-import HomeHeader from '../home/HomeHeader';
+import SitePage from '../home/SitePage';
 import { ABOUT_TAB, COURSE_DETAILS, LESSONS_TAB, REVIEWS_TAB } from './courseDetailsCopy';
 import CourseAbout from './CourseAbout';
 import CourseHero, { CoursePreview } from './CourseHero';
@@ -9,7 +8,6 @@ import CourseLessons from './CourseLessons';
 import CoursePurchaseCard from './CoursePurchaseCard';
 import CourseReviews from './CourseReviews';
 import CourseTabList from './CourseTabList';
-import '../home/home.css';
 import './course-details.css';
 
 const COURSE_PANELS = {
@@ -24,14 +22,15 @@ const CourseDetailsContent = memo(({ course = COURSE_DETAILS }) => {
   const details = useCourseDetails();
 
   return (
-    <div className="home-page course-page">
-      <div className="course-hero">
-        <HomeHeader />
+    <SitePage
+      name="course"
+      hero={
         <div className="course-shell">
           <CourseHero course={course} onShare={details.handleShare} />
           <CoursePreview poster={course.poster} onPlay={details.handlePlayPreview} />
         </div>
-      </div>
+      }
+    >
       <section className="course-body" data-tab={details.tab}>
         <div className="course-shell course-layout">
           <CoursePurchaseCard course={course} onEnroll={details.handleEnroll} />
@@ -41,8 +40,7 @@ const CourseDetailsContent = memo(({ course = COURSE_DETAILS }) => {
           </div>
         </div>
       </section>
-      <HomeFooter />
-    </div>
+    </SitePage>
   );
 });
 

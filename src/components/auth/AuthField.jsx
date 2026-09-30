@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 const fieldErrorId = (fieldId) => `${fieldId}-error`;
 
-const RegisterField = memo(({ field, value, error, onChange }) => (
+const AuthField = memo(({ field, value, error, onChange }) => (
   <div className="register-field">
     <label htmlFor={field.id}>{field.label}</label>
     <input
@@ -24,6 +24,6 @@ const RegisterField = memo(({ field, value, error, onChange }) => (
   </div>
 ));
 
-RegisterField.displayName = 'RegisterField';
+AuthField.displayName = 'AuthField';
 
-export default RegisterField;
+export default AuthField;

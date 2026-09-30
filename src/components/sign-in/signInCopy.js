@@ -1,3 +1,5 @@
+import { ROUTES } from '../../config';
+
 export const SIGN_IN_TITLE = 'Sign in with ease';
 export const SIGN_IN_BODY =
   'Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge.';
@@ -8,9 +10,15 @@ export const SIGN_IN_DIVIDER = 'or';
 export const NEW_USER_LABEL = 'New user?';
 export const CREATE_ACCOUNT_LINK = 'Create an account';
 export const SIGN_IN_SUCCESS = 'You are signed in.';
-export const EMAIL_REQUIRED = 'Enter your email.';
-export const EMAIL_INVALID = 'Enter a valid email address.';
-export const PASSWORD_REQUIRED = 'Enter a password.';
+
+export const SIGN_IN_CARD = {
+  eyebrow: SIGN_IN_EYEBROW,
+  title: WELCOME_BACK_TITLE,
+  submit: SIGN_IN_BUTTON,
+  switchPrompt: NEW_USER_LABEL,
+  switchLink: CREATE_ACCOUNT_LINK,
+  switchTo: ROUTES.REGISTER,
+};
 
 export const SOCIAL_ICON_SIZE = 40;
 export const SOCIAL_PROVIDERS = [

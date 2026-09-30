@@ -1,4 +1,4 @@
-import { EMAIL_INVALID, EMAIL_REQUIRED, PASSWORD_REQUIRED } from '../signInCopy';
+import { EMAIL_INVALID, EMAIL_REQUIRED, PASSWORD_REQUIRED } from '../../auth/authCopy';
 import { validateSignInForm } from '../validateSignInForm';
 
 describe('validateSignInForm', () => {
