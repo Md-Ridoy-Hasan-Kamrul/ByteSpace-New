@@ -1053,9 +1053,10 @@
   height: auto;
 }
 
-/* Laptop / tablet (768-1279px): "Your Path to Professional Growth" keeps the desktop two-column
-   composition instead of stacking. Rules mirror the 1280px block, scoped to .home-growth. */
-@media (min-width: 768px) and (max-width: 1279.98px) {
+/* Mobile / tablet / laptop (below 1280px): "Your Path to Professional Growth" keeps the desktop
+   illustration composition instead of bare photos. Rules mirror the 1280px block, scoped to
+   .home-growth; the mobile block after this one stacks the rows. */
+@media (max-width: 1279.98px) {
   .home-growth {
     padding-block: 7.5rem;
   }
@@ -1447,6 +1448,72 @@
 
   .home-growth-art-creator {
     zoom: tan(atan2(calc(50cqi - 20px), 541px));
+  }
+}
+
+/* Mobile (320-767px): each row stacks - copy first, then the same Figma illustration as tablet,
+   zoomed to the full content width. */
+@media (max-width: 767.98px) {
+  .home-growth {
+    padding-block: 4rem;
+  }
+
+  .home-growth .home-growth-frame {
+    gap: 4rem;
+    padding-left: 0;
+  }
+
+  .home-growth-row,
+  .home-growth-row-intro,
+  .home-growth-row-creator {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .home-growth-copy,
+  .home-growth-copy-intro,
+  .home-growth-copy-creator {
+    flex: none;
+    gap: 1.5rem;
+  }
+
+  .home-growth-copy-creator {
+    order: -1;
+  }
+
+  .home-growth-copy h2 {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+  }
+
+  .home-growth-copy p,
+  .home-growth-benefits li {
+    font-size: 1rem;
+  }
+
+  .home-growth-stats {
+    gap: 1rem 2rem;
+  }
+
+  .home-growth-stats strong {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+
+  .home-growth-stats span {
+    font-size: 1rem;
+  }
+
+  .home-growth-art {
+    align-self: center;
+  }
+
+  .home-growth-art-course {
+    zoom: tan(atan2(100cqi, 621px));
+  }
+
+  .home-growth-art-creator {
+    zoom: tan(atan2(100cqi, 541px));
   }
 }
 
