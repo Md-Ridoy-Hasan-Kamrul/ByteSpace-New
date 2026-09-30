@@ -55,6 +55,21 @@ describe('CreatorProfileContent', () => {
     );
   });
 
+  it('closes an open menu on an outside click or Escape', async () => {
+    const user = userEvent.setup();
+    render(<CreatorProfileContent creator={CREATOR_PROFILE} />);
+
+    await user.click(screen.getByRole('button', { name: 'Category' }));
+    expect(screen.getByRole('listbox', { name: 'Category' })).toBeInTheDocument();
+
+    await user.click(screen.getByRole('heading', { name: CREATOR_PROFILE.name }));
+    expect(screen.queryByRole('listbox', { name: 'Category' })).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Category' }));
+    await user.keyboard('{Escape}');
+    expect(screen.queryByRole('listbox', { name: 'Category' })).not.toBeInTheDocument();
+  });
+
   it('filters the catalog by level and restores it', async () => {
     const user = userEvent.setup();
     render(<CreatorProfileContent creator={CREATOR_PROFILE} />);
@@ -63,7 +78,9 @@ describe('CreatorProfileContent', () => {
     await user.click(screen.getByRole('option', { name: 'Advanced' }));
 
     expect(screen.getByText(EMPTY_COURSES_MESSAGE)).toBeInTheDocument();
-    expect(screen.queryByRole('heading', { name: 'Learn Figma from Basic' })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('heading', { name: 'Learn Figma from Basic' }),
+    ).not.toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: 'Filter' }));
 
