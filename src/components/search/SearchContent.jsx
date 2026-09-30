@@ -1,18 +1,18 @@
 import React, { memo } from 'react';
-import { HOME_COURSES } from '../home/homeData';
 import HomeFooter from '../home/HomeFooter';
 import HomeHeader from '../home/HomeHeader';
 import { useSearchCatalog } from '../../hooks/useSearchCatalog';
 import SearchCourseGrid from './SearchCourseGrid';
 import SearchHero from './SearchHero';
 import SearchPagination from './SearchPagination';
+import { SEARCH_COURSES } from './searchCopy';
 import SearchToolbar from './SearchToolbar';
 import SearchTopicList from './SearchTopicList';
 import '../home/home.css';
 import './search.css';
 
 const SearchContent = memo(() => {
-  const catalog = useSearchCatalog(HOME_COURSES);
+  const catalog = useSearchCatalog(SEARCH_COURSES);
 
   return (
     <div className="home-page search-page">

@@ -10,7 +10,7 @@ const SearchCourseGrid = memo(({ courses }) => {
   return (
     <div className="home-course-grid search-results">
       {courses.map((course) => (
-        <CourseCard key={course.id} course={course} />
+        <CourseCard key={course.listingKey ?? course.id} course={course} />
       ))}
     </div>
   );

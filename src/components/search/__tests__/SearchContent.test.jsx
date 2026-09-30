@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import SearchContent from '../SearchContent';
-import { EMPTY_RESULTS_MESSAGE, SEARCH_TOPICS } from '../searchCopy';
+import { EMPTY_RESULTS_MESSAGE, PAGE_SIZE, SEARCH_TOPICS } from '../searchCopy';
 
 const mockSearch = { value: '' };
 
@@ -28,7 +28,7 @@ describe('SearchContent', () => {
   it('renders the search hero, filters, featured topics, and course grid', () => {
     render(<SearchContent />);
 
-    expect(screen.getByRole('heading', { name: 'Find Your Next Course' })).toBeInTheDocument();
+    expect(screen.getAllByRole('heading', { name: 'Find Your Next Course' })).not.toHaveLength(0);
     expect(screen.getByRole('searchbox', { name: 'Search' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Courses' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Filter' })).toBeInTheDocument();
@@ -42,9 +42,26 @@ describe('SearchContent', () => {
     SEARCH_TOPICS.forEach((topic) => {
       expect(screen.getByRole('button', { name: topic })).toBeInTheDocument();
     });
-    expect(screen.getByRole('heading', { name: 'Learn Figma from Basic' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'the Power of Big Data' })).toBeInTheDocument();
+    expect(screen.getAllByRole('heading', { name: 'Learn Figma from Basic' })).not.toHaveLength(0);
+    expect(screen.getAllByRole('heading', { name: 'the Power of Big Data' })).not.toHaveLength(0);
     expect(screen.getByRole('button', { name: 'Page 1' })).toHaveAttribute('aria-current', 'page');
+  });
+
+  it('shows 18 cards on each of five pages', async () => {
+    const user = userEvent.setup();
+    render(<SearchContent />);
+
+    expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(PAGE_SIZE);
+    [1, 2, 3, 4, 5].forEach((page) => {
+      expect(screen.getByRole('button', { name: `Page ${page}` })).toBeInTheDocument();
+    });
+    expect(screen.queryByRole('button', { name: 'Page 6' })).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Page 5' }));
+
+    expect(screen.getByRole('button', { name: 'Page 5' })).toHaveAttribute('aria-current', 'page');
+    expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(PAGE_SIZE);
+    expect(screen.getByRole('button', { name: 'Next page' })).toBeDisabled();
   });
 
   it('applies the query carried from the home hero', () => {
@@ -52,7 +69,7 @@ describe('SearchContent', () => {
     render(<SearchContent />);
 
     expect(screen.getByRole('searchbox', { name: 'Search' })).toHaveValue('big data');
-    expect(screen.getByRole('heading', { name: 'the Power of Big Data' })).toBeInTheDocument();
+    expect(screen.getAllByRole('heading', { name: 'the Power of Big Data' })).not.toHaveLength(0);
     expect(
       screen.queryByRole('heading', { name: 'Learn Figma from Basic' }),
     ).not.toBeInTheDocument();
@@ -65,7 +82,7 @@ describe('SearchContent', () => {
     await user.type(screen.getByRole('searchbox', { name: 'Search' }), 'big data');
     await user.click(screen.getByRole('button', { name: 'Courses' }));
 
-    expect(screen.getByRole('heading', { name: 'the Power of Big Data' })).toBeInTheDocument();
+    expect(screen.getAllByRole('heading', { name: 'the Power of Big Data' })).not.toHaveLength(0);
     expect(
       screen.queryByRole('heading', { name: 'Learn Figma from Basic' }),
     ).not.toBeInTheDocument();

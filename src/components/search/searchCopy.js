@@ -1,4 +1,4 @@
-import { FEATURED_TOPIC } from '../home/homeData';
+import { FEATURED_TOPIC, HOME_COURSES } from '../home/homeData';
 
 export const SEARCH_TITLE = 'Find Your Next Course';
 export const SEARCH_FIELD_LABEL = 'Search';
@@ -12,7 +12,8 @@ export const SORT_TITLE = 'Title';
 export const ALL_LEVELS = 'All';
 export const ALL_CATEGORIES = 'All';
 export const EMPTY_RESULTS_MESSAGE = 'No courses match your search.';
-export const PAGE_SIZE = 6;
+export const PAGE_SIZE = 18;
+export const SEARCH_PAGE_COUNT = 5;
 export const FIRST_PAGE = 1;
 export const PREVIOUS_PAGE_LABEL = 'Previous page';
 export const NEXT_PAGE_LABEL = 'Next page';
@@ -57,3 +58,10 @@ export const SEO_SEARCH = {
   description: 'Search ByteSpace courses by topic, level, and category.',
   keywords: ['ByteSpace', 'search', 'courses'],
 };
+
+// The six catalog courses repeated to fill every page: 18 per page across 5 pages (90 cards). Each copy
+// keeps its course id so the card still opens that course; listingKey keeps React keys unique.
+export const SEARCH_COURSES = Array.from({ length: PAGE_SIZE * SEARCH_PAGE_COUNT }, (_, index) => {
+  const course = HOME_COURSES[index % HOME_COURSES.length];
+  return { ...course, listingKey: `${course.id}-${index}` };
+});
