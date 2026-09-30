@@ -21,7 +21,7 @@
   --creator-toolbar-gap: 1rem;
   --creator-control: 1rem;
   --creator-title-line: 1.2;
-  --creator-body-line: 1.6;
+  --creator-body-line: 29px;
   --creator-weight: 500;
   --creator-weight-strong: 600;
   --creator-weight-body: 400;
@@ -31,10 +31,22 @@
   --creator-menu-pad: 0.5rem;
   --creator-option-block: 0.5rem;
   --creator-option-inline: 0.75rem;
+  --creator-hero-height: 592px;
+  --creator-intro-top: 52px;
+  --creator-catalog-top: 62px;
+  --creator-catalog-bottom: 61px;
 }
 
-.creator-page .home-hero {
-  min-height: 0;
+/* Hero (60:2155): blue band with the 120px page grid, header on top. */
+.creator-hero {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--home-blue);
+  background-image: url('/home/hero-grid.svg');
+  background-repeat: repeat-x;
+  background-position: center top;
+  background-size: 90rem 64rem;
+  color: var(--home-canvas);
   padding-bottom: var(--creator-hero-pad);
 }
 
@@ -65,10 +77,11 @@
   gap: var(--creator-copy-gap);
 }
 
+/* Name row (60:2180): the Creator pill sits on the top edge of the 43px name. */
 .creator-name-row {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--creator-copy-gap);
 }
 
@@ -180,7 +193,8 @@
   border-radius: var(--creator-portrait-radius);
   background: var(--home-white);
   color: var(--home-body);
-  padding: var(--creator-filter-block) var(--creator-filter-inline);
+  padding: calc(var(--creator-filter-block) - var(--creator-line))
+    calc(var(--creator-filter-inline) - var(--creator-line));
   font-size: var(--creator-control);
   font-weight: var(--creator-weight);
   line-height: var(--creator-title-line);
@@ -226,4 +240,39 @@
 
 .creator-page .home-course-grid {
   margin-top: var(--creator-stack);
+}
+
+@media (min-width: 1020px) {
+  .creator-hero {
+    height: var(--creator-hero-height);
+    padding-bottom: 0;
+  }
+
+  .creator-hero .home-header {
+    height: 120px;
+    min-height: 0;
+    padding-block: 0;
+  }
+
+  /* Profile block (60:2171) at (122, 172). */
+  .creator-intro {
+    margin: var(--creator-intro-top) 0 0 2px;
+  }
+
+  /* Catalog (60:1928): toolbar 62px under the hero, 61px under the grid to the footer. */
+  .creator-catalog {
+    padding-block: var(--creator-catalog-top) var(--creator-catalog-bottom);
+  }
+}
+
+/* Figma's toolbar starts at x 119 and its card grid is 1199px wide from x 121. */
+@media (min-width: 1280px) {
+  .creator-toolbar {
+    margin-left: -1px;
+  }
+
+  .creator-page .home-course-grid {
+    width: 1199px;
+    margin-left: 1px;
+  }
 }

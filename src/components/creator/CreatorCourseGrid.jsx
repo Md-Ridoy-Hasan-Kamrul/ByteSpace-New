@@ -8,7 +8,7 @@ const CreatorCourseGrid = memo(({ courses }) => {
   }
 
   return (
-    <div className="home-course-grid">
+    <div className="home-course-grid home-figma-card">
       {courses.map((course) => (
         <CourseCard key={course.id} course={course} />
       ))}

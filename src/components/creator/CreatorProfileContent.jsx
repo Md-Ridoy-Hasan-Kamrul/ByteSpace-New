@@ -15,7 +15,7 @@ const CreatorProfileContent = memo(({ creator }) => {
 
   return (
     <div className="home-page creator-page">
-      <div className="home-hero creator-hero">
+      <div className="creator-hero">
         <HomeHeader />
         <div className="home-wrap">
           <CreatorIntro
