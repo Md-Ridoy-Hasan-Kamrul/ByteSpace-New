@@ -73,7 +73,6 @@ npm run dev       # start the dev server at http://localhost:5173
 ByteSpace-New/
 ├── public/                  Static assets served as-is
 │   ├── favicon.svg
-│   ├── fonts/               Self-hosted Poppins, Satoshi and Clash Display
 │   ├── home/                Landing page images, icons and ornaments
 │   ├── search/  course-details/  creator/  sign-in/
 ├── src/

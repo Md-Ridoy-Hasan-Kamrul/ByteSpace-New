@@ -23,9 +23,10 @@
   --color-field: #e5e6e8;
   --color-danger: #b42318;
 
-  --font-display: Poppins, 'Segoe UI', sans-serif;
-  --font-body: Satoshi, 'Segoe UI', sans-serif;
-  --font-brand: 'Clash Display', Poppins, 'Segoe UI', sans-serif;
+  --font-sans: Satoshi, system-ui, 'Segoe UI', sans-serif; /* site-wide default */
+  --font-display: Poppins, system-ui, 'Segoe UI', sans-serif;
+  --font-body: Satoshi, system-ui, 'Segoe UI', sans-serif;
+  --font-brand: 'Clash Display', Poppins, system-ui, 'Segoe UI', sans-serif;
 
   --animate-menu-in: menu-in 160ms ease-out;
   @keyframes menu-in {
@@ -34,70 +35,4 @@
       transform: translateY(-0.5rem);
     }
   }
-}
-
-
-/* Self-hosted design fonts. Poppins: SIL OFL. Satoshi, Clash Display: ITF Free Font License (Fontshare). */
-@font-face {
-  font-family: 'Clash Display';
-  src: url('/fonts/clash-display-700.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/poppins-400.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/poppins-500.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/poppins-600.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/poppins-700.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/satoshi-400.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/satoshi-500.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/satoshi-700.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
 }
