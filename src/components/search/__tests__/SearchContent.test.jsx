@@ -23,6 +23,31 @@ jest.mock('react-hot-toast', () => ({
 describe('SearchContent', () => {
   beforeEach(() => {
     mockSearch.value = '';
+    window.scrollTo = jest.fn();
+  });
+
+  it('scrolls back to the top when the page changes', async () => {
+    const user = userEvent.setup();
+    render(<SearchContent />);
+
+    await user.click(screen.getByRole('button', { name: 'Page 2' }));
+
+    expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' });
+  });
+
+  it('closes an open menu on an outside click or Escape', async () => {
+    const user = userEvent.setup();
+    render(<SearchContent />);
+
+    await user.click(screen.getByRole('button', { name: 'Category' }));
+    expect(screen.getByRole('listbox', { name: 'Category' })).toBeInTheDocument();
+
+    await user.click(screen.getByRole('heading', { name: 'Find Your Next Course' }));
+    expect(screen.queryByRole('listbox', { name: 'Category' })).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Category' }));
+    await user.keyboard('{Escape}');
+    expect(screen.queryByRole('listbox', { name: 'Category' })).not.toBeInTheDocument();
   });
 
   it('renders the search hero, filters, featured topics, and course grid', () => {

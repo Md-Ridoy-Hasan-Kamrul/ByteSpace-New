@@ -1,4 +1,5 @@
 import React, { memo, useCallback, useState } from 'react';
+import { useDismissable } from '../../hooks/useDismissable';
 import { ICON_SIZE } from '../home/homeAssets';
 
 const SearchOption = memo(({ option, isSelected, onChoose }) => {
@@ -24,6 +25,12 @@ const SearchSelect = memo(({ label, icon, value, options, onChange }) => {
     setIsOpen((open) => !open);
   }, []);
 
+  const handleClose = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  const selectRef = useDismissable(isOpen, handleClose);
+
   const handleChoose = useCallback(
     (option) => {
       onChange(option);
@@ -33,7 +40,7 @@ const SearchSelect = memo(({ label, icon, value, options, onChange }) => {
   );
 
   return (
-    <div className="search-select">
+    <div className="search-select" ref={selectRef}>
       <button type="button" aria-haspopup="listbox" aria-expanded={isOpen} onClick={handleToggle}>
         <img src={icon} alt="" width={ICON_SIZE} height={ICON_SIZE} />
         {label}

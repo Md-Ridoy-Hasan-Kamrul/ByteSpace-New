@@ -77,6 +77,7 @@ export const useSearchCatalog = (courses) => {
 
   const handlePageChange = useCallback((page) => {
     setFilters((current) => ({ ...current, page }));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   const handleResetFilters = useCallback(() => {
