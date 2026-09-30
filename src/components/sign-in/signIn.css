@@ -1,5 +1,8 @@
+/* Below the Figma desktop layout the provider buttons use a standard 56px size with 24px icons;
+   the 1280px block restores Figma's 72px buttons and 40px icons. */
 .sign-in-social {
-  --sign-in-social-size: 4.5rem;
+  --sign-in-social-size: 3.5rem;
+  --sign-in-social-icon: 1.5rem;
   --sign-in-social-radius: 1rem;
   margin-top: var(--register-space-xl);
 }
@@ -35,6 +38,11 @@
   border-radius: var(--sign-in-social-radius);
   background: var(--register-white);
   cursor: pointer;
+}
+
+.sign-in-social-button img {
+  width: var(--sign-in-social-icon);
+  height: var(--sign-in-social-icon);
 }
 
 .sign-in-social-button:focus-visible {
@@ -77,6 +85,11 @@
     height: 72px;
     border-color: #d1d1d1;
     border-radius: 24px;
+  }
+
+  .register-page .sign-in-social-button img {
+    width: 40px;
+    height: 40px;
   }
 
   .register-page .sign-in-card .register-switch {
