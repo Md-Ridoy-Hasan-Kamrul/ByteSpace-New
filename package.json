@@ -2,10 +2,10 @@
   "name": "bytespace-new",
   "version": "1.0.0",
   "private": true,
-  "description": "ByteSpace New — responsive course landing page with login and signup, built from the Figma design.",
+  "description": "ByteSpace New \u2014 responsive course landing page with login and signup, built from the Figma design.",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node api.js && vite",
+    "build": "node api.js && vite build",
     "preview": "vite preview",
     "format": "prettier --write src"
   },
