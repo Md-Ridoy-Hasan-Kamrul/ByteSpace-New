@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { ROUTES } from '../config';
 import {
   BRAND_NAME,
@@ -108,50 +108,74 @@ const HeaderLinks = memo(({ links, onNavigate }) =>
 
 HeaderLinks.displayName = 'HeaderLinks';
 
-const MOBILE_LINK = `flex min-h-12 items-center justify-between rounded-[0.75rem] pr-3.5 pl-4 text-[1rem] font-medium text-ink no-underline [&_svg]:text-muted hover:not-aria-[current=page]:bg-canvas aria-[current=page]:bg-[rgb(238,_242,_255)] aria-[current=page]:text-brand-blue aria-[current=page]:[&_svg]:text-brand-blue ${FOCUS_RING}`;
+// Mobile menu card: numbered rows like the course lesson list; the current page takes the hero's
+// blue with a lime arrow badge, and the actions reuse the site's pill buttons.
+const MOBILE_LINK = `group flex min-h-15 items-center gap-3 rounded-[1rem] pr-3 pl-4 text-ink no-underline transition-[background-color] duration-[200ms] hover:not-aria-[current=page]:bg-canvas aria-[current=page]:bg-brand-blue aria-[current=page]:text-white motion-reduce:transition-none ${FOCUS_RING}`;
+
+const MOBILE_LINK_INDEX =
+  'w-6 text-[0.875rem] leading-[1] font-medium text-muted group-aria-[current=page]:text-[rgb(255_255_255_/_64%)]';
+
+const MOBILE_LINK_BADGE =
+  'grid h-9 w-9 place-items-center rounded-[999px] bg-canvas text-ink transition-[background-color,transform] duration-[200ms] group-hover:bg-brand-lime group-hover:[transform:rotate(45deg)] group-aria-[current=page]:bg-brand-lime motion-reduce:transition-none';
 
 const MOBILE_ACTION = [
-  `flex min-h-11.5 items-center justify-center rounded-[999px] border border-solid border-line text-[1rem] font-medium text-ink no-underline hover:bg-canvas ${FOCUS_RING}`,
-  `flex min-h-11.5 items-center justify-center rounded-[999px] border border-solid border-brand-lime bg-brand-lime text-[1rem] font-medium text-ink no-underline hover:[filter:brightness(0.96)] ${FOCUS_RING}`,
+  `flex min-h-12 items-center justify-center rounded-[1.5rem] border border-solid border-line bg-white text-[1rem] leading-[1.2] font-medium text-ink no-underline hover:border-ink ${FOCUS_RING}`,
+  `flex min-h-12 items-center justify-center rounded-[1.5rem] border border-solid border-brand-lime bg-brand-lime text-[1rem] leading-[1.2] font-medium text-ink no-underline hover:[filter:brightness(0.96)] ${FOCUS_RING}`,
 ];
+
+const MOBILE_BADGE_ICON_SIZE = 18;
+
+const formatIndex = (index) => String(index + 1).padStart(2, '0');
 
 // Rendered only while the menu is open, so reading the path here is always current.
 const MobileMenu = memo(({ onNavigate }) => {
   const { pathname } = window.location;
 
   return (
-    <nav
-      className="absolute inset-x-0 top-[calc(100%_-_0.25rem)] mx-auto w-[min(100%_-_2rem,_30rem)] animate-menu-in rounded-[1.25rem] bg-white p-2 font-body text-ink shadow-[rgba(4,_8,_25,_0.22)_0px_1.5rem_3rem,_rgba(4,_8,_25,_0.1)_0px_0.25rem_0.75rem] motion-reduce:animate-none"
-      aria-label="Mobile"
-    >
-      <ul className="flex flex-col gap-0.5">
-        {HEADER_LINKS.map((link) => (
-          <li key={link.label}>
+    <>
+      <div
+        className="fixed inset-0 z-1 bg-[rgb(4_8_25_/_45%)] [backdrop-filter:blur(2px)] md:hidden"
+        aria-hidden="true"
+        onClick={onNavigate}
+      />
+      <nav
+        className="absolute inset-x-4 top-[calc(100%_-_0.5rem)] z-3 animate-menu-in rounded-[1.5rem] bg-white p-2 font-body text-ink shadow-[rgba(4,_8,_25,_0.28)_0px_1.5rem_3rem,_rgba(4,_8,_25,_0.12)_0px_0.25rem_0.75rem] motion-reduce:animate-none sm:inset-x-5 md:hidden"
+        aria-label="Mobile"
+      >
+        <ul className="flex flex-col gap-1">
+          {HEADER_LINKS.map((link, index) => (
+            <li key={link.label}>
+              <HomeLink
+                to={link.to}
+                className={MOBILE_LINK}
+                onClick={onNavigate}
+                current={pathname === link.to}
+              >
+                <span className={MOBILE_LINK_INDEX}>{formatIndex(index)}</span>
+                <span className="flex-1 font-display text-[1.125rem] leading-[1.2] font-semibold">
+                  {link.label}
+                </span>
+                <span className={MOBILE_LINK_BADGE} aria-hidden="true">
+                  <ArrowUpRight size={MOBILE_BADGE_ICON_SIZE} />
+                </span>
+              </HomeLink>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-2 grid grid-cols-[1fr_1fr] gap-2 rounded-[1.25rem] bg-canvas p-2">
+          {HEADER_ACTIONS.map((action, index) => (
             <HomeLink
-              to={link.to}
-              className={MOBILE_LINK}
+              key={action.label}
+              to={action.to}
+              className={MOBILE_ACTION[index === 0 ? 0 : 1]}
               onClick={onNavigate}
-              current={pathname === link.to}
             >
-              {link.label}
-              <ChevronRight size={MENU_ICON_SIZE} aria-hidden="true" />
+              {action.label}
             </HomeLink>
-          </li>
-        ))}
-      </ul>
-      <div className="mt-2 grid grid-cols-[1fr_1fr] gap-2.5 border-t border-solid border-t-line px-2 pt-3 pb-2">
-        {HEADER_ACTIONS.map((action, index) => (
-          <HomeLink
-            key={action.label}
-            to={action.to}
-            className={MOBILE_ACTION[index === 0 ? 0 : 1]}
-            onClick={onNavigate}
-          >
-            {action.label}
-          </HomeLink>
-        ))}
-      </div>
-    </nav>
+          ))}
+        </div>
+      </nav>
+    </>
   );
 });
 
