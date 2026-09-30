@@ -25,20 +25,20 @@ const CourseDetailsContent = memo(({ course = COURSE_DETAILS }) => {
 
   return (
     <div className="home-page course-page">
-      <div className="home-hero course-hero">
+      <div className="course-hero">
         <HomeHeader />
         <div className="course-shell">
           <CourseHero course={course} onShare={details.handleShare} />
-          <div className="course-stage">
-            <CoursePreview poster={course.poster} onPlay={details.handlePlayPreview} />
-            <CoursePurchaseCard course={course} onEnroll={details.handleEnroll} />
-          </div>
+          <CoursePreview poster={course.poster} onPlay={details.handlePlayPreview} />
         </div>
       </div>
       <section className="course-body">
-        <div className="course-shell course-main">
-          <CourseTabList tab={details.tab} onSelect={details.handleTabSelect} />
-          {renderCoursePanel(details.tab, course)}
+        <div className="course-shell course-layout">
+          <CoursePurchaseCard course={course} onEnroll={details.handleEnroll} />
+          <div className="course-main">
+            <CourseTabList tab={details.tab} onSelect={details.handleTabSelect} />
+            {renderCoursePanel(details.tab, course)}
+          </div>
         </div>
       </section>
       <HomeFooter />

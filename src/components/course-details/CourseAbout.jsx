@@ -1,10 +1,6 @@
 import React, { memo } from 'react';
 import { ICON_SIZE } from './courseDetailsAssets';
-import {
-  DESCRIPTION_HEADING,
-  KEY_POINTS_HEADING,
-  SNEAK_PEEK_HEADING,
-} from './courseDetailsCopy';
+import { DESCRIPTION_HEADING, KEY_POINTS_HEADING, SNEAK_PEEK_HEADING } from './courseDetailsCopy';
 
 const CourseParagraphs = memo(({ paragraphs }) => (
   <div className="course-copy">

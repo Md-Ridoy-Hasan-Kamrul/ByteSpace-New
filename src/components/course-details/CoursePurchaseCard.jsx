@@ -1,6 +1,12 @@
 import React, { memo } from 'react';
 import { CREATOR_AVATAR_SIZE, ICON_SIZE } from './courseDetailsAssets';
-import { ENROLL_LABEL, INCLUDES_HEADING, PRICE_SUFFIX, PROFILE_HREF, PROFILE_LABEL } from './courseDetailsCopy';
+import {
+  ENROLL_LABEL,
+  INCLUDES_HEADING,
+  PRICE_SUFFIX,
+  PROFILE_HREF,
+  PROFILE_LABEL,
+} from './courseDetailsCopy';
 import CourseLessonList from './CourseLessonList';
 
 const CourseIncludes = memo(({ items }) => (
