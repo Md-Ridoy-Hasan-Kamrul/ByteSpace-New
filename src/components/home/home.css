@@ -1754,6 +1754,222 @@
   }
 }
 
+/* Laptop / tablet (768-1019px): the home hero keeps the desktop Figma composition, scaled from
+   the 1440 artboard, instead of the stacked mobile layout. Rules mirror the 1020px block and are
+   scoped to .home-hero so the header on other pages and ornaments elsewhere are unchanged. */
+@media (min-width: 768px) and (max-width: 1019.98px) {
+  .home-page .home-hero {
+    height: calc(min(100vw, 90rem) * var(--hero-artboard-height) / var(--hero-artboard-width));
+    min-height: 0;
+    padding-bottom: 0;
+    /* One tile per artboard width, centred on the artboard, so the 120px grid runs edge to edge on wide screens. */
+    background-repeat: repeat-x;
+    background-size: min(100%, 90rem) 100%;
+  }
+
+  .home-hero-frame {
+    width: min(100%, 90rem);
+    height: 100%;
+    margin-inline: auto;
+    container-type: size;
+  }
+
+  .home-hero-glow {
+    left: calc(var(--hero-glow-x) / var(--hero-artboard-width) * 100%);
+    top: calc(var(--hero-glow-y) / var(--hero-artboard-height) * 100%);
+    bottom: auto;
+    width: calc(var(--hero-glow-size) / var(--hero-artboard-width) * 100%);
+    height: calc(var(--hero-glow-size) / var(--hero-artboard-height) * 100%);
+    transform: none;
+  }
+
+  .home-hero .home-ornament {
+    display: block;
+    z-index: 2;
+  }
+
+  .home-hero /* Hero_Frame coordinates of the Figma "3d ornament" frames (already absolute; do not add the group offset). */
+  /* Edge ornaments: offsets and sizes scale with the artboard,
+  .home-hero but are measured from the hero edges. */
+  .home-ornament-squiggle-left {
+    left: calc(-118 / var(--hero-artboard-width) * var(--hero-artboard-size));
+    top: calc(221 / var(--hero-artboard-height) * 100%);
+    width: calc(385 / var(--hero-artboard-width) * var(--hero-artboard-size));
+    aspect-ratio: 1;
+  }
+
+  .home-hero /* Figma x = 1231,
+  .home-hero width 370: overhangs the 1440 frame edge by 161. */
+  .home-ornament-cylinder {
+    right: calc(-161 / var(--hero-artboard-width) * var(--hero-artboard-size));
+    top: calc(221 / var(--hero-artboard-height) * 100%);
+    width: calc(370 / var(--hero-artboard-width) * var(--hero-artboard-size));
+    aspect-ratio: 1;
+  }
+
+  .home-hero /* Flipped horizontally in Figma,
+  .home-hero so its box starts at 358 - 175. */
+  .home-ornament-squiggle-mid {
+    left: calc(183 / var(--hero-artboard-width) * 100%);
+    top: calc(477 / var(--hero-artboard-height) * 100%);
+    width: calc(175 / var(--hero-artboard-width) * 100%);
+    height: calc(175 / var(--hero-artboard-height) * 100%);
+  }
+
+  .home-hero .home-ornament-ring {
+    left: calc(18 / var(--hero-artboard-width) * 100%);
+    top: calc(682 / var(--hero-artboard-height) * 100%);
+    width: calc(342 / var(--hero-artboard-width) * 100%);
+    height: calc(342 / var(--hero-artboard-height) * 100%);
+  }
+
+  .home-hero .home-ornament-prism {
+    left: calc(1106 / var(--hero-artboard-width) * 100%);
+    top: calc(464 / var(--hero-artboard-height) * 100%);
+    width: calc(188 / var(--hero-artboard-width) * 100%);
+    height: calc(188 / var(--hero-artboard-height) * 100%);
+  }
+
+  .home-hero .home-ornament-squiggle-right {
+    left: calc(1127 / var(--hero-artboard-width) * 100%);
+    top: calc(672 / var(--hero-artboard-height) * 100%);
+    width: calc(330 / var(--hero-artboard-width) * 100%);
+    height: calc(330 / var(--hero-artboard-height) * 100%);
+  }
+
+  .home-hero .home-menu-button {
+    display: none;
+  }
+
+  .home-hero .home-desktop-nav,
+  .home-hero .home-desktop-actions {
+    display: flex;
+  }
+
+  .home-page .home-hero .home-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 4;
+    height: calc(120 / var(--hero-artboard-height) * 100%);
+    min-height: 0;
+    padding-block: 0;
+  }
+
+  .home-page .home-hero-copy {
+    position: absolute;
+    z-index: 4;
+    top: calc(var(--hero-title-y) / var(--hero-artboard-height) * 100%);
+    left: calc(var(--hero-title-x) / var(--hero-artboard-width) * 100%);
+    width: calc(var(--hero-title-width) / var(--hero-artboard-width) * 100%);
+    max-width: none;
+    margin: 0;
+  }
+
+  .home-page .home-hero-copy h1 {
+    font-size: calc(var(--hero-title-size) / var(--hero-artboard-width) * 100cqi);
+    line-height: 1.194;
+  }
+
+  .home-page .home-hero-copy p {
+    margin-top: calc(32 / var(--hero-artboard-width) * 100cqi);
+    font-size: calc(18 / var(--hero-artboard-width) * 100cqi);
+    line-height: 1.61;
+  }
+
+  .home-page .home-hero .home-search {
+    position: absolute;
+    z-index: 4;
+    top: calc(var(--hero-search-y) / var(--hero-artboard-height) * 100%);
+    left: calc(var(--hero-search-x) / var(--hero-artboard-width) * 100%);
+    flex-direction: row;
+    align-items: center;
+    width: calc(var(--hero-search-width) / var(--hero-artboard-width) * 100%);
+    margin: 0;
+  }
+
+  .home-page .home-hero-stage {
+    position: static;
+    height: 0;
+    min-height: 0;
+    margin: 0;
+  }
+
+  .home-page .home-hero-student {
+    position: absolute;
+    z-index: 1;
+    top: calc(var(--hero-student-y) / var(--hero-artboard-height) * 100%);
+    left: calc(var(--hero-student-x) / var(--hero-artboard-width) * 100%);
+    width: calc(var(--hero-student-width) / var(--hero-artboard-width) * 100%);
+    height: calc(var(--hero-student-height) / var(--hero-artboard-height) * 100%);
+    margin: 0;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .home-hero .home-float-progress,
+  .home-hero .home-float-topic,
+  .home-hero .home-float-students {
+    position: absolute;
+    z-index: 3;
+    width: auto;
+    box-shadow: none;
+  }
+
+  .home-hero .home-float-topic {
+    top: calc(var(--hero-topic-y) / var(--hero-artboard-height) * 100%);
+    left: calc(var(--hero-topic-x) / var(--hero-artboard-width) * 100%);
+    width: calc(var(--hero-topic-width) / var(--hero-artboard-width) * 100%);
+  }
+
+  .home-hero .home-float-progress {
+    top: calc(var(--hero-progress-y) / var(--hero-artboard-height) * 100%);
+    left: calc(var(--hero-progress-x) / var(--hero-artboard-width) * 100%);
+    width: calc(var(--hero-progress-width) / var(--hero-artboard-width) * 100%);
+  }
+
+  .home-hero .home-float-students {
+    top: calc(var(--hero-students-y) / var(--hero-artboard-height) * 100%);
+    left: calc(var(--hero-students-x) / var(--hero-artboard-width) * 100%);
+    width: calc(var(--hero-students-width) / var(--hero-artboard-width) * 100%);
+  }
+  /* The float cards and search bar keep their 1440px Figma widths and scale with the artboard as one
+     piece (100cqi / 1440px), so their text and spacing shrink together instead of wrapping. */
+  .home-hero .home-hero-frame {
+    --hero-scale: tan(atan2(100cqi, 1440px));
+  }
+
+  .home-page .home-hero .home-search,
+  .home-hero .home-float-progress,
+  .home-hero .home-float-topic,
+  .home-hero .home-float-students {
+    transform: scale(var(--hero-scale));
+    transform-origin: top left;
+  }
+
+  .home-page .home-hero .home-search {
+    width: calc(var(--hero-search-width) * 1px);
+  }
+
+  .home-hero .home-float-progress {
+    width: calc(var(--hero-progress-width) * 1px);
+  }
+
+  .home-hero .home-float-topic {
+    width: calc(var(--hero-topic-width) * 1px);
+  }
+
+  .home-hero .home-float-students {
+    width: calc(var(--hero-students-width) * 1px);
+  }
+
+  /* Figma 18px scaled to 768px would be 9.6px; keep the lead readable. */
+  .home-page .home-hero-copy p {
+    font-size: max(13px, calc(18 / var(--hero-artboard-width) * 100cqi));
+  }
+}
+
 @media (min-width: 1020px) {
   .home-page .home-hero {
     height: calc(min(100vw, 90rem) * var(--hero-artboard-height) / var(--hero-artboard-width));
