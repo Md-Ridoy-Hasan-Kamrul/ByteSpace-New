@@ -41,13 +41,9 @@ const SNEAK_PEEK_IMAGES = [
 ];
 
 export const ABOUT_TAB = 'About';
-export const LESSONS_TAB = 'Lesson';
-const LESSONS_ABOUT_LABEL = 'Lessons';
+export const LESSONS_TAB = 'Lessons';
 export const REVIEWS_TAB = 'Reviews';
 export const COURSE_TABS = [ABOUT_TAB, LESSONS_TAB, REVIEWS_TAB];
-
-export const courseTabLabel = (tabId, activeTab) =>
-  tabId === LESSONS_TAB && activeTab === ABOUT_TAB ? LESSONS_ABOUT_LABEL : tabId;
 
 export const SHARE_LABEL = 'Share';
 export const PLAY_LABEL = 'Play preview';
