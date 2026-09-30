@@ -424,6 +424,15 @@
   list-style: none;
 }
 
+/* Laptop (1020-1279px): five 168px logos fit the row, but the 48px gaps pushed the last one down;
+   keep them on one line at their normal size, with the desktop 48px gap tightening only as needed. */
+@media (min-width: 1020px) and (max-width: 1279.98px) {
+  .home-partners ul {
+    flex-wrap: nowrap;
+    gap: min(3rem, calc((100% - 5 * 168px) / 4));
+  }
+}
+
 .home-section {
   padding-block: 4rem 1rem;
 }

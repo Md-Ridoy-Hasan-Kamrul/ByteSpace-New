@@ -319,8 +319,8 @@
 
 /* Auth pages, Figma "Register" (47:351) and "Login" (49:195), 1440 x 1024. Positions are Figma frame
    coordinates; showcase items are measured from the story block at (122, 120). The showcase only
-   appears where the full 1440 layout fits (>= 1280px). */
-@media (min-width: 1280px) {
+   appears from 1020px; 1020-1279px adapts the edges and scales the showcase (block below). */
+@media (min-width: 1020px) {
   .register-page {
     background-image: url('/home/grid-tile.svg');
     background-repeat: repeat;
@@ -497,5 +497,38 @@
 
   .register-page .register-switch a {
     font-weight: 400;
+  }
+}
+
+/* Laptop (1020-1279px): the desktop composition with the story and form card pinned 40px from the
+   edges, the card sharing the width, and only the course showcase scaled to fit its column.
+   Text stays at the desktop sizes. */
+@media (min-width: 1020px) and (max-width: 1279.98px) {
+  .register-page .register-shell {
+    container-type: inline-size;
+  }
+
+  .register-page .register-logo,
+  .register-page .register-story {
+    left: 40px;
+  }
+
+  .register-page .register-story {
+    width: calc(50cqw - 61px);
+  }
+
+  .register-page .register-card {
+    right: 40px;
+    left: auto;
+    width: calc(50cqw - 21px);
+    padding: 48px 40px 44px;
+  }
+
+  .register-page .register-showcase {
+    zoom: min(1, tan(atan2(50cqw - 101px, 500px)));
+  }
+
+  .register-page .register-switch {
+    margin-top: 72px;
   }
 }
