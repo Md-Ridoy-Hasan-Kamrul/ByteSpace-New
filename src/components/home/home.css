@@ -439,6 +439,16 @@
   border: 0;
   border-radius: 1.5rem;
   background: var(--home-white);
+  transition: box-shadow 180ms ease;
+}
+
+/* Focus ring on the whole pill instead of a box around the bare input (as on the search page). */
+.home-search-field:focus-within {
+  box-shadow: 0 0 0 3px var(--home-lime);
+}
+
+.home-page .home-search-field input:focus-visible {
+  outline: none;
 }
 
 .home-search-field input {
