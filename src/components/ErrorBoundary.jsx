@@ -1,82 +1,53 @@
-import React, { Component } from "react";
-
-function reportError(error, errorInfo) {
-  if (process.env.NODE_ENV !== "production") {
-    console.error("[ErrorBoundary] Caught error:", error, errorInfo);
-    return;
-  }
-
-  // Production: send only safe, non-sensitive fields — no stack traces or file paths
-  try {
-    const payload = JSON.stringify({
-      message: error?.message?.slice(0, 200) ?? "Unknown error",
-      url: window.location.pathname,
-      timestamp: new Date().toISOString(),
-    });
-    navigator.sendBeacon(
-      "/api/errors",
-      new Blob([payload], { type: "application/json" }),
-    );
-  } catch {
-    // Silently ignore — never throw from error reporter
-  }
-}
+import { Component } from 'react';
 
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
-    this.state = { hasError: false, error: null };
+    this.state = { hasError: false };
     this.handleReset = this.handleReset.bind(this);
   }
 
-  static getDerivedStateFromError(error) {
-    return { hasError: true, error };
+  static getDerivedStateFromError() {
+    return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
-    reportError(error, errorInfo);
+    console.error('[ErrorBoundary] Caught error:', error, errorInfo);
   }
 
   handleReset() {
-    this.setState({ hasError: false, error: null });
+    this.setState({ hasError: false });
   }
 
   render() {
-    if (this.state.hasError) {
-      return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-          <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8 text-center">
-            <h1 className="text-2xl font-bold text-red-600 mb-4">
-              Something went wrong
-            </h1>
-            <p className="text-gray-600 mb-2">
-              We apologize for the inconvenience.
-            </p>
-            {process.env.NODE_ENV !== "production" && this.state.error && (
-              <pre className="text-left text-xs bg-gray-100 rounded p-3 mb-4 overflow-auto max-h-40 text-red-700">
-                {this.state.error.message}
-              </pre>
-            )}
-            <div className="flex gap-3 justify-center">
-              <button
-                onClick={this.handleReset}
-                className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition"
-              >
-                Try Again
-              </button>
-              <button
-                onClick={() => window.location.reload()}
-                className="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 transition"
-              >
-                Reload Page
-              </button>
-            </div>
-          </div>
-        </div>
-      );
+    if (!this.state.hasError) {
+      return this.props.children;
     }
 
-    return this.props.children;
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-canvas p-4 font-body">
+        <div className="w-[min(100%,_28rem)] rounded-[1.5rem] bg-white p-8 text-center text-ink shadow-[0_1rem_2rem_rgb(4_8_25_/_8%)]">
+          <h1 className="font-display text-[1.5rem] font-semibold">Something went wrong</h1>
+          <p className="mt-3 text-body">We apologize for the inconvenience.</p>
+          <div className="mt-6 flex justify-center gap-3">
+            <button
+              type="button"
+              className="cursor-pointer rounded-[999px] bg-brand-lime px-6 py-3 font-medium text-ink"
+              onClick={this.handleReset}
+            >
+              Try Again
+            </button>
+            <button
+              type="button"
+              className="cursor-pointer rounded-[999px] border border-solid border-line bg-white px-6 py-3 font-medium text-ink"
+              onClick={() => window.location.reload()}
+            >
+              Reload Page
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 

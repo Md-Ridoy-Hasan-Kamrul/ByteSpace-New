@@ -3,23 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" content="#003be2" />
     <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src %CSP_SCRIPT_SRC%; style-src 'self' 'unsafe-inline'; connect-src 'self' %API_BASE% %WS_BASE%; img-src 'self' data:; font-src 'self'; form-action 'self'; base-uri 'self';"
+      name="description"
+      content="Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses."
     />
-    <title>Gairewele</title>
-    <!-- Prevent dark-mode flash before React mounts (external file keeps CSP strict) -->
-    <script src="/theme-init.js"></script>
-    <!-- SVG favicon -->
+    <title>ByteSpace New</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Design fonts: Poppins (Google Fonts), Satoshi + Clash Display (Fontshare). Families are mapped in src/styles/global.css @theme. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
     <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='18' font-family='sans-serif' font-weight='bold' fill='white'%3ER%3C/text%3E%3C/svg%3E"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@700&f[]=satoshi@400,500,700&display=swap"
     />
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/index.jsx"></script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
