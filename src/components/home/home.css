@@ -2072,6 +2072,81 @@
   }
 }
 
+/* Laptop / tablet footer (768-1019px): the desktop row scaled to fit - newsletter on the left,
+   the three link columns on the right at their natural widths, nothing wrapping. */
+@media (min-width: 768px) and (max-width: 1019.98px) {
+  .home-footer .home-footer-grid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .home-footer .home-footer-grid > div:first-child {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 504px;
+  }
+
+  .home-footer .home-newsletter-row {
+    gap: 16px;
+  }
+
+  .home-footer .home-newsletter-row input {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+
+  .home-footer .home-newsletter-row .home-button {
+    flex: none;
+  }
+
+  .home-footer .home-footer-links {
+    display: flex;
+    flex: none;
+    gap: 28px;
+  }
+
+  .home-footer .home-footer-links ul {
+    white-space: nowrap;
+  }
+}
+
+/* Small laptop (1020-1279px): the desktop row, but the fixed 528 + 92 + 580px widths are wider than
+   the content column, so the columns flex and the 92px gap tightens instead of overflowing. */
+@media (min-width: 1020px) and (max-width: 1279.98px) {
+  .home-footer .home-footer-grid {
+    justify-content: space-between;
+    gap: 48px;
+  }
+
+  .home-footer .home-footer-grid > div:first-child {
+    flex: 0 1 528px;
+    min-width: 0;
+  }
+
+  .home-footer .home-newsletter-row input {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+
+  .home-footer .home-newsletter-row .home-button {
+    flex: none;
+  }
+
+  .home-footer .home-footer-grid > .home-footer-links {
+    flex: none;
+    width: auto;
+  }
+
+  .home-footer .home-footer-links ul {
+    width: auto;
+    white-space: nowrap;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
