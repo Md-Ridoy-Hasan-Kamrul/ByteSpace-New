@@ -639,6 +639,22 @@
   list-style: none;
 }
 
+/* Below 1280px Figma's two fixed rows no longer fit, so the chips flow as one centred set instead
+   of each row wrapping on its own (which left "Creative Marketing" alone on a line). */
+@media (max-width: 1279.98px) {
+  .home-discovery .home-topics {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3125rem 1rem;
+  }
+
+  .home-discovery .home-topic-row {
+    display: contents;
+  }
+}
+
 :is(.home-discovery, .search-page) .home-topic {
   border: 0;
   border-radius: 1.5rem;
@@ -1884,6 +1900,23 @@
   }
 }
 
+/* Laptop (1020-1439px): the ornaments already scale with the 1440 frame, so the heading, paragraph
+   and button scale with it too (zoom = frame / 1440) and the whole CTA reads as the desktop layout
+   in miniature instead of full-size text running under the ornaments. At 1440px+ the zoom is 1. */
+@media (min-width: 1020px) and (max-width: 1439.98px) {
+  .home-cta {
+    padding-block: calc(85 * var(--cta-size) / 1440) calc(84 * var(--cta-size) / 1440);
+  }
+
+  .home-cta .home-wrap {
+    zoom: tan(atan2(var(--cta-size), 1440px));
+  }
+
+  .home-cta h2 {
+    font-size: 2.75rem;
+  }
+}
+
 /* Cards keep their own heights (Figma aligns them to the top: 432 / 436 / 407). */
 .home-testimonial-grid {
   display: grid;
@@ -2635,5 +2668,32 @@
   .home-paths .home-category-card {
     min-height: 0;
     aspect-ratio: 1;
+  }
+}
+
+/* Laptop (1020-1439px): the three hero float cards keep their 1440px Figma widths and scale with the
+   artboard as one piece, so their text never wraps (at 1440px+ the scale is exactly 1). */
+@media (min-width: 1020px) and (max-width: 1439.98px) {
+  .home-hero .home-hero-frame {
+    --hero-scale: tan(atan2(100cqi, 1440px));
+  }
+
+  .home-hero .home-float-progress,
+  .home-hero .home-float-topic,
+  .home-hero .home-float-students {
+    transform: scale(var(--hero-scale));
+    transform-origin: top left;
+  }
+
+  .home-hero .home-float-progress {
+    width: calc(var(--hero-progress-width) * 1px);
+  }
+
+  .home-hero .home-float-topic {
+    width: calc(var(--hero-topic-width) * 1px);
+  }
+
+  .home-hero .home-float-students {
+    width: calc(var(--hero-students-width) * 1px);
   }
 }
