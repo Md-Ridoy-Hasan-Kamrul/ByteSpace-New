@@ -32,7 +32,7 @@ const CourseDetailsContent = memo(({ course = COURSE_DETAILS }) => {
           <CoursePreview poster={course.poster} onPlay={details.handlePlayPreview} />
         </div>
       </div>
-      <section className="course-body">
+      <section className="course-body" data-tab={details.tab}>
         <div className="course-shell course-layout">
           <CoursePurchaseCard course={course} onEnroll={details.handleEnroll} />
           <div className="course-main">

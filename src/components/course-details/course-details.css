@@ -83,7 +83,7 @@
   --course-column: 45.3125rem;
   --course-body-top: 62.5px;
   --course-body-bottom: 64.5px;
-  --course-card-lift: -603.5px;
+  --course-card-top: 416px;
   --course-share-overhang: 85px;
   --course-share-edge: 35px;
   --course-lesson-line: 19px;
@@ -483,12 +483,15 @@
   min-width: 0;
 }
 
+/* Module titles are Label M (Satoshi Medium), not the Poppins heading face h3 inherits. */
 .course-module-copy h3 {
   margin: 0;
   color: var(--home-ink);
+  font-family: var(--home-font-body);
   font-size: var(--course-body);
+  letter-spacing: normal;
   font-weight: var(--course-weight);
-  line-height: var(--course-title-line);
+  line-height: var(--course-lesson-line);
 }
 
 .course-module-copy p {
@@ -504,7 +507,7 @@
   display: grid;
   gap: var(--course-progress-gap);
   width: min(100%, var(--course-main-width));
-  padding: var(--course-progress-pad);
+  padding: calc(var(--course-progress-pad) - var(--course-hairline));
   border: var(--course-hairline) solid var(--home-line);
   border-radius: var(--course-progress-radius);
   background: var(--home-white);
@@ -875,6 +878,12 @@
     padding-block: var(--course-body-top) var(--course-body-bottom);
   }
 
+  /* Course Lessons (60:104): tabs 79px under the hero, footer 83px under the progress card. */
+  .course-body[data-tab='Lesson'] {
+    --course-body-top: 79px;
+    --course-body-bottom: 83px;
+  }
+
   .course-layout {
     grid-template-columns: minmax(0, var(--course-column)) var(--course-card-width);
     justify-content: space-between;
@@ -890,6 +899,6 @@
     z-index: var(--course-layer);
     grid-column: 2;
     grid-row: 1;
-    margin-top: var(--course-card-lift);
+    margin-top: calc(var(--course-card-top) - var(--course-hero-height) - var(--course-body-top));
   }
 }
