@@ -84,7 +84,7 @@ const CoursePreview = memo(({ poster, onPlay }) => (
     <img className="w-full h-full object-contain" src={poster} alt="" />
     <button
       type="button"
-      className="p-[calc(1rem_-_1px)] rounded-[1.5rem] border border-solid border-copy absolute top-[calc(204_/_479_*_100%)] left-[calc(324_/_720_*_100%)] z-2 grid items-center justify-items-center bg-[rgb(61_61_61_/_24%)] [backdrop-filter:blur(20px)] cursor-pointer focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]"
+      className="p-[calc(1rem_-_1px)] rounded-[1.5rem] border border-solid border-copy absolute top-1/2 left-1/2 -translate-1/2 md:top-[calc(204_/_479_*_100%)] md:left-[calc(324_/_720_*_100%)] md:translate-none z-2 grid items-center justify-items-center bg-[rgb(61_61_61_/_24%)] [backdrop-filter:blur(20px)] cursor-pointer focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]"
       aria-label={PLAY_LABEL}
       onClick={onPlay}
     >
