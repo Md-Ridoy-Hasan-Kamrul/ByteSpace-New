@@ -16,7 +16,6 @@
   --creator-filter-inline: 1rem;
   --creator-follow-ink: #040819;
   --creator-hero-pad: 2.5rem;
-  --creator-catalog-end: 1rem;
   --creator-bio: 74.8125rem;
   --creator-toolbar-gap: 1rem;
   --creator-control: 1rem;
@@ -167,7 +166,7 @@
 }
 
 .creator-catalog {
-  padding-block: var(--creator-stack) var(--creator-catalog-end);
+  padding-block: var(--creator-stack) var(--creator-catalog-bottom);
 }
 
 .creator-toolbar {
