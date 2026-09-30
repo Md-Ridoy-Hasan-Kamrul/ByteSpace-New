@@ -1,3 +1,5 @@
+/* Legacy styles, being converted to Tailwind utilities. */
+@layer components {
 .not-found-page {
   --not-found-code: clamp(7.5rem, 33.333vw, 30rem);
   --not-found-title: clamp(1.75rem, 5vw, 4.5rem);
@@ -154,4 +156,5 @@
   .not-found-copy {
     left: 0.5px;
   }
+}
 }

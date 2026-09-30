@@ -1,3 +1,5 @@
+/* Legacy styles, being converted to Tailwind utilities. */
+@layer components {
 .register-page {
   --register-blue: #003be2;
   --register-lime: #d4fb20;
@@ -679,4 +681,5 @@
     margin-top: 73px;
     color: #888;
   }
+}
 }

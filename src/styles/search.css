@@ -1,3 +1,5 @@
+/* Legacy styles, being converted to Tailwind utilities. */
+@layer components {
 /* Search page, Figma "Search Page", 1440 wide. */
 .search-page {
   --search-focus-width: 2px;
@@ -404,4 +406,5 @@
   .search-pagination {
     gap: 0.75rem;
   }
+}
 }

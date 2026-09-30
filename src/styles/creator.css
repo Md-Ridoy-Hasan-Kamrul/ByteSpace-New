@@ -1,3 +1,5 @@
+/* Legacy styles, being converted to Tailwind utilities. */
+@layer components {
 .creator-page {
   --creator-name: 2.25rem;
   --creator-name-tracking: -0.36px;
@@ -287,4 +289,5 @@
     width: 1199px;
     margin-left: 1px;
   }
+}
 }

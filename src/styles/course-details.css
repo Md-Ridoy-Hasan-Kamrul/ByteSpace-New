@@ -1,3 +1,5 @@
+/* Legacy styles, being converted to Tailwind utilities. */
+@layer components {
 .course-page {
   --course-shell: 75rem;
   --course-gutter: 2rem;
@@ -970,4 +972,5 @@
     height: auto;
     aspect-ratio: var(--course-peek-width) / var(--course-peek-height);
   }
+}
 }

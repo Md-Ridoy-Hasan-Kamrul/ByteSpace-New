@@ -1,3 +1,5 @@
+/* Legacy styles, being converted to Tailwind utilities. */
+@layer components {
 /* Design tokens. The auth pages (register / sign-in) reuse home components such as CourseCard and
    OrnamentField, so they need the same tokens even though they are not .home-page. */
 .home-page,
@@ -3321,4 +3323,5 @@
   .home-page .home-button {
     font-size: 1rem;
   }
+}
 }
