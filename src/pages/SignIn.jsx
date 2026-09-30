@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { AuthCard, AuthScreen } from '../components/AuthLayout';
 import { ROUTES } from '../config';
 import {
@@ -18,8 +18,18 @@ import { useAuthForm } from '../hooks/useAuthForm';
 import { useSEO } from '../hooks/useSEO';
 
 const SocialButton = memo(({ provider }) => (
-  <button type="button" className="rounded-[0.875rem] border border-solid border-field grid items-center justify-items-center w-12 h-12 bg-white cursor-pointer md:rounded-[1rem] md:w-14 md:h-14 xl:rounded-[24px] xl:border-[rgb(209,_209,_209)] xl:w-[72px] xl:h-[72px] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]" aria-label={provider.label}>
-    <img className="w-5 h-5 md:w-6 md:h-6 xl:w-[40px] xl:h-[40px]" src={provider.icon} alt="" width={SOCIAL_ICON_SIZE} height={SOCIAL_ICON_SIZE} />
+  <button
+    type="button"
+    className="rounded-[0.875rem] border border-solid border-field grid items-center justify-items-center w-12 h-12 bg-white cursor-pointer md:rounded-[1rem] md:w-14 md:h-14 xl:rounded-[24px] xl:border-[rgb(209,_209,_209)] xl:w-[72px] xl:h-[72px] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]"
+    aria-label={provider.label}
+  >
+    <img
+      className="w-5 h-5 md:w-6 md:h-6 xl:w-[40px] xl:h-[40px]"
+      src={provider.icon}
+      alt=""
+      width={SOCIAL_ICON_SIZE}
+      height={SOCIAL_ICON_SIZE}
+    />
   </button>
 ));
 

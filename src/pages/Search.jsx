@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { CatalogToolbar } from '../components/CatalogToolbar';
 import { CourseGrid } from '../components/CourseCard';
@@ -121,12 +121,28 @@ const useSearchCatalog = (courses) => {
 
 const SearchHero = memo(({ query, onQueryChange, onSubmit }) => (
   <div className="mx-auto relative z-2 w-[min(100%_-_2rem,_39rem)] mt-4 text-center sm:mt-6 lg:w-auto lg:mt-[44px]">
-    <h1 className="font-display font-semibold tracking-[-0.01em] leading-[1.2] text-canvas text-[clamp(1.5rem,_7vw,_1.625rem)] sm:text-[clamp(1.75rem,_4vw,_2.25rem)]">{SEARCH_TITLE}</h1>
-    <form className="gap-2.5 flex items-stretch mt-5 max-sm:flex-col sm:gap-4 sm:items-start sm:mt-8 lg:justify-center" role="search" onSubmit={onSubmit}>
-      <label className="transition-[box-shadow] duration-[180ms] ease-[ease] px-4.5 gap-2 rounded-[1.5rem] flex grow-0 shrink-0 basis-auto items-center h-12 bg-white sm:px-6 sm:grow sm:shrink sm:basis-[0%] sm:h-13 lg:grow-0 lg:shrink-0 lg:basis-auto lg:w-[461px] focus-within:shadow-[0_0_0_3px_#d4fb20]" htmlFor="search-course-query">
-        <img className="max-sm:w-5 max-sm:h-5" src={ICON_SEARCH} alt="" width={ICON_SIZE} height={ICON_SIZE} />
+    <h1 className="font-display font-semibold tracking-[-0.01em] leading-[1.2] text-canvas text-[clamp(1.5rem,_7vw,_1.625rem)] sm:text-[clamp(1.75rem,_4vw,_2.25rem)]">
+      {SEARCH_TITLE}
+    </h1>
+    <form
+      className="gap-2.5 flex items-stretch mt-5 max-sm:flex-col sm:gap-4 sm:items-start sm:mt-8 lg:justify-center"
+      role="search"
+      onSubmit={onSubmit}
+    >
+      <label
+        className="transition-[box-shadow] duration-[180ms] ease-[ease] px-4.5 gap-2 rounded-[1.5rem] flex grow-0 shrink-0 basis-auto items-center h-12 bg-white sm:px-6 sm:grow sm:shrink sm:basis-[0%] sm:h-13 lg:grow-0 lg:shrink-0 lg:basis-auto lg:w-[461px] focus-within:shadow-[0_0_0_3px_#d4fb20]"
+        htmlFor="search-course-query"
+      >
+        <img
+          className="max-sm:w-5 max-sm:h-5"
+          src={ICON_SEARCH}
+          alt=""
+          width={ICON_SIZE}
+          height={ICON_SIZE}
+        />
         <span className="sr-only">{SEARCH_FIELD_LABEL}</span>
-        <input className="border-none w-full text-ink text-[1rem] leading-[1.6] outline-none md:text-[1.125rem] focus-visible:outline-offset-[3px]"
+        <input
+          className="border-none w-full text-ink text-[1rem] leading-[1.6] outline-none md:text-[1.125rem] focus-visible:outline-offset-[3px]"
           id="search-course-query"
           type="search"
           placeholder={SEARCH_FIELD_LABEL}
@@ -134,7 +150,10 @@ const SearchHero = memo(({ query, onQueryChange, onSubmit }) => (
           onChange={onQueryChange}
         />
       </label>
-      <button className="whitespace-nowrap px-5 gap-2 rounded-[1.5rem] border-none inline-flex items-center justify-center bg-brand-lime text-ink text-[1rem] font-medium leading-[1.2] cursor-pointer max-sm:min-h-12 sm:py-[12px] sm:px-[24px] md:text-[1.125rem] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-white focus-visible:outline-offset-[2px]" type="submit">
+      <button
+        className="whitespace-nowrap px-5 gap-2 rounded-[1.5rem] border-none inline-flex items-center justify-center bg-brand-lime text-ink text-[1rem] font-medium leading-[1.2] cursor-pointer max-sm:min-h-12 sm:py-[12px] sm:px-[24px] md:text-[1.125rem] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-white focus-visible:outline-offset-[2px]"
+        type="submit"
+      >
         {SEARCH_SCOPE_LABEL}
         <img src={SEARCH_ICONS.chevronDown} alt="" width={ICON_SIZE} height={ICON_SIZE} />
       </button>
@@ -150,7 +169,12 @@ const TopicButton = memo(({ topic, isSelected, onSelect }) => {
   }, [onSelect, topic]);
 
   return (
-    <button type="button" className="cursor-pointer rounded-[1.5rem] border-none bg-canvas px-3.5 py-2 font-body text-[0.875rem] leading-[1.2] font-medium whitespace-nowrap text-body aria-pressed:bg-brand-lime aria-pressed:text-ink sm:py-2.5 md:px-4 md:py-3 md:text-[1rem] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-lime focus-visible:outline-offset-[3px]" aria-pressed={isSelected} onClick={handleSelect}>
+    <button
+      type="button"
+      className="cursor-pointer rounded-[1.5rem] border-none bg-canvas px-3.5 py-2 font-body text-[0.875rem] leading-[1.2] font-medium whitespace-nowrap text-body aria-pressed:bg-brand-lime aria-pressed:text-ink sm:py-2.5 md:px-4 md:py-3 md:text-[1rem] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-lime focus-visible:outline-offset-[3px]"
+      aria-pressed={isSelected}
+      onClick={handleSelect}
+    >
       {topic}
     </button>
   );
@@ -206,7 +230,10 @@ const SearchPagination = memo(({ page, pageCount, onPageChange }) => {
   }, [onPageChange, page]);
 
   return (
-    <nav className="gap-3 flex justify-center items-center mt-10 xs:gap-4 md:gap-[24px] md:mt-18" aria-label="Pages">
+    <nav
+      className="gap-3 flex justify-center items-center mt-10 xs:gap-4 md:gap-[24px] md:mt-18"
+      aria-label="Pages"
+    >
       <button
         type="button"
         className={PAGE_ARROW}

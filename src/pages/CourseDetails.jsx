@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { CourseAbout, CourseLessons, CourseReviews } from '../components/course/CoursePanels';
@@ -82,7 +82,12 @@ CourseStat.displayName = 'CourseStat';
 const CoursePreview = memo(({ poster, onPlay }) => (
   <div className="overflow-hidden rounded-[1.5rem] relative mt-10 aspect-[720/479] bg-[#443131] lg:mt-[59px] lg:w-[min(calc(720_*_1px),_100%_-_25.75rem_-_3.75rem)] lg:mr-0 lg:mb-0 lg:ml-[5px]">
     <img className="w-full h-full object-contain" src={poster} alt="" />
-    <button type="button" className="p-[calc(1rem_-_1px)] rounded-[1.5rem] border border-solid border-copy absolute top-[calc(204_/_479_*_100%)] left-[calc(324_/_720_*_100%)] z-2 grid items-center justify-items-center bg-[rgb(61_61_61_/_24%)] [backdrop-filter:blur(20px)] cursor-pointer focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]" aria-label={PLAY_LABEL} onClick={onPlay}>
+    <button
+      type="button"
+      className="p-[calc(1rem_-_1px)] rounded-[1.5rem] border border-solid border-copy absolute top-[calc(204_/_479_*_100%)] left-[calc(324_/_720_*_100%)] z-2 grid items-center justify-items-center bg-[rgb(61_61_61_/_24%)] [backdrop-filter:blur(20px)] cursor-pointer focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]"
+      aria-label={PLAY_LABEL}
+      onClick={onPlay}
+    >
       <img src={PLAY_ICON} alt="" width={PLAY_ICON_SIZE} height={PLAY_ICON_SIZE} />
     </button>
   </div>
@@ -95,8 +100,12 @@ export { CoursePreview };
 const CourseHero = memo(({ course, onShare }) => (
   <div className="gap-6 flex flex-wrap items-start justify-between lg:flex-nowrap lg:mt-[52px] lg:mr-[calc(-1_*_min(85px,_(100vw_-_100%)_/_2_-_35px))] lg:mb-0 lg:ml-[2px]">
     <div>
-      <h1 className="font-display font-semibold tracking-[-0.01em] leading-[1.2] text-canvas text-[clamp(1.625rem,_7.5vw,_1.875rem)] md:text-[clamp(1.75rem,_4vw,_2.25rem)] lg:whitespace-nowrap">{course.title}</h1>
-      <p className="mt-2 text-canvas font-display font-semibold leading-[1.2] text-[1.125rem] tracking-[-0.2px] md:text-[1.25rem] lg:whitespace-nowrap">{course.subtitle}</p>
+      <h1 className="font-display font-semibold tracking-[-0.01em] leading-[1.2] text-canvas text-[clamp(1.625rem,_7.5vw,_1.875rem)] md:text-[clamp(1.75rem,_4vw,_2.25rem)] lg:whitespace-nowrap">
+        {course.title}
+      </h1>
+      <p className="mt-2 text-canvas font-display font-semibold leading-[1.2] text-[1.125rem] tracking-[-0.2px] md:text-[1.25rem] lg:whitespace-nowrap">
+        {course.subtitle}
+      </p>
       <p className="mt-6 text-[#f1f4fe] text-[1rem] font-medium leading-[1.2] md:text-[1.125rem]">
         {CREATOR_PREFIX} <span className="text-brand-lime">{course.creator}</span>
       </p>
@@ -106,7 +115,11 @@ const CourseHero = memo(({ course, onShare }) => (
         <CourseStat icon={course.studentsIcon} label={course.studentsLabel} />
       </div>
     </div>
-    <button type="button" className="py-2 px-6 gap-2 rounded-[1.5rem] border-none inline-flex items-center text-[1rem] font-medium leading-[24px] bg-brand-lime text-ink cursor-pointer grow-0 shrink-0 basis-auto focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]" onClick={onShare}>
+    <button
+      type="button"
+      className="py-2 px-6 gap-2 rounded-[1.5rem] border-none inline-flex items-center text-[1rem] font-medium leading-[24px] bg-brand-lime text-ink cursor-pointer grow-0 shrink-0 basis-auto focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]"
+      onClick={onShare}
+    >
       <img src={SHARE_ICON} alt="" width={ICON_SIZE} height={ICON_SIZE} />
       {SHARE_LABEL}
     </button>
@@ -119,7 +132,9 @@ const CourseLesson = memo(({ lesson }) => (
   <li className="grid grid-cols-[1.5rem_minmax(0,_12.375rem)_auto] gap-x-2 [align-items:start] text-ink text-[1rem] font-medium leading-[19px]">
     <span>{lesson.number}</span>
     <span>{lesson.title}</span>
-    <span className="whitespace-nowrap ml-[33px] text-brand-blue font-normal leading-[1.625]">{lesson.duration}</span>
+    <span className="whitespace-nowrap ml-[33px] text-brand-blue font-normal leading-[1.625]">
+      {lesson.duration}
+    </span>
   </li>
 ));
 
@@ -154,19 +169,25 @@ CourseIncludes.displayName = 'CourseIncludes';
 const CourseCreator = memo(({ course }) => (
   <div className="gap-6 text-body text-[1rem] font-normal leading-[1.625] flex flex-col pt-6 [border-top-style:solid] border-t border-t-[#d1d1d1]">
     <div className="gap-3 flex items-start">
-      <img className="rounded-[50%]"
+      <img
+        className="rounded-[50%]"
         src={course.studioAvatar}
         alt=""
         width={CREATOR_AVATAR_SIZE}
         height={CREATOR_AVATAR_SIZE}
       />
       <p className="flex flex-col">
-        <strong className="text-ink text-[1rem] font-medium leading-[1.2] md:text-[1.125rem]">{course.studioName}</strong>
+        <strong className="text-ink text-[1rem] font-medium leading-[1.2] md:text-[1.125rem]">
+          {course.studioName}
+        </strong>
         <span>{course.studioRole}</span>
       </p>
     </div>
     <p>{course.studioPitch}</p>
-    <a className="py-[calc(0.5rem_-_1px)] px-[calc(1rem_-_1px)] gap-2 rounded-[1.5rem] border border-solid border-line inline-flex items-center self-start text-body text-[1rem] font-medium leading-[1.2] no-underline focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]" href={PROFILE_HREF}>
+    <a
+      className="py-[calc(0.5rem_-_1px)] px-[calc(1rem_-_1px)] gap-2 rounded-[1.5rem] border border-solid border-line inline-flex items-center self-start text-body text-[1rem] font-medium leading-[1.2] no-underline focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]"
+      href={PROFILE_HREF}
+    >
       {PROFILE_LABEL}
     </a>
   </div>
@@ -176,17 +197,27 @@ CourseCreator.displayName = 'CourseCreator';
 
 const CoursePurchaseCard = memo(({ course, onEnroll }) => (
   <aside className="flex flex-col gap-6 rounded-[1.5rem] border border-solid border-line bg-white p-[calc(2.5rem_-_1px)] text-ink lg:relative lg:z-2 lg:col-start-2 lg:row-start-1 lg:mt-[calc(416px_-_957px_-_62.5px)] lg:group-data-[tab=Lesson]/body:mt-[calc(416px_-_957px_-_79px)] lg:group-data-[tab=Reviews]/body:mt-[calc(416px_-_957px_-_79px)]">
-    <h2 className="font-display font-semibold tracking-[-0.2px] leading-[1.2] text-ink text-[1.25rem]">{course.lessonSummary}</h2>
+    <h2 className="font-display font-semibold tracking-[-0.2px] leading-[1.2] text-ink text-[1.25rem]">
+      {course.lessonSummary}
+    </h2>
     <CourseLessonList lessons={course.lessons} moreLabel={course.moreLessonsLabel} />
     <p className="text-body text-[1rem] font-normal leading-[1.625]">{course.enrollPitch}</p>
     <p className="flex items-end h-[38px]">
-      <strong className="text-brand-blue font-display text-[2rem] font-semibold leading-[38px] tracking-[-0.01em] md:text-[2.25rem]">{course.price}</strong>
+      <strong className="text-brand-blue font-display text-[2rem] font-semibold leading-[38px] tracking-[-0.01em] md:text-[2.25rem]">
+        {course.price}
+      </strong>
       <span className="text-body leading-[1.625]">{PRICE_SUFFIX}</span>
     </p>
-    <button type="button" className="py-3 px-6 gap-2 rounded-[1.5rem] border-none inline-flex items-center bg-brand-lime text-ink cursor-pointer font-medium w-full justify-center text-[1rem] leading-[1.2] md:text-[1.125rem] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]" onClick={onEnroll}>
+    <button
+      type="button"
+      className="py-3 px-6 gap-2 rounded-[1.5rem] border-none inline-flex items-center bg-brand-lime text-ink cursor-pointer font-medium w-full justify-center text-[1rem] leading-[1.2] md:text-[1.125rem] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]"
+      onClick={onEnroll}
+    >
       {ENROLL_LABEL}
     </button>
-    <h2 className="font-display font-semibold tracking-[-0.2px] leading-[1.2] text-ink text-[1.25rem]">{INCLUDES_HEADING}</h2>
+    <h2 className="font-display font-semibold tracking-[-0.2px] leading-[1.2] text-ink text-[1.25rem]">
+      {INCLUDES_HEADING}
+    </h2>
     <CourseIncludes items={course.includes} />
     <CourseCreator course={course} />
   </aside>

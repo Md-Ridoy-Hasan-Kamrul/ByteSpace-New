@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { courseDetailsPath } from '../config';
 import {
@@ -38,13 +38,15 @@ const AVATARS = {
     list: 'mt-1.5 flex md:mt-0',
     item: 'not-first:-ml-2 md:not-first:ml-[-0.7rem]',
     img: `${AVATAR_IMG} max-md:h-6 max-md:w-6`,
-    label: 'absolute inset-0 grid items-center justify-items-center text-[0.5625rem] font-bold md:text-[0.75rem]',
+    label:
+      'absolute inset-0 grid items-center justify-items-center text-[0.5625rem] font-bold md:text-[0.75rem]',
   },
   growth: {
     list: 'flex',
     item: 'not-first:ml-[-16px]',
     img: AVATAR_IMG,
-    label: 'absolute top-[13px] left-[12px] block items-center justify-items-center text-[0.75rem] leading-[1.5] font-bold text-ink',
+    label:
+      'absolute top-[13px] left-[12px] block items-center justify-items-center text-[0.75rem] leading-[1.5] font-bold text-ink',
   },
   register: {
     list: 'flex',
@@ -154,7 +156,13 @@ export const CourseCard = memo(
             </div>
             <p className={styles.score}>
               {course.ratingLabel}
-              <img className={styles.star} src={ratingIcon} alt="" width={ICON_SIZE} height={ICON_SIZE} />
+              <img
+                className={styles.star}
+                src={ratingIcon}
+                alt=""
+                width={ICON_SIZE}
+                height={ICON_SIZE}
+              />
             </p>
             <div className="col-[1/-1] flex min-w-0 items-center gap-3">
               <p className={styles.level}>
@@ -185,9 +193,21 @@ export const CourseCard = memo(
 CourseCard.displayName = 'CourseCard';
 
 const GRID = {
-  home: { grid: 'mt-[4.8125rem] grid grid-cols-[1fr] gap-10 md:grid-cols-2 lg:grid-cols-3', card: 'default', empty: 'mt-8 text-center text-body' },
-  search: { grid: 'mt-8 grid grid-cols-[1fr] gap-10 sm:mt-[77px] md:grid-cols-2 lg:grid-cols-3 xl:ml-[1px] xl:w-[1199px]', card: 'default', empty: 'mt-8 text-center text-body' },
-  creator: { grid: 'mt-10 grid grid-cols-[1fr] gap-10 md:grid-cols-2 lg:grid-cols-3 xl:ml-[1px] xl:w-[1199px]', card: 'figma', empty: 'mt-10 text-body' },
+  home: {
+    grid: 'mt-[4.8125rem] grid grid-cols-[1fr] gap-10 md:grid-cols-2 lg:grid-cols-3',
+    card: 'default',
+    empty: 'mt-8 text-center text-body',
+  },
+  search: {
+    grid: 'mt-8 grid grid-cols-[1fr] gap-10 sm:mt-[77px] md:grid-cols-2 lg:grid-cols-3 xl:ml-[1px] xl:w-[1199px]',
+    card: 'default',
+    empty: 'mt-8 text-center text-body',
+  },
+  creator: {
+    grid: 'mt-10 grid grid-cols-[1fr] gap-10 md:grid-cols-2 lg:grid-cols-3 xl:ml-[1px] xl:w-[1199px]',
+    card: 'figma',
+    empty: 'mt-10 text-body',
+  },
 };
 
 // Course cards in the shared grid, or a message when no course matches.

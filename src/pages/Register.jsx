@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { AuthCard, AuthScreen } from '../components/AuthLayout';
 import { ROUTES } from '../config';
 import {

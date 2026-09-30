@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CatalogToolbar } from '../components/CatalogToolbar';
 import { CourseGrid } from '../components/CourseCard';
@@ -86,10 +86,16 @@ const CreatorIdentity = memo(({ creator }) => (
     />
     <div className="gap-2 grid">
       <div className="gap-2 flex flex-wrap items-start">
-        <h1 className="font-display font-semibold tracking-[-0.36px] leading-[1.2] text-canvas text-[clamp(1.625rem,_7.5vw,_1.875rem)] md:text-[2.25rem]">{creator.name}</h1>
-        <span className="py-2 px-6 rounded-[1.5rem] inline-flex items-center justify-center bg-brand-lime text-ink text-[1rem] font-medium leading-[1.2]">{creator.badge}</span>
+        <h1 className="font-display font-semibold tracking-[-0.36px] leading-[1.2] text-canvas text-[clamp(1.625rem,_7.5vw,_1.875rem)] md:text-[2.25rem]">
+          {creator.name}
+        </h1>
+        <span className="py-2 px-6 rounded-[1.5rem] inline-flex items-center justify-center bg-brand-lime text-ink text-[1rem] font-medium leading-[1.2]">
+          {creator.badge}
+        </span>
       </div>
-      <p className="text-canvas text-[1rem] font-normal leading-[29px] md:text-[1.125rem]">{creator.role}</p>
+      <p className="text-canvas text-[1rem] font-normal leading-[29px] md:text-[1.125rem]">
+        {creator.role}
+      </p>
     </div>
   </div>
 ));
@@ -99,7 +105,12 @@ CreatorIdentity.displayName = 'CreatorIdentity';
 const CreatorBio = memo(({ paragraphs }) => (
   <div className="grid max-w-[74.8125rem]">
     {paragraphs.map((paragraph) => (
-      <p className="text-canvas text-[1rem] font-normal leading-[29px] md:text-[1.125rem]" key={paragraph}>{paragraph}</p>
+      <p
+        className="text-canvas text-[1rem] font-normal leading-[29px] md:text-[1.125rem]"
+        key={paragraph}
+      >
+        {paragraph}
+      </p>
     ))}
   </div>
 ));
@@ -113,7 +124,12 @@ const CreatorActions = memo(({ stats, following, onFollow }) => (
         <CreatorStat key={stat.id} stat={stat} />
       ))}
     </div>
-    <button type="button" className="py-3 px-6 rounded-[1.5rem] border-none bg-brand-lime text-ink-deep text-[1rem] font-medium leading-[1.2] cursor-pointer md:text-[1.125rem] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-lime focus-visible:outline-offset-[3px]" aria-pressed={following} onClick={onFollow}>
+    <button
+      type="button"
+      className="py-3 px-6 rounded-[1.5rem] border-none bg-brand-lime text-ink-deep text-[1rem] font-medium leading-[1.2] cursor-pointer md:text-[1.125rem] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-lime focus-visible:outline-offset-[3px]"
+      aria-pressed={following}
+      onClick={onFollow}
+    >
       {FOLLOW_LABEL}
     </button>
   </div>

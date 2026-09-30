@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { HERO_ORNAMENTS } from '../data/home';
 
 // Figma draws each ornament image slightly outside its frame; cones and coils bleed differently.
@@ -25,7 +25,10 @@ const Ornament = memo(({ ornament }) => (
         width={ornament.width}
         height={ornament.height}
       />
-      <span className={TINT[ornament.tone]} style={{ '--ornament-mask': `url("${ornament.src}")` }} />
+      <span
+        className={TINT[ornament.tone]}
+        style={{ '--ornament-mask': `url("${ornament.src}")` }}
+      />
     </span>
   </span>
 ));

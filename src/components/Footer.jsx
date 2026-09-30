@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import toast from 'react-hot-toast';
 import { ROUTES } from '../config';
 import { isValidEmail } from '../data/auth';
@@ -56,7 +56,10 @@ const useNewsletterForm = () => {
 const FooterLinks = memo(() => (
   <div className="gap-6 grid md:gap-[28px] md:flex md:grid-cols-3 md:grow-0 md:shrink-0 md:max-xl:basis-auto lg:gap-[40px] lg:max-xl:w-auto xl:basis-[528px] xl:w-[580px]">
     {FOOTER_LINK_GROUPS.map((group) => (
-      <ul className="gap-4 grid text-[0.875rem] leading-[1.6] md:max-xl:whitespace-nowrap lg:pt-[48px] lg:grow-0 lg:shrink-0 lg:basis-auto lg:max-xl:w-auto xl:w-[167px]" key={group[0].label}>
+      <ul
+        className="gap-4 grid text-[0.875rem] leading-[1.6] md:max-xl:whitespace-nowrap lg:pt-[48px] lg:grow-0 lg:shrink-0 lg:basis-auto lg:max-xl:w-auto xl:w-[167px]"
+        key={group[0].label}
+      >
         {group.map((link) => (
           <li key={link.label}>
             <HomeLink to={link.to} href={link.href} className={UNDERLINE_LINK}>
@@ -80,7 +83,8 @@ const NewsletterForm = memo(() => {
         <label className="sr-only" htmlFor="newsletter-email">
           Email
         </label>
-        <input className="px-6 rounded-[100px] border border-solid border-line h-13 w-full bg-white text-ink text-[1rem] leading-[1.6] md:w-auto md:basis-auto md:max-xl:grow md:max-xl:shrink md:max-xl:min-w-0 xl:w-[376px] xl:grow-0 xl:shrink-0 focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-lime focus-visible:outline-offset-[3px]"
+        <input
+          className="px-6 rounded-[100px] border border-solid border-line h-13 w-full bg-white text-ink text-[1rem] leading-[1.6] md:w-auto md:basis-auto md:max-xl:grow md:max-xl:shrink md:max-xl:min-w-0 xl:w-[376px] xl:grow-0 xl:shrink-0 focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-lime focus-visible:outline-offset-[3px]"
           id="newsletter-email"
           type="email"
           placeholder={EMAIL_PLACEHOLDER}
@@ -97,7 +101,11 @@ const NewsletterForm = memo(() => {
         </button>
       </div>
       {error ? (
-        <p id="newsletter-error" className="text-[rgb(180,_35,_24)] text-[0.75rem] leading-[1.6]" role="alert">
+        <p
+          id="newsletter-error"
+          className="text-[rgb(180,_35,_24)] text-[0.75rem] leading-[1.6]"
+          role="alert"
+        >
           {error}
         </p>
       ) : null}
@@ -110,7 +118,10 @@ const NewsletterForm = memo(() => {
 NewsletterForm.displayName = 'NewsletterForm';
 
 export const HomeFooter = memo(() => (
-  <footer id="newsletter" className="[border-top-style:solid] border-t border-t-line bg-white text-ink pt-[71px] pb-[48px] [-webkit-font-smoothing:antialiased]">
+  <footer
+    id="newsletter"
+    className="[border-top-style:solid] border-t border-t-line bg-white text-ink pt-[71px] pb-[48px] [-webkit-font-smoothing:antialiased]"
+  >
     <div className="mx-auto w-[min(100%_-_2rem,_75rem)] sm:w-[min(100%_-_2.5rem,_75rem)]">
       <div className="gap-10 grid md:gap-[40px] md:flex md:flex-row md:items-start md:grid-cols-[1.1fr_1fr] md:max-xl:justify-between lg:gap-[48px] xl:gap-[92px]">
         <div className="md:max-lg:grow md:max-lg:basis-auto md:max-lg:max-w-[504px] md:max-xl:shrink md:max-xl:min-w-0 lg:grow-0 lg:basis-[528px] xl:shrink-0">

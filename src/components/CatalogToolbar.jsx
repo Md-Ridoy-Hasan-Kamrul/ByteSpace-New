@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { ICON_SIZE } from '../data/home';
 import {
   CATEGORY_LABEL,

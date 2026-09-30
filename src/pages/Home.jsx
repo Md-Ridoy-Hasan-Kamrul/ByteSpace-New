@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { HomeFooter } from '../components/Footer';
 import { CategoryPaths } from '../components/home/CategoryPaths';
 import { CourseDiscovery, useHomeCatalog } from '../components/home/CourseDiscovery';
