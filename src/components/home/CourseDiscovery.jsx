@@ -1,12 +1,35 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useMemo, useState } from 'react';
 import {
   COURSE_TOPIC_ROWS,
   DISCOVERY_BODY,
   DISCOVERY_TITLE,
   EMPTY_COURSES_MESSAGE,
+  FEATURED_TOPIC,
   MORE_TOPICS_LABEL,
-} from './homeData';
-import CourseGrid from './CourseGrid';
+  filterCourses,
+} from '../../data/home';
+import { CourseGrid } from '../CourseCard';
+
+const EMPTY_QUERY = '';
+
+export const useHomeCatalog = (courses) => {
+  const [topic, setTopic] = useState(FEATURED_TOPIC);
+
+  const visibleCourses = useMemo(
+    () => filterCourses(courses, { query: EMPTY_QUERY, topic }),
+    [courses, topic],
+  );
+
+  const handleTopicSelect = useCallback((nextTopic) => {
+    setTopic(nextTopic);
+  }, []);
+
+  return {
+    topic,
+    visibleCourses,
+    handleTopicSelect,
+  };
+};
 
 const TopicButton = memo(({ topic, isSelected, onTopicSelect }) => {
   const handleSelect = useCallback(() => {
@@ -49,7 +72,7 @@ const TopicList = memo(({ topic, onTopicSelect }) => (
 
 TopicList.displayName = 'TopicList';
 
-const CourseDiscovery = memo(({ catalog }) => (
+export const CourseDiscovery = memo(({ catalog }) => (
   <section id="courses" className="home-section home-discovery">
     <div className="home-wrap">
       <div className="home-section-copy">
@@ -63,5 +86,3 @@ const CourseDiscovery = memo(({ catalog }) => (
 ));
 
 CourseDiscovery.displayName = 'CourseDiscovery';
-
-export default CourseDiscovery;

@@ -1,0 +1,682 @@
+.register-page {
+  --register-blue: #003be2;
+  --register-lime: #d4fb20;
+  --register-ink: #242528;
+  --register-muted: #82868e;
+  --register-body: #4b4c53;
+  --register-white: #ffffff;
+  --register-field: #e5e6e8;
+  --register-danger: #b42318;
+  --register-canvas: #f5f5f6;
+  --register-font-display: Poppins, 'Segoe UI', sans-serif;
+  --register-font-body: Satoshi, 'Segoe UI', sans-serif;
+  --register-content: 90rem;
+  --register-form-width: 36.1875rem;
+  --register-radius-card: 1.5rem;
+  --register-radius-field: 0.75rem;
+  --register-field-height: 3.25rem;
+  --register-field-pad: 1.5rem;
+  --register-line: 1px;
+  --register-focus: 2px;
+  --register-busy: 0.7;
+  --register-space-2xs: 0.35rem;
+  --register-space-xs: 0.5rem;
+  --register-space-sm: 0.75rem;
+  --register-space-md: 1rem;
+  --register-space-lg: 1.5rem;
+  --register-space-xl: 1.75rem;
+  --register-space-2xl: 2rem;
+  --register-space-3xl: 2.5rem;
+  --register-space-4xl: 3rem;
+  --register-shell-pad: 1rem;
+  --register-shell-block: 1.25rem;
+  --register-card-pad-block: 1.5rem;
+  --register-card-pad-inline: 1.25rem;
+  --register-form-gap: 1.25rem;
+  --register-story-title: 16rem;
+  --register-story-size: 1.25rem;
+  --register-story-copy: 28rem;
+  --register-title: clamp(2rem, 8vw, 2.75rem);
+  --register-label-size: 0.875rem;
+  --register-copy-size: 0.875rem;
+  --register-input-size: 1.125rem;
+  --register-leading-title: 1.3;
+  --register-leading-copy: 1.6;
+  --register-leading-display: 1.15;
+  --register-track: -0.01em;
+  --register-weight-medium: 500;
+  --register-weight-semibold: 600;
+  min-height: 100vh;
+  background-color: var(--register-blue);
+  background-image: url('/home/hero-grid.svg');
+  background-size: cover;
+  background-position: center;
+  color: var(--register-white);
+  font-family: var(--register-font-body);
+}
+
+.register-shell {
+  width: min(100% - (var(--register-shell-pad) * 2), var(--register-content));
+  margin-inline: auto;
+  padding-block: var(--register-shell-block) var(--register-space-3xl);
+}
+
+.register-logo {
+  display: inline-flex;
+}
+
+.register-layout {
+  display: grid;
+  gap: var(--register-space-lg);
+  margin-top: var(--register-space-lg);
+}
+
+.register-story h2 {
+  max-width: var(--register-story-title);
+  font-family: var(--register-font-display);
+  font-size: var(--register-story-size);
+  font-weight: var(--register-weight-semibold);
+  line-height: var(--register-leading-title);
+}
+
+.register-story > p {
+  max-width: var(--register-story-copy);
+  margin-top: var(--register-space-sm);
+  color: var(--register-canvas);
+  font-size: var(--register-copy-size);
+  line-height: var(--register-leading-copy);
+}
+
+.register-showcase {
+  display: none;
+}
+
+.register-card {
+  border-radius: var(--register-radius-card);
+  background: var(--register-white);
+  color: var(--register-ink);
+  padding: var(--register-card-pad-block) var(--register-card-pad-inline) var(--register-space-xl);
+}
+
+.register-eyebrow {
+  color: var(--register-blue);
+  font-size: var(--register-input-size);
+  font-weight: var(--register-weight-medium);
+}
+
+.register-card h1 {
+  margin-top: var(--register-space-2xs);
+  font-family: var(--register-font-display);
+  font-size: var(--register-title);
+  font-weight: var(--register-weight-semibold);
+  letter-spacing: var(--register-track);
+  line-height: var(--register-leading-display);
+}
+
+.register-card form {
+  display: grid;
+  gap: var(--register-form-gap);
+  margin-top: var(--register-space-xl);
+}
+
+.register-field {
+  display: grid;
+  gap: var(--register-space-xs);
+}
+
+.register-field label {
+  font-size: var(--register-label-size);
+  font-weight: var(--register-weight-medium);
+}
+
+.register-field input {
+  width: 100%;
+  height: var(--register-field-height);
+  border: var(--register-line) solid var(--register-field);
+  border-radius: var(--register-radius-field);
+  padding-inline: var(--register-field-pad);
+  color: var(--register-ink);
+  font-size: var(--register-input-size);
+  background: var(--register-white);
+}
+
+.register-field input::placeholder {
+  color: var(--register-muted);
+}
+
+.register-field input:focus-visible,
+.register-actions button:focus-visible,
+.register-switch a:focus-visible,
+.register-logo:focus-visible {
+  outline: var(--register-focus) solid var(--register-blue);
+  outline-offset: var(--register-focus);
+}
+
+.register-error {
+  color: var(--register-danger);
+  font-size: var(--register-copy-size);
+}
+
+.register-actions {
+  display: flex;
+  justify-content: stretch;
+}
+
+.register-actions button {
+  width: 100%;
+  min-height: var(--register-field-height);
+  border: 0;
+  border-radius: var(--register-radius-card);
+  background: var(--register-lime);
+  color: var(--register-ink);
+  font-size: var(--register-input-size);
+  font-weight: var(--register-weight-medium);
+  cursor: pointer;
+}
+
+.register-actions button:disabled {
+  cursor: wait;
+  opacity: var(--register-busy);
+}
+
+.register-switch {
+  margin-top: var(--register-space-lg);
+  color: var(--register-body);
+  font-size: var(--register-space-md);
+  text-align: center;
+}
+
+.register-switch a {
+  color: var(--register-blue);
+  font-weight: var(--register-weight-semibold);
+  text-decoration: none;
+}
+
+.register-switch a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 375px) {
+  .register-page {
+    --register-shell-pad: 1.25rem;
+    --register-card-pad-block: 2rem;
+    --register-card-pad-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 425px) {
+  .register-page {
+    --register-copy-size: 1rem;
+  }
+}
+
+/* Mobile type scale (320-767px): 26-30px page title, 16px inputs / eyebrow / buttons. */
+@media (max-width: 767.98px) {
+  .register-page {
+    --register-title: clamp(1.625rem, 7.5vw, 1.875rem);
+    --register-input-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .register-page {
+    --register-shell-pad: 2rem;
+    --register-card-pad-block: 3rem;
+    --register-card-pad-inline: 2.5rem;
+  }
+
+  .register-actions {
+    justify-content: flex-end;
+  }
+
+  .register-actions button {
+    width: auto;
+    padding-inline: var(--register-space-3xl);
+  }
+
+  .register-switch {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1020px) {
+  .register-page {
+    --register-copy-size: 1.125rem;
+    --register-card-pad-block: 3.9375rem;
+    --register-card-pad-inline: 3.8125rem;
+    --register-form-width: 28rem;
+  }
+
+  .register-layout {
+    grid-template-columns: minmax(0, 1fr) var(--register-form-width);
+    align-items: center;
+    gap: var(--register-space-2xl);
+  }
+
+  .register-course,
+  .register-students {
+    position: absolute;
+  }
+
+  /* Figma "Happy Students" card: 258px, lime, 16px padding and radius, 8px gap. */
+  .register-students {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    width: 258px;
+    padding: 16px;
+    border-radius: 16px;
+    background: var(--register-lime);
+    color: var(--register-ink);
+    backdrop-filter: blur(10px);
+  }
+
+  .register-students p {
+    margin: 0;
+  }
+
+  .register-students-label {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  .register-students-score {
+    display: flex;
+    align-items: center;
+    color: #424348;
+    font-size: 0.625rem;
+    line-height: 1.5;
+    white-space: pre;
+  }
+
+  .register-students-score strong {
+    color: var(--register-ink);
+    font-weight: 700;
+  }
+
+  /* Figma star_rate: the glyph sits inset inside a 16px box. */
+  .register-students-star {
+    position: relative;
+    width: 16px;
+    height: 16px;
+  }
+
+  .register-students-star img {
+    position: absolute;
+    top: 6.92%;
+    left: 8.87%;
+    width: 82.26%;
+    height: 78.55%;
+  }
+
+  .register-students .home-avatars li + li {
+    margin-left: -16px;
+  }
+
+  .register-students .home-avatars-extra span {
+    inset: 13px auto auto 9px;
+    display: block;
+    color: var(--register-canvas);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+}
+
+/* Auth pages, Figma "Register" and "Login", 1440 x 1024. Positions are Figma frame
+   coordinates; showcase items are measured from the story block at (122, 120). The showcase only
+   appears from 1020px; 1020-1279px adapts the edges and scales the showcase (block below). */
+@media (min-width: 1020px) {
+  .register-page {
+    background-image: url('/home/grid-tile.svg');
+    background-repeat: repeat;
+    background-size: 120px 120px;
+    /* Align the grid with the left edge of the centred 1440 frame. */
+    background-position: max(0px, calc(50% - 660px)) 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .register-page .register-shell {
+    position: relative;
+    width: min(100%, 90rem);
+    min-height: 1024px;
+    padding: 0;
+  }
+
+  .register-page .register-logo {
+    position: absolute;
+    top: 35px;
+    left: 122px;
+  }
+
+  .register-page .register-layout {
+    display: block;
+    margin: 0;
+  }
+
+  .register-page .register-story {
+    position: absolute;
+    top: 120px;
+    left: 122px;
+    width: 475px;
+  }
+
+  .register-page .register-story h2 {
+    max-width: none;
+    color: var(--register-canvas);
+    font-size: 1.25rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .register-page .register-story > p {
+    max-width: 475px;
+    margin-top: 16px;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .register-page .register-showcase {
+    position: static;
+    display: block;
+    min-height: 0;
+    margin: 0;
+  }
+
+  /* Cards and the students card keep Figma paint order; ornaments (z-index 2) sit on top. */
+  .register-page .register-course,
+  .register-page .register-students {
+    z-index: auto;
+  }
+
+  .register-page .register-course {
+    width: 373px;
+  }
+
+  .register-page .register-course-back {
+    top: 274px;
+    left: 0;
+  }
+
+  .register-page .register-course-front {
+    top: 185px;
+    left: 111px;
+  }
+
+  .register-page .register-students {
+    top: 620px;
+    left: 226px;
+  }
+
+  .register-page .register-showcase .home-ornament {
+    right: auto;
+    bottom: auto;
+  }
+
+  /* Flipped horizontally in Figma, so its box starts at 645 - 175 (frame x 470). */
+  .register-page .register-ornament-coil {
+    top: 506px;
+    left: 348px;
+    width: 175px;
+    height: 175px;
+    transform: scaleX(-1);
+  }
+
+  .register-page .register-ornament-ring {
+    top: 200px;
+    left: 29px;
+    width: 146px;
+    height: 146px;
+  }
+
+  .register-page .register-ornament-prism {
+    top: 582px;
+    left: -25px;
+    width: 188px;
+    height: 188px;
+  }
+
+  /* Register_Frame: 579 x 784 at (50% + 21px, 120); content inset 61 / 63 / 51. */
+  .register-page .register-card {
+    position: absolute;
+    top: 120px;
+    left: calc(50% + 21px);
+    width: 579px;
+    padding: 61px 63px 51px;
+    border-radius: 24px;
+  }
+
+  /* Whole-pixel line heights: Figma rounds these text boxes (29 / 106 / 17 / 22 / 26px). */
+  .register-page .register-eyebrow {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 29px;
+  }
+
+  .register-page .register-card h1 {
+    margin-top: 0;
+    font-size: 2.75rem;
+    line-height: 53px;
+    letter-spacing: -0.01em;
+  }
+
+  .register-page .register-card form {
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .register-page .register-field {
+    gap: 8px;
+  }
+
+  .register-page .register-field label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 17px;
+  }
+
+  .register-page .register-field input {
+    height: 52px;
+    padding-inline: 24px;
+    border-radius: 12px;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .register-page .register-actions button {
+    min-height: 0;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .register-page .register-switch {
+    margin-top: 122px;
+    font-size: 1rem;
+    line-height: 26px;
+    text-align: center;
+  }
+
+  .register-page .register-switch a {
+    font-weight: 400;
+  }
+}
+
+/* Desktop / laptop (1020px+): the auth pages never scroll. The page is one screen tall with the
+   composition centred in it, and on screens shorter than the composition (content ends at 904px,
+   plus a 40px margin) the whole frame zooms down evenly to fit. */
+@media (min-width: 1020px) {
+  .register-page {
+    --register-frame-height: 944px;
+    display: grid;
+    align-content: center;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .register-page .register-shell {
+    height: var(--register-frame-height);
+    min-height: 0;
+    zoom: min(1, tan(atan2(100dvh, var(--register-frame-height))));
+  }
+}
+
+@media (min-width: 1020px) and (max-width: 1279.98px) {
+  .register-page {
+    --register-frame-height: 940px;
+  }
+}
+
+/* Laptop (1020-1279px): the desktop composition with the story and form card pinned 40px from the
+   edges, the card sharing the width, and only the course showcase scaled to fit its column.
+   Text stays at the desktop sizes. */
+@media (min-width: 1020px) and (max-width: 1279.98px) {
+  .register-page .register-shell {
+    container-type: inline-size;
+  }
+
+  .register-page .register-logo,
+  .register-page .register-story {
+    left: 40px;
+  }
+
+  .register-page .register-story {
+    width: calc(50cqw - 61px);
+  }
+
+  .register-page .register-card {
+    right: 40px;
+    left: auto;
+    width: calc(50cqw - 21px);
+    padding: 48px 40px 44px;
+  }
+
+  .register-page .register-showcase {
+    zoom: min(1, tan(atan2(50cqw - 101px, 500px)));
+  }
+
+  .register-page .register-switch {
+    margin-top: 72px;
+  }
+}
+
+/* Below the Figma desktop layout the provider buttons use a standard 56px size with 24px icons;
+   the 1280px block restores Figma's 72px buttons and 40px icons. */
+.sign-in-social {
+  --sign-in-social-size: 3.5rem;
+  --sign-in-social-icon: 1.5rem;
+  --sign-in-social-radius: 1rem;
+  margin-top: var(--register-space-xl);
+}
+
+.sign-in-divider {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--register-space-sm);
+  margin: 0;
+  color: var(--register-muted);
+  font-size: var(--register-input-size);
+}
+
+.sign-in-divider span {
+  height: var(--register-line);
+  background: var(--register-field);
+}
+
+.sign-in-providers {
+  display: flex;
+  justify-content: center;
+  gap: var(--register-space-md);
+  margin-top: var(--register-space-lg);
+}
+
+.sign-in-social-button {
+  display: grid;
+  place-items: center;
+  width: var(--sign-in-social-size);
+  height: var(--sign-in-social-size);
+  border: var(--register-line) solid var(--register-field);
+  border-radius: var(--sign-in-social-radius);
+  background: var(--register-white);
+  cursor: pointer;
+}
+
+.sign-in-social-button img {
+  width: var(--sign-in-social-icon);
+  height: var(--sign-in-social-icon);
+}
+
+.sign-in-social-button:focus-visible {
+  outline: var(--register-focus) solid var(--register-blue);
+  outline-offset: var(--register-focus);
+}
+
+/* Mobile (320-767px): slightly smaller Facebook / Google buttons - 48px with 20px icons. */
+@media (max-width: 767.98px) {
+  .sign-in-social {
+    --sign-in-social-size: 3rem;
+    --sign-in-social-icon: 1.25rem;
+    --sign-in-social-radius: 0.875rem;
+  }
+
+  .sign-in-divider {
+    font-size: 0.875rem;
+  }
+}
+
+/* Login form, Figma "Login" Register_Frame: a 683px content column, split into the form
+   (370px), the social block (141px) and the "New user?" line (26px) with 73px between them. */
+@media (min-width: 1280px) {
+  .register-page .sign-in-card {
+    padding-bottom: 40px;
+  }
+
+  .register-page .sign-in-social {
+    margin-top: 73px;
+  }
+
+  /* 200px rules, 11px gaps, "or" in #888 (Figma 50:349). */
+  .register-page .sign-in-divider {
+    grid-template-columns: 200px auto 200px;
+    justify-content: start;
+    gap: 11px;
+    color: #888;
+    font-size: 1.125rem;
+    line-height: 29px;
+  }
+
+  .register-page .sign-in-divider span {
+    background: #d1d1d1;
+  }
+
+  .register-page .sign-in-providers {
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .register-page .sign-in-social-button {
+    width: 72px;
+    height: 72px;
+    border-color: #d1d1d1;
+    border-radius: 24px;
+  }
+
+  .register-page .sign-in-social-button img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .register-page .sign-in-card .register-switch {
+    margin-top: 73px;
+    color: #888;
+  }
+}

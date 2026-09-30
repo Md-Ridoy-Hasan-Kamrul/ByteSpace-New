@@ -1,0 +1,973 @@
+.course-page {
+  --course-shell: 75rem;
+  --course-gutter: 2rem;
+  --course-gap: 1.5rem;
+  --course-gap-tight: 0.75rem;
+  --course-gap-small: 0.5rem;
+  --course-card-width: 25.75rem;
+  --course-main-width: 45.1875rem;
+  --course-peek-row: 45.3125rem;
+  --course-peek-frame-width: 10.4375rem;
+  --course-peek-frame-height: 7.8125rem;
+  --course-tab-gap: 1rem;
+  --course-tab-block: 0.75rem;
+  --course-tab-inline: 1rem;
+  --course-about-offset: 2.5rem;
+  --course-point-gap: 0.75rem;
+  --course-point-icon-gap: 0.5rem;
+  --course-heading-tracking: -0.2px;
+  --course-radius: 1.5rem;
+  --course-radius-media: 1rem;
+  --course-title: clamp(1.75rem, 4vw, 2.25rem);
+  --course-heading: 1.25rem;
+  --course-body: 1rem;
+  --course-label: 1.125rem;
+  --course-price: 2.25rem;
+  --course-line: 1.625;
+  --course-title-line: 1.2;
+  --course-pad: 2.5rem;
+  --course-card-pad: 2rem;
+  --course-control-pad: 1.5rem;
+  --course-chip-pad: 0.5rem;
+  --course-preview-width: 720;
+  --course-preview-height: 479;
+  --course-peek-width: 167;
+  --course-peek-height: 125;
+  --course-play-pad: 1rem;
+  --course-weight: 500;
+  --course-weight-strong: 600;
+  --course-layer: 2;
+  --course-poster: #443131;
+  --course-play-border: #4f4f4f;
+  --course-play-fill: rgb(61 61 61 / 24%);
+  --course-number-width: 1.5rem;
+  --course-weight-body: 400;
+  --course-hairline: 1px;
+  --course-focus: 2px;
+  --course-avatar-radius: 50%;
+  --course-tracking: -0.01em;
+  --course-module-gap: 0.8125rem;
+  --course-module-text-gap: 0.25rem;
+  --course-module-copy: 39.875rem;
+  --course-progress-fill: 56.01%;
+  --course-progress-label: 0.875rem;
+  --course-progress-value: 2.25rem;
+  --course-progress-tracking: -0.36px;
+  --course-progress-bar: 0.5rem;
+  --course-progress-pad: 1rem;
+  --course-progress-radius: 1rem;
+  --course-progress-gap: 0.5rem;
+  --course-track: #e5e6e8;
+  --course-rating-stack: 0.25rem;
+  --course-rating-badge-radius: 0.5rem;
+  --course-count-width: 2.5rem;
+  --course-review-avatar: 3.25rem;
+  --course-review-copy: 40.1875rem;
+  --course-review-line: 1.625;
+  --course-rating-fill-5: 92.28%;
+  --course-rating-fill-4: 36.49%;
+  --course-rating-fill-3: 9.47%;
+  --course-rating-fill-2: 3.51%;
+  --course-rating-fill-1: 5.26%;
+  --course-byline: #f1f4fe;
+  --course-rule: #d1d1d1;
+  --course-icon: 24px;
+  --course-play-x: 324;
+  --course-play-y: 204;
+  --course-lesson-title: 12.375rem;
+  --course-duration-offset: 33px;
+  --course-price-box: 38px;
+  --course-hero-height: 957px;
+  --course-intro-top: 52px;
+  --course-preview-top: 59px;
+  --course-column: 45.3125rem;
+  --course-body-top: 62.5px;
+  --course-body-bottom: 64.5px;
+  --course-card-top: 416px;
+  --course-share-overhang: 85px;
+  --course-share-edge: 35px;
+  --course-lesson-line: 19px;
+  --course-rating-badge-width: 129px;
+}
+
+/* Hero: blue band with the 120px page grid, header on top. */
+.course-hero {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--home-blue);
+  background-image: url('/home/hero-grid.svg');
+  background-repeat: repeat-x;
+  background-position: center top;
+  background-size: 90rem 64rem;
+  color: var(--home-canvas);
+  padding-bottom: var(--course-pad);
+}
+
+.course-shell {
+  width: min(100% - var(--course-gutter), var(--course-shell));
+  margin-inline: auto;
+}
+
+/* Title block: title, 8px, subtitle, 24px, byline, 24px, stat pills. */
+.course-intro-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--course-gap);
+}
+
+.course-intro-top h1,
+.course-subtitle {
+  margin: 0;
+  color: var(--home-canvas);
+  font-family: var(--home-font-display);
+  font-weight: var(--course-weight-strong);
+  line-height: var(--course-title-line);
+}
+
+.course-intro-top h1 {
+  font-size: var(--course-title);
+  letter-spacing: var(--course-tracking);
+}
+
+.course-subtitle {
+  margin-top: var(--course-gap-small);
+  font-size: var(--course-heading);
+  letter-spacing: var(--course-heading-tracking);
+}
+
+.course-byline {
+  margin: var(--course-gap) 0 0;
+  color: var(--course-byline);
+  font-size: var(--course-label);
+  font-weight: var(--course-weight);
+  line-height: var(--course-title-line);
+}
+
+.course-byline span {
+  color: var(--home-lime);
+}
+
+.course-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--course-tab-gap);
+  margin-top: var(--course-gap);
+}
+
+.course-stat,
+.course-share,
+.course-enroll,
+.course-profile,
+.course-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--course-gap-small);
+}
+
+/* Stat pills and Share: 8px / 24px padding, 24px icon, 8px gap, 40px tall. */
+.course-stat,
+.course-share {
+  margin: 0;
+  border: 0;
+  border-radius: var(--course-radius);
+  padding: var(--course-chip-pad) var(--course-control-pad);
+  font-size: var(--course-body);
+  font-weight: var(--course-weight);
+  line-height: var(--course-title-line);
+}
+
+.course-stat {
+  background: var(--home-white);
+  color: var(--home-ink);
+}
+
+.course-share,
+.course-enroll {
+  border: 0;
+  border-radius: var(--course-radius);
+  background: var(--home-lime);
+  color: var(--home-ink);
+  cursor: pointer;
+  font-weight: var(--course-weight);
+}
+
+.course-share {
+  flex: 0 0 auto;
+  line-height: var(--course-icon);
+}
+
+/* Preview: 720 x 479, poster contained on #443131, play button at (324, 204). */
+.course-preview {
+  position: relative;
+  overflow: hidden;
+  margin-top: var(--course-pad);
+  border-radius: var(--course-radius);
+  aspect-ratio: var(--course-preview-width) / var(--course-preview-height);
+  background: var(--course-poster);
+}
+
+.course-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.course-play {
+  position: absolute;
+  top: calc(var(--course-play-y) / var(--course-preview-height) * 100%);
+  left: calc(var(--course-play-x) / var(--course-preview-width) * 100%);
+  z-index: var(--course-layer);
+  display: grid;
+  place-items: center;
+  border: var(--course-hairline) solid var(--course-play-border);
+  border-radius: var(--course-radius);
+  background: var(--course-play-fill);
+  padding: calc(var(--course-play-pad) - var(--course-hairline));
+  backdrop-filter: blur(20px);
+  cursor: pointer;
+}
+
+/* Purchase card: 412 wide, 40px inset (1px border inside), 24px between blocks. */
+.course-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--course-gap);
+  border: var(--course-hairline) solid var(--home-line);
+  border-radius: var(--course-radius);
+  background: var(--home-white);
+  color: var(--home-ink);
+  padding: calc(var(--course-pad) - var(--course-hairline));
+}
+
+.course-card h2,
+.course-panel h2 {
+  margin: 0;
+  color: var(--home-ink);
+  font-family: var(--home-font-display);
+  font-size: var(--course-heading);
+  font-weight: var(--course-weight-strong);
+  line-height: var(--course-title-line);
+  letter-spacing: var(--course-heading-tracking);
+}
+
+/* Lesson rows: number 24px, 8px, title, duration at x 271; rows 12px apart. */
+.course-lessons ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--course-gap-tight);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.course-lesson {
+  display: grid;
+  grid-template-columns: var(--course-number-width) minmax(0, var(--course-lesson-title)) auto;
+  column-gap: var(--course-gap-small);
+  align-items: start;
+  color: var(--home-ink);
+  font-size: var(--course-body);
+  font-weight: var(--course-weight);
+  line-height: var(--course-lesson-line);
+}
+
+.course-lesson-duration {
+  margin-left: var(--course-duration-offset);
+  color: var(--home-blue);
+  font-weight: var(--course-weight-body);
+  line-height: var(--course-line);
+  white-space: nowrap;
+}
+
+.course-lessons p {
+  margin: var(--course-gap-tight) 0 0;
+}
+
+.course-lessons p,
+.course-pitch,
+.course-copy,
+.course-includes,
+.course-points,
+.course-creator {
+  color: var(--home-body);
+  font-size: var(--course-body);
+  font-weight: var(--course-weight-body);
+  line-height: var(--course-line);
+}
+
+.course-pitch {
+  margin: 0;
+}
+
+/* Price: $25 in a 38px box, /lifetime bottom-aligned beside it. */
+.course-price {
+  display: flex;
+  align-items: flex-end;
+  height: var(--course-price-box);
+  margin: 0;
+}
+
+.course-price strong {
+  color: var(--home-blue);
+  font-family: var(--home-font-display);
+  font-size: var(--course-price);
+  font-weight: var(--course-weight-strong);
+  line-height: var(--course-price-box);
+  letter-spacing: var(--course-tracking);
+}
+
+.course-price span {
+  color: var(--home-body);
+  line-height: var(--course-line);
+}
+
+.course-enroll {
+  width: 100%;
+  justify-content: center;
+  padding: var(--course-gap-tight) var(--course-control-pad);
+  font-size: var(--course-label);
+  line-height: var(--course-title-line);
+}
+
+.course-includes,
+.course-points {
+  display: flex;
+  flex-direction: column;
+  gap: var(--course-point-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.course-includes li,
+.course-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--course-point-icon-gap);
+}
+
+/* Creator block under a #d1d1d1 rule, 24px above and below it. */
+.course-creator {
+  display: flex;
+  flex-direction: column;
+  gap: var(--course-gap);
+  padding-top: var(--course-gap);
+  border-top: var(--course-hairline) solid var(--course-rule);
+}
+
+.course-creator > p {
+  margin: 0;
+}
+
+.course-creator-id {
+  display: flex;
+  gap: var(--course-gap-tight);
+  align-items: flex-start;
+}
+
+.course-creator-id img {
+  border-radius: var(--course-avatar-radius);
+}
+
+.course-creator-id p {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.course-creator-id strong {
+  color: var(--home-ink);
+  font-size: var(--course-label);
+  font-weight: var(--course-weight);
+  line-height: var(--course-title-line);
+}
+
+.course-profile {
+  align-self: flex-start;
+  border: var(--course-hairline) solid var(--home-line);
+  border-radius: var(--course-radius);
+  color: var(--home-body);
+  padding: calc(var(--course-chip-pad) - var(--course-hairline))
+    calc(var(--course-tab-inline) - var(--course-hairline));
+  font-size: var(--course-body);
+  font-weight: var(--course-weight);
+  line-height: var(--course-title-line);
+  text-decoration: none;
+}
+
+.course-body {
+  padding: var(--course-pad) 0;
+  background: var(--home-white);
+}
+
+.course-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--course-pad);
+  align-items: start;
+}
+
+.course-main {
+  display: grid;
+  gap: var(--course-about-offset);
+  min-width: 0;
+}
+
+.course-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--course-tab-gap);
+}
+
+.course-tabs button {
+  border: 0;
+  border-radius: var(--course-radius);
+  background: var(--home-canvas);
+  color: var(--home-body);
+  padding: var(--course-tab-block) var(--course-tab-inline);
+  font-size: var(--course-body);
+  line-height: var(--course-title-line);
+  font-weight: var(--course-weight);
+  cursor: pointer;
+}
+
+.course-tabs button[aria-pressed='true'] {
+  background: var(--home-lime);
+  color: var(--home-ink);
+}
+
+.course-panel {
+  display: grid;
+  gap: var(--course-gap);
+  max-width: var(--course-main-width);
+}
+
+.course-about h2,
+.course-lessons-panel h2 {
+  letter-spacing: var(--course-heading-tracking);
+}
+
+.course-lessons-panel > p {
+  margin: 0;
+  max-width: var(--course-main-width);
+  color: var(--home-body);
+  font-size: var(--course-body);
+  font-weight: var(--course-weight-body);
+  line-height: var(--course-line);
+}
+
+.course-modules {
+  display: grid;
+  gap: var(--course-gap);
+}
+
+.course-module {
+  display: flex;
+  align-items: center;
+  gap: var(--course-module-gap);
+}
+
+.course-module-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  padding: var(--course-play-pad);
+  border-radius: var(--course-radius);
+  background: var(--home-lime);
+}
+
+.course-module-copy {
+  display: grid;
+  gap: var(--course-module-text-gap);
+  min-width: 0;
+}
+
+/* Module titles are Label M (Satoshi Medium), not the Poppins heading face h3 inherits. */
+.course-module-copy h3 {
+  margin: 0;
+  color: var(--home-ink);
+  font-family: var(--home-font-body);
+  font-size: var(--course-body);
+  letter-spacing: normal;
+  font-weight: var(--course-weight);
+  line-height: var(--course-lesson-line);
+}
+
+.course-module-copy p {
+  margin: 0;
+  max-width: var(--course-module-copy);
+  color: var(--home-body);
+  font-size: var(--course-body);
+  font-weight: var(--course-weight-body);
+  line-height: var(--course-line);
+}
+
+.course-progress {
+  display: grid;
+  gap: var(--course-progress-gap);
+  width: min(100%, var(--course-main-width));
+  padding: calc(var(--course-progress-pad) - var(--course-hairline));
+  border: var(--course-hairline) solid var(--home-line);
+  border-radius: var(--course-progress-radius);
+  background: var(--home-white);
+}
+
+.course-progress-label,
+.course-progress-value {
+  margin: 0;
+  color: var(--home-ink);
+  line-height: var(--course-title-line);
+}
+
+.course-progress-label {
+  font-size: var(--course-progress-label);
+  font-weight: var(--course-weight);
+}
+
+.course-progress-value {
+  font-family: var(--home-font-display);
+  font-size: var(--course-progress-value);
+  font-weight: var(--course-weight-strong);
+  letter-spacing: var(--course-progress-tracking);
+}
+
+.course-progress-track {
+  height: var(--course-progress-bar);
+  overflow: hidden;
+  border-radius: var(--course-radius);
+  background: var(--course-track);
+}
+
+.course-progress-fill {
+  display: block;
+  width: var(--course-progress-fill);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--home-lime);
+}
+
+.course-copy {
+  display: grid;
+  gap: calc(var(--course-line) * 1em);
+  max-width: var(--course-main-width);
+  font-size: var(--course-body);
+  font-weight: var(--course-weight-body);
+}
+
+.course-copy p {
+  margin: 0;
+}
+
+.course-peeks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, var(--course-peek-frame-width)));
+  justify-content: space-between;
+  gap: var(--course-point-gap);
+  width: min(100%, var(--course-peek-row));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.course-peeks img {
+  width: 100%;
+  height: var(--course-peek-frame-height);
+  object-fit: cover;
+  border-radius: var(--course-radius-media);
+}
+
+.course-points {
+  display: flex;
+  flex-direction: column;
+  gap: var(--course-point-gap);
+  margin-top: 0;
+}
+
+.course-points li {
+  align-items: flex-start;
+  gap: var(--course-point-icon-gap);
+  margin-top: 0;
+}
+
+.course-share:focus-visible,
+.course-play:focus-visible,
+.course-enroll:focus-visible,
+.course-profile:focus-visible,
+.course-tabs button:focus-visible {
+  outline: var(--course-focus) solid var(--home-blue);
+  outline-offset: var(--course-focus);
+}
+
+.course-reviews-panel h2 {
+  letter-spacing: var(--course-heading-tracking);
+}
+
+.course-reviews-panel > p {
+  margin: 0;
+  max-width: var(--course-main-width);
+  color: var(--home-body);
+  font-size: var(--course-body);
+  font-weight: var(--course-weight-body);
+  line-height: var(--course-line);
+}
+
+.course-rating-summary,
+.course-review-card {
+  width: min(100%, var(--course-main-width));
+  border: var(--course-hairline) solid var(--home-line);
+  background: var(--home-white);
+  padding: var(--course-gap);
+}
+
+.course-rating-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--course-gap);
+  border-radius: var(--course-radius-media);
+}
+
+.course-rating-badge {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  flex: 0 0 auto;
+  padding: var(--course-pad);
+  border-radius: var(--course-rating-badge-radius);
+  background: var(--home-lime);
+  color: var(--home-ink);
+}
+
+.course-rating-caption,
+.course-rating-score {
+  margin: 0;
+  line-height: var(--course-title-line);
+}
+
+.course-rating-caption {
+  font-size: var(--course-progress-label);
+  font-weight: var(--course-weight);
+}
+
+.course-rating-score {
+  font-family: var(--home-font-display);
+  font-size: var(--course-progress-value);
+  font-weight: var(--course-weight-strong);
+  letter-spacing: var(--course-progress-tracking);
+}
+
+.course-rating-bars {
+  display: grid;
+  gap: var(--course-rating-stack);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.course-rating-row {
+  display: flex;
+  align-items: center;
+  gap: var(--course-tab-gap);
+}
+
+.course-rating-track {
+  flex: 1 1 auto;
+  height: var(--course-progress-bar);
+  overflow: hidden;
+  border-radius: var(--course-radius);
+  background: var(--course-track);
+}
+
+.course-rating-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--home-lime);
+}
+
+.course-rating-fill-5 {
+  width: var(--course-rating-fill-5);
+}
+
+.course-rating-fill-4 {
+  width: var(--course-rating-fill-4);
+}
+
+.course-rating-fill-3 {
+  width: var(--course-rating-fill-3);
+}
+
+.course-rating-fill-2 {
+  width: var(--course-rating-fill-2);
+}
+
+.course-rating-fill-1 {
+  width: var(--course-rating-fill-1);
+}
+
+.course-stars {
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--course-rating-stack);
+}
+
+.course-rating-count {
+  flex: 0 0 var(--course-count-width);
+  width: var(--course-count-width);
+  color: var(--home-body);
+  font-size: var(--course-body);
+  line-height: var(--course-line);
+  text-align: right;
+}
+
+.course-rating-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--course-tab-gap);
+  width: min(100%, var(--course-main-width));
+}
+
+.course-rating-filters button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--course-rating-stack);
+  border: 0;
+  border-radius: var(--course-radius);
+  background: var(--home-canvas);
+  color: var(--home-body);
+  padding: var(--course-tab-block) var(--course-tab-inline);
+  font-size: var(--course-body);
+  line-height: var(--course-title-line);
+  font-weight: var(--course-weight);
+  cursor: pointer;
+}
+
+.course-rating-filters button[aria-pressed='true'] {
+  background: var(--home-lime);
+  color: var(--home-ink);
+}
+
+.course-review-list {
+  display: grid;
+  gap: var(--course-gap);
+  width: min(100%, var(--course-main-width));
+}
+
+.course-review-card {
+  display: grid;
+  gap: var(--course-gap);
+  border-radius: var(--course-radius);
+}
+
+.course-review-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--course-gap);
+}
+
+.course-review-main {
+  display: grid;
+  gap: var(--course-gap);
+}
+
+.course-review-person {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--course-gap-tight);
+}
+
+.course-review-avatar {
+  width: var(--course-review-avatar);
+  height: var(--course-review-avatar);
+  flex: 0 0 auto;
+  border-radius: var(--course-avatar-radius);
+  object-fit: cover;
+}
+
+/* Reviewer names are Label L (Satoshi Medium 18), not the Poppins heading face h3 inherits. */
+.course-review-person h3 {
+  margin: 0;
+  color: var(--home-ink);
+  font-family: var(--home-font-body);
+  letter-spacing: normal;
+  font-size: var(--course-label);
+  font-weight: var(--course-weight);
+  line-height: var(--course-title-line);
+}
+
+.course-review-person p,
+.course-review-time,
+.course-review-body {
+  margin: 0;
+  color: var(--home-body);
+  font-size: var(--course-body);
+  font-weight: var(--course-weight-body);
+  line-height: var(--course-review-line);
+}
+
+.course-review-time {
+  flex: 0 0 auto;
+}
+
+.course-review-body {
+  max-width: var(--course-review-copy);
+}
+
+.course-rating-filters button:focus-visible {
+  outline: var(--course-focus) solid var(--home-blue);
+  outline-offset: var(--course-focus);
+}
+
+@media (min-width: 425px) {
+  /* 40px inset with the 1px border inside it, as in Figma. */
+  .course-rating-summary,
+  .course-review-card {
+    padding: calc(var(--course-pad) - var(--course-hairline));
+  }
+}
+
+/* Mobile (320-767px): the two 167px sneak-peek columns sat at the edges with a wide empty gap
+   between them; let them share the row and keep the 167:125 frame. */
+@media (max-width: 767.98px) {
+  .course-peeks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .course-peeks img {
+    height: auto;
+    aspect-ratio: var(--course-peek-width) / var(--course-peek-height);
+  }
+
+  /* Mobile type scale: 26-30px title, 18px subtitle, 16px labels / buttons, 32px price. */
+  .course-page {
+    --course-title: clamp(1.625rem, 7.5vw, 1.875rem);
+    --course-label: 1rem;
+    --course-price: 2rem;
+  }
+
+  .course-page .course-subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .course-rating-summary {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Ratings badge is a fixed 129px column, so the bars start at x 193. */
+  .course-rating-badge {
+    flex-basis: var(--course-rating-badge-width);
+    width: var(--course-rating-badge-width);
+  }
+
+  .course-peeks {
+    grid-template-columns: repeat(4, var(--course-peek-frame-width));
+  }
+
+  .course-peeks img {
+    width: var(--course-peek-frame-width);
+    height: var(--course-peek-frame-height);
+  }
+}
+
+@media (min-width: 1020px) {
+  .course-hero {
+    height: var(--course-hero-height);
+    padding-bottom: 0;
+  }
+
+  .course-hero .home-header {
+    height: 120px;
+    min-height: 0;
+    padding-block: 0;
+  }
+
+  /* Title block at (122, 172). Figma's Share pill ends 85px past the 1200 column (x 1405); on narrower
+     screens it stays 35px inside the viewport. */
+  .course-intro-top {
+    flex-wrap: nowrap;
+    margin: var(--course-intro-top)
+      calc(-1 * min(var(--course-share-overhang), (100vw - 100%) / 2 - var(--course-share-edge))) 0
+      2px;
+  }
+
+  .course-intro-top h1,
+  .course-subtitle {
+    white-space: nowrap;
+  }
+
+  /* Preview at (125, 416), 720 wide, leaving room for the card column. */
+  .course-preview {
+    width: min(calc(var(--course-preview-width) * 1px), 100% - var(--course-card-width) - 3.75rem);
+    margin: var(--course-preview-top) 0 0 5px;
+  }
+
+  /* Body: tabs 62.5px under the hero; the 725px column on the left, the card on the right
+     lifted into the hero so its top sits at y 416. */
+  .course-body {
+    padding-block: var(--course-body-top) var(--course-body-bottom);
+  }
+
+  /* Course Lessons: tabs 79px under the hero, footer 83px under the progress card. */
+  /* Course Reviews: same top as Lessons, footer 91px under the last review. */
+  .course-body[data-tab='Reviews'] {
+    --course-body-top: 79px;
+    --course-body-bottom: 91px;
+  }
+
+  .course-body[data-tab='Lesson'] {
+    --course-body-top: 79px;
+    --course-body-bottom: 83px;
+  }
+
+  .course-layout {
+    grid-template-columns: minmax(0, var(--course-column)) var(--course-card-width);
+    justify-content: space-between;
+  }
+
+  .course-main {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .course-card {
+    position: relative;
+    z-index: var(--course-layer);
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: calc(var(--course-card-top) - var(--course-hero-height) - var(--course-body-top));
+  }
+}
+
+/* Small laptop (1020-1279px): the left column is narrower than Figma's 725px, so the tab panels
+   shrink to it and the sneak-peek row flexes (keeping the 167:125 frames) instead of pushing the
+   copy underneath the purchase card. */
+@media (min-width: 1020px) and (max-width: 1279.98px) {
+  .course-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .course-main > *,
+  .course-panel > * {
+    min-width: 0;
+  }
+
+  .course-peeks {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--course-point-gap);
+    width: 100%;
+  }
+
+  .course-peeks img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: var(--course-peek-width) / var(--course-peek-height);
+  }
+}

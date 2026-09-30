@@ -1,79 +1,24 @@
 {
-  "name": "react-vite-tailwind-app",
+  "name": "bytespace-new",
   "version": "1.0.0",
-  "description": "React app with Vite, Tailwind CSS, and React Router DOM",
+  "private": true,
+  "description": "ByteSpace New — responsive course landing page with login and signup, built from the Figma design.",
   "scripts": {
-    "start": "vite --open",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "predev": "node scripts/kill-port.js 5173",
-    "dev": "vite",
-    "dev:fresh": "npx kill-port 5173 && vite",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "test:e2e:install": "playwright install chromium",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
-    "format": "prettier --write src",
-    "prepare": "husky"
+    "format": "prettier --write src"
   },
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "eslint --fix --max-warnings=0",
-      "prettier --write"
-    ],
-    "src/**/*.{css,md,json}": [
-      "prettier --write"
-    ]
-  },
-  "keywords": [
-    "react",
-    "vite",
-    "tailwind",
-    "react-router"
-  ],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@reduxjs/toolkit": "^2.12.0",
-    "axios": "^1.19.0",
     "lenis": "^1.3.26",
     "lucide-react": "^1.34.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-hot-toast": "^2.6.0",
-    "react-redux": "^9.3.0",
-    "react-router-dom": "^7.18.2",
-    "socket.io-client": "^4.8.3",
-    "web-vitals": "^6.2.0"
+    "react-router-dom": "^7.18.2"
   },
   "devDependencies": {
-    "@babel/core": "^8.0.1",
-    "@babel/preset-env": "^8.0.2",
-    "@babel/preset-react": "^8.0.1",
-    "@eslint/js": "^9.39.5",
-    "@playwright/test": "^1.62.1",
-    "@tailwindcss/postcss": "^4.3.3",
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^7.0.1",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^14.6.6",
     "@vitejs/plugin-react": "^6.1.0",
-    "babel-jest": "^30.4.1",
-    "eslint": "^9.39.5",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-tailwindcss": "^3.18.3",
-    "globals": "^17.11.0",
-    "husky": "^9.1.7",
-    "jest": "^30.4.2",
-    "jest-environment-jsdom": "^30.4.1",
-    "lint-staged": "^16.4.0",
-    "postcss": "^8.5.26",
     "prettier": "^3.9.6",
     "vite": "^8.2.2"
   }

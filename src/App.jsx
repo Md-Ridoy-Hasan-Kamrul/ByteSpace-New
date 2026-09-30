@@ -1,23 +1,69 @@
-import React from 'react';
-import { RouterProvider } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import React, { Suspense, lazy } from 'react';
+import {
+  Outlet,
+  Route,
+  RouterProvider,
+  ScrollRestoration,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import ErrorBoundary from './components/ErrorBoundary';
-import router from './router/router';
-import store from './store/store';
-import { TOAST_CONFIG } from './config';
+import { ROUTES, TOAST_CONFIG } from './config';
+import { useSmoothScroll } from './hooks/useSmoothScroll';
+
+const Home = lazy(() => import('./pages/Home'));
+const Search = lazy(() => import('./pages/Search'));
+const CourseDetails = lazy(() => import('./pages/CourseDetails'));
+const CreatorProfile = lazy(() => import('./pages/CreatorProfile'));
+const SignIn = lazy(() => import('./pages/SignIn'));
+const Register = lazy(() => import('./pages/Register'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
+const PageLoader = () => (
+  <div className="page-loader" role="status" aria-label="Loading">
+    <span />
+  </div>
+);
+
+// Every new page opens at the top, back/forward restores the previous position, and Lenis smooths
+// wheel scrolling site-wide.
+const RootLayout = () => {
+  useSmoothScroll();
+
+  return (
+    <>
+      <ScrollRestoration />
+      <Suspense fallback={<PageLoader />}>
+        <Outlet />
+      </Suspense>
+    </>
+  );
+};
+
+export const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<RootLayout />}>
+      <Route path={ROUTES.HOME} element={<Home />} />
+      <Route path={ROUTES.SEARCH} element={<Search />} />
+      <Route path={ROUTES.COURSE_DETAILS} element={<CourseDetails />} />
+      <Route path={ROUTES.CREATOR_PROFILE} element={<CreatorProfile />} />
+      <Route path={ROUTES.SIGN_IN} element={<SignIn />} />
+      <Route path={ROUTES.REGISTER} element={<Register />} />
+      <Route path="*" element={<NotFound />} />
+    </Route>,
+  ),
+);
 
 function App() {
   return (
-    <Provider store={store}>
-      <ErrorBoundary>
-        <RouterProvider router={router} />
-        <Toaster
-          position={TOAST_CONFIG.POSITION}
-          toastOptions={{ duration: TOAST_CONFIG.DURATION }}
-        />
-      </ErrorBoundary>
-    </Provider>
+    <ErrorBoundary>
+      <RouterProvider router={router} />
+      <Toaster
+        position={TOAST_CONFIG.POSITION}
+        toastOptions={{ duration: TOAST_CONFIG.DURATION }}
+      />
+    </ErrorBoundary>
   );
 }
 

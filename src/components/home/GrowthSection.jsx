@@ -1,24 +1,15 @@
 import React, { memo } from 'react';
 import {
   AVATAR_MORE,
-  GROWTH_CREATOR,
-  GROWTH_GLOW,
-  GROWTH_GLOW_LIME,
-  GROWTH_ORNAMENTS,
-  HERO_AVATAR_SIZE,
-  HERO_STUDENT,
-  ICON_CHECK,
-  ICON_SIZE,
-  ICON_STAR,
-  ICON_STAR_LIME,
-  LEARNER_MORE_DARK,
-} from './homeAssets';
-import {
   CREATOR_BENEFITS,
   CREATOR_BODY,
   CREATOR_LEAD,
   CREATOR_TITLE,
   GROWTH_BODY,
+  GROWTH_CREATOR,
+  GROWTH_GLOW,
+  GROWTH_GLOW_LIME,
+  GROWTH_ORNAMENTS,
   GROWTH_STATS,
   GROWTH_TITLE,
   HAPPY_STUDENTS_COUNT,
@@ -26,7 +17,14 @@ import {
   HAPPY_STUDENTS_LABEL,
   HAPPY_STUDENTS_RATING,
   HERO_AVATARS,
+  HERO_AVATAR_SIZE,
+  HERO_STUDENT,
   HOME_COURSES,
+  ICON_CHECK,
+  ICON_SIZE,
+  ICON_STAR,
+  ICON_STAR_LIME,
+  LEARNER_MORE_DARK,
   LEARNING_PROGRESS_LABEL,
   REVENUE_AMOUNT,
   REVENUE_DELTA,
@@ -35,12 +33,11 @@ import {
   YEAR_TO_DATE_AMOUNT,
   YEAR_TO_DATE_LABEL,
   YEAR_TO_DATE_YEAR,
-} from './homeData';
-import AvatarStack from './AvatarStack';
-import CourseCard from './CourseCard';
-import OrnamentField from './OrnamentField';
+} from '../../data/home';
+import { AvatarStack, CourseCard } from '../CourseCard';
+import { OrnamentField } from '../Ornaments';
 
-// Layout follows Figma "Frame 15" (34:1159): intro copy + course illustration, then
+// Layout follows Figma "Frame 15": intro copy + course illustration, then
 // creator illustration + creator copy. Illustrations are decorative, so they are inert.
 
 const GROWTH_COURSE = HOME_COURSES[0];
@@ -151,7 +148,7 @@ const CreatorBenefits = memo(() => (
 
 CreatorBenefits.displayName = 'CreatorBenefits';
 
-const GrowthSection = memo(() => (
+export const GrowthSection = memo(() => (
   <section className="home-growth" aria-label="Professional growth">
     <img className="home-growth-glow" src={GROWTH_GLOW} alt="" />
     <img className="home-growth-glow-lime" src={GROWTH_GLOW_LIME} alt="" />
@@ -179,5 +176,3 @@ const GrowthSection = memo(() => (
 ));
 
 GrowthSection.displayName = 'GrowthSection';
-
-export default GrowthSection;

@@ -1,8 +1,7 @@
 import React, { memo } from 'react';
-import { PARTNER_LOGO_HEIGHT, PARTNER_LOGO_WIDTH } from './homeAssets';
-import { PARTNERS } from './homeData';
+import { PARTNERS, PARTNER_LOGO_HEIGHT, PARTNER_LOGO_WIDTH } from '../../data/home';
 
-const PartnerStrip = memo(() => (
+export const PartnerStrip = memo(() => (
   <section className="home-partners" aria-label="Partners">
     <ul className="home-wrap">
       {PARTNERS.map((partner) => (
@@ -20,5 +19,3 @@ const PartnerStrip = memo(() => (
 ));
 
 PartnerStrip.displayName = 'PartnerStrip';
-
-export default PartnerStrip;

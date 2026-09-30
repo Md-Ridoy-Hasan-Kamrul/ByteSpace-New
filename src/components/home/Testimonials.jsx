@@ -1,6 +1,11 @@
 import React, { memo } from 'react';
-import { COMMUNITY_GLOWS, PORTRAIT_SIZE } from './homeAssets';
-import { COMMUNITY_BODY, COMMUNITY_TITLE, TESTIMONIALS } from './homeData';
+import {
+  COMMUNITY_BODY,
+  COMMUNITY_GLOWS,
+  COMMUNITY_TITLE,
+  PORTRAIT_SIZE,
+  TESTIMONIALS,
+} from '../../data/home';
 
 const TestimonialCard = memo(({ testimonial }) => (
   <article className="home-testimonial">
@@ -15,7 +20,7 @@ const TestimonialCard = memo(({ testimonial }) => (
 
 TestimonialCard.displayName = 'TestimonialCard';
 
-const Testimonials = memo(() => (
+export const Testimonials = memo(() => (
   <section className="home-community" aria-label="Community">
     {COMMUNITY_GLOWS.map((glow) => (
       <img
@@ -40,5 +45,3 @@ const Testimonials = memo(() => (
 ));
 
 Testimonials.displayName = 'Testimonials';
-
-export default Testimonials;

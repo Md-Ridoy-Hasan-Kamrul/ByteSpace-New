@@ -2,7 +2,24 @@ import { useEffect } from 'react';
 import { useLocation, useNavigationType } from 'react-router-dom';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
-import { getLenis, setLenis } from '../utils/smoothScroll';
+
+let lenis = null;
+
+// Registered by useSmoothScroll; null in tests, with reduced motion, or before the app mounts.
+const setLenis = (instance) => {
+  lenis = instance;
+};
+
+const getLenis = () => lenis;
+
+// Smooth-scrolls the window to `top`, through Lenis when it is running.
+export const smoothScrollTo = (top) => {
+  if (lenis) {
+    lenis.scrollTo(top);
+  } else {
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+};
 
 // Lenis smooth wheel scrolling for the whole site. Touch scrolling stays native, people who ask for
 // reduced motion keep normal scrolling, and in-page #anchor links scroll smoothly too.

@@ -1,11 +1,10 @@
 import React, { memo } from 'react';
 import { ROUTES } from '../../config';
-import { CTA_ORNAMENTS } from './homeAssets';
-import { CTA_BODY, CTA_BUTTON_LABEL, CTA_TITLE } from './homeData';
-import HomeLink from './HomeLink';
-import OrnamentField from './OrnamentField';
+import { CTA_BODY, CTA_BUTTON_LABEL, CTA_ORNAMENTS, CTA_TITLE } from '../../data/home';
+import { HomeLink } from '../Header';
+import { OrnamentField } from '../Ornaments';
 
-const CreatorCta = memo(() => (
+export const CreatorCta = memo(() => (
   <section id="creators" className="home-cta">
     <OrnamentField ornaments={CTA_ORNAMENTS} />
     <div className="home-wrap">
@@ -19,5 +18,3 @@ const CreatorCta = memo(() => (
 ));
 
 CreatorCta.displayName = 'CreatorCta';
-
-export default CreatorCta;
