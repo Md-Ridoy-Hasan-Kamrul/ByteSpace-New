@@ -27,7 +27,6 @@ import {
   SHARE_LABEL,
   SHARE_SUCCESS_MESSAGE,
   courseSeo,
-  courseTabLabel,
   selectCourseDetails,
 } from '../data/course';
 import { useSEO } from '../hooks/useSEO';
@@ -196,7 +195,7 @@ const CourseCreator = memo(({ course }) => (
 CourseCreator.displayName = 'CourseCreator';
 
 const CoursePurchaseCard = memo(({ course, onEnroll }) => (
-  <aside className="flex flex-col gap-6 rounded-[1.5rem] border border-solid border-line bg-white p-[calc(2.5rem_-_1px)] text-ink lg:relative lg:z-2 lg:col-start-2 lg:row-start-1 lg:mt-[calc(416px_-_957px_-_62.5px)] lg:group-data-[tab=Lesson]/body:mt-[calc(416px_-_957px_-_79px)] lg:group-data-[tab=Reviews]/body:mt-[calc(416px_-_957px_-_79px)]">
+  <aside className="flex flex-col gap-6 rounded-[1.5rem] border border-solid border-line bg-white p-[calc(2.5rem_-_1px)] text-ink lg:relative lg:z-2 lg:col-start-2 lg:row-start-1 lg:mt-[calc(416px_-_957px_-_62.5px)]">
     <h2 className="font-display font-semibold tracking-[-0.2px] leading-[1.2] text-ink text-[1.25rem]">
       {course.lessonSummary}
     </h2>
@@ -250,7 +249,7 @@ const CourseTabList = memo(({ tab, onSelect }) => (
       <CourseTab
         key={tabId}
         tabId={tabId}
-        label={courseTabLabel(tabId, tab)}
+        label={tabId}
         isSelected={tabId === tab}
         onSelect={onSelect}
       />
@@ -282,7 +281,7 @@ const CourseDetailsContent = memo(({ course = COURSE_DETAILS }) => {
       }
     >
       <section
-        className="group/body bg-white py-10 lg:pt-[62.5px] lg:pb-[64.5px] lg:data-[tab=Lesson]:pt-[79px] lg:data-[tab=Lesson]:pb-[83px] lg:data-[tab=Reviews]:pt-[79px] lg:data-[tab=Reviews]:pb-[91px]"
+        className="bg-white py-10 lg:pt-[62.5px] lg:pb-[64.5px] lg:data-[tab=Lessons]:pb-[83px] lg:data-[tab=Reviews]:pb-[91px]"
         data-tab={details.tab}
       >
         <div className="mx-auto gap-10 w-[min(100%_-_2rem,_75rem)] grid grid-cols-[minmax(0px,_1fr)] [align-items:start] lg:grid-cols-[minmax(0,_45.3125rem)_25.75rem] lg:justify-between">
