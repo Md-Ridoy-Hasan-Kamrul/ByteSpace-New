@@ -508,6 +508,33 @@
   }
 }
 
+/* Desktop / laptop (1020px+): the auth pages never scroll. The page is one screen tall with the
+   composition centred in it, and on screens shorter than the composition (content ends at 904px,
+   plus a 40px margin) the whole frame zooms down evenly to fit. */
+@media (min-width: 1020px) {
+  .register-page {
+    --register-frame-height: 944px;
+    display: grid;
+    align-content: center;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .register-page .register-shell {
+    height: var(--register-frame-height);
+    min-height: 0;
+    zoom: min(1, tan(atan2(100dvh, var(--register-frame-height))));
+  }
+}
+
+@media (min-width: 1020px) and (max-width: 1279.98px) {
+  .register-page {
+    --register-frame-height: 940px;
+  }
+}
+
 /* Laptop (1020-1279px): the desktop composition with the story and form card pinned 40px from the
    edges, the card sharing the width, and only the course showcase scaled to fit its column.
    Text stays at the desktop sizes. */

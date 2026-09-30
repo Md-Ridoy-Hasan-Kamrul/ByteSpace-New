@@ -282,8 +282,9 @@
 }
 
 /* The page heroes hide their overflow; while the menu is open they only clip sideways, so the
-   dropdown can hang below a short hero (search page) instead of being cut off. */
-:is(.home-hero, .search-hero, .course-hero, .creator-hero, .not-found-hero):has(.home-mobile-nav) {
+   dropdown can hang below a short hero (search page) instead of being cut off. Not the home hero:
+   it is tall enough for the menu, and unclipping it lets the lime ring spill into the next section. */
+:is(.search-hero, .course-hero, .creator-hero, .not-found-hero):has(.home-mobile-nav) {
   overflow-x: clip;
   overflow-y: visible;
 }
