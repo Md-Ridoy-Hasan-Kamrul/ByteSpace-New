@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import Layout from '../components/Layout';
 import AdminLayout from '../components/layout/admin/Layout';
 import { ROUTES } from '../config';
+import { useSmoothScroll } from '../hooks/useSmoothScroll';
 import { selectIsAuthenticated } from '../store/slices/authSlice';
 
 // Derive a relative segment from an absolute admin route path
@@ -48,13 +49,17 @@ const PageLoader = () => (
 );
 
 // Root route: opens every newly visited page at the top (e.g. clicking a course card) and restores
-// the previous scroll position on browser back/forward.
-const RootLayout = () => (
-  <>
-    <ScrollRestoration />
-    <Outlet />
-  </>
-);
+// the previous scroll position on browser back/forward. Lenis smooths wheel scrolling site-wide.
+const RootLayout = () => {
+  useSmoothScroll();
+
+  return (
+    <>
+      <ScrollRestoration />
+      <Outlet />
+    </>
+  );
+};
 
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = useSelector(selectIsAuthenticated);

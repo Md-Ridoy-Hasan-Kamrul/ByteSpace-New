@@ -1,10 +1,16 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
-const HomeLink = memo(({ to, href, className, children, onClick, label }) => {
+const HomeLink = memo(({ to, href, className, children, onClick, label, current }) => {
   if (to) {
     return (
-      <Link to={to} className={className} onClick={onClick} aria-label={label}>
+      <Link
+        to={to}
+        className={className}
+        onClick={onClick}
+        aria-label={label}
+        aria-current={current ? 'page' : undefined}
+      >
         {children}
       </Link>
     );

@@ -9,6 +9,7 @@ import {
   SEARCH_QUERY_PARAM,
   SORT_RELEVANT,
 } from '../components/search/searchCopy';
+import { smoothScrollTo } from '../utils/smoothScroll';
 
 const EMPTY_QUERY = '';
 
@@ -77,7 +78,7 @@ export const useSearchCatalog = (courses) => {
 
   const handlePageChange = useCallback((page) => {
     setFilters((current) => ({ ...current, page }));
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollTo(0);
   }, []);
 
   const handleResetFilters = useCallback(() => {

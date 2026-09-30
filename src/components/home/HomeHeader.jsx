@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Menu, X } from 'lucide-react';
+import { ChevronRight, Menu, X } from 'lucide-react';
 import { ROUTES } from '../../config';
 import { useHomeMenu } from '../../hooks/useHomeMenu';
 import { ICON_BAG, ICON_SIZE } from './homeAssets';
@@ -19,12 +19,53 @@ const HeaderLinks = memo(({ links, onNavigate }) =>
 
 HeaderLinks.displayName = 'HeaderLinks';
 
+// Rendered only while the menu is open, so reading the path here is always current.
+const MobileMenu = memo(({ onNavigate }) => {
+  const { pathname } = window.location;
+
+  return (
+    <nav className="home-mobile-nav" aria-label="Mobile">
+      <ul className="home-mobile-links">
+        {HEADER_LINKS.map((link) => (
+          <li key={link.label}>
+            <HomeLink
+              to={link.to}
+              className="home-mobile-link"
+              onClick={onNavigate}
+              current={pathname === link.to}
+            >
+              {link.label}
+              <ChevronRight size={MENU_ICON_SIZE} aria-hidden="true" />
+            </HomeLink>
+          </li>
+        ))}
+      </ul>
+      <div className="home-mobile-actions">
+        {HEADER_ACTIONS.map((action, index) => (
+          <HomeLink
+            key={action.label}
+            to={action.to}
+            className={
+              index === 0 ? 'home-mobile-action' : 'home-mobile-action home-mobile-action-primary'
+            }
+            onClick={onNavigate}
+          >
+            {action.label}
+          </HomeLink>
+        ))}
+      </div>
+    </nav>
+  );
+});
+
+MobileMenu.displayName = 'MobileMenu';
+
 const HomeHeader = memo(() => {
   const { isOpen, handleToggle, handleClose } = useHomeMenu();
   const menuLabel = isOpen ? 'Close menu' : 'Open menu';
 
   return (
-    <header>
+    <header className="home-site-header">
       <div className="home-wrap home-header">
         <BrandLockup to={ROUTES.HOME} />
         <nav className="home-desktop-nav" aria-label="Primary">
@@ -46,12 +87,7 @@ const HomeHeader = memo(() => {
           {isOpen ? <X size={MENU_ICON_SIZE} /> : <Menu size={MENU_ICON_SIZE} />}
         </button>
       </div>
-      {isOpen ? (
-        <nav className="home-wrap home-mobile-nav" aria-label="Mobile">
-          <HeaderLinks links={HEADER_LINKS} onNavigate={handleClose} />
-          <HeaderLinks links={HEADER_ACTIONS} onNavigate={handleClose} />
-        </nav>
-      ) : null}
+      {isOpen ? <MobileMenu onNavigate={handleClose} /> : null}
     </header>
   );
 });
