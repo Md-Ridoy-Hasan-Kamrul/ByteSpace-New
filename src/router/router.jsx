@@ -4,6 +4,8 @@ import {
   createRoutesFromElements,
   Route,
   Navigate,
+  Outlet,
+  ScrollRestoration,
   useLocation,
 } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -45,6 +47,15 @@ const PageLoader = () => (
   </div>
 );
 
+// Root route: opens every newly visited page at the top (e.g. clicking a course card) and restores
+// the previous scroll position on browser back/forward.
+const RootLayout = () => (
+  <>
+    <ScrollRestoration />
+    <Outlet />
+  </>
+);
+
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const location = useLocation();
@@ -56,7 +67,7 @@ const ProtectedRoute = ({ children }) => {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <>
+    <Route element={<RootLayout />}>
       <Route
         element={
           <Suspense fallback={<PageLoader />}>
@@ -163,7 +174,7 @@ const router = createBrowserRouter(
           </Suspense>
         }
       />
-    </>,
+    </Route>,
   ),
 );
 

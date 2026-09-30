@@ -920,3 +920,29 @@
     margin-top: calc(var(--course-card-top) - var(--course-hero-height) - var(--course-body-top));
   }
 }
+
+/* Small laptop (1020-1279px): the left column is narrower than Figma's 725px, so the tab panels
+   shrink to it and the sneak-peek row flexes (keeping the 167:125 frames) instead of pushing the
+   copy underneath the purchase card. */
+@media (min-width: 1020px) and (max-width: 1279.98px) {
+  .course-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .course-main > *,
+  .course-panel > * {
+    min-width: 0;
+  }
+
+  .course-peeks {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--course-point-gap);
+    width: 100%;
+  }
+
+  .course-peeks img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: var(--course-peek-width) / var(--course-peek-height);
+  }
+}
