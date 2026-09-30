@@ -8,7 +8,7 @@ import './not-found.css';
 
 const NotFoundContent = memo(() => (
   <div className="home-page not-found-page">
-    <div className="home-hero not-found-hero">
+    <div className="not-found-hero">
       <HomeHeader />
       <div className="home-wrap not-found-stage">
         <NotFoundCode />

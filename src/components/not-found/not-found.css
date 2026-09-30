@@ -31,14 +31,32 @@
   --not-found-fade-late: rgb(212 251 32 / 61%);
   --not-found-fade-end: rgb(255 255 255 / 0%);
   --not-found-hint-color: #e5e6e8;
-  --not-found-layer: 1;
+  --not-found-grid-layer: 1;
+  --not-found-copy-layer: 2;
+  --not-found-code-top: 40px;
 }
 
-.not-found-page .home-hero {
-  min-height: 0;
+/* Hero (63:409): blue band; the 120px grid is drawn over the 404 and under the copy, as in Figma. */
+.not-found-hero {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding-bottom: 0;
+  background-color: var(--home-blue);
+  color: var(--home-canvas);
+  padding-bottom: var(--not-found-stage-pad);
+}
+
+.not-found-hero::after {
+  position: absolute;
+  z-index: var(--not-found-grid-layer);
+  inset: 0;
+  background-image: url('/home/hero-grid.svg');
+  background-repeat: repeat-x;
+  background-position: center top;
+  background-size: 90rem 64rem;
+  content: '';
+  pointer-events: none;
 }
 
 .not-found-stage {
@@ -67,7 +85,7 @@
 
 .not-found-copy {
   position: relative;
-  z-index: var(--not-found-layer);
+  z-index: var(--not-found-copy-layer);
   display: grid;
   justify-items: center;
   gap: var(--not-found-gap);
@@ -109,7 +127,23 @@
 }
 
 @media (min-width: 1020px) {
-  .not-found-page .home-hero {
-    min-height: var(--not-found-hero);
+  .not-found-hero {
+    height: var(--not-found-hero);
+    padding-bottom: 0;
+  }
+
+  .not-found-hero .home-header {
+    height: 120px;
+    min-height: 0;
+    padding-block: 0;
+  }
+
+  /* 404 (63:643) at y 160, 480px Poppins; copy (63:638) at y 521, 935px wide, centred 0.5px right. */
+  .not-found-stage {
+    padding-top: var(--not-found-code-top);
+  }
+
+  .not-found-copy {
+    left: 0.5px;
   }
 }
