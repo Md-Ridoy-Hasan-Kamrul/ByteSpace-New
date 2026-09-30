@@ -197,20 +197,19 @@
   text-decoration: none;
 }
 
-.home-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Header links: a 2px lime bar grows in from the left under the label on hover / keyboard focus. */
+/* Header and footer links: a 2px lime bar grows in from the left under the label on hover /
+   keyboard focus. */
 .home-desktop-nav a,
-.home-desktop-actions a:not([aria-label]) {
+.home-desktop-actions a:not([aria-label]),
+.home-footer a:not(.home-logo) {
   position: relative;
   color: inherit;
   text-decoration: none;
 }
 
 .home-desktop-nav a::after,
-.home-desktop-actions a:not([aria-label])::after {
+.home-desktop-actions a:not([aria-label])::after,
+.home-footer a:not(.home-logo)::after {
   position: absolute;
   right: 0;
   bottom: -0.375rem;
@@ -227,7 +226,9 @@
 .home-desktop-nav a:hover::after,
 .home-desktop-nav a:focus-visible::after,
 .home-desktop-actions a:not([aria-label]):hover::after,
-.home-desktop-actions a:not([aria-label]):focus-visible::after {
+.home-desktop-actions a:not([aria-label]):focus-visible::after,
+.home-footer a:not(.home-logo):hover::after,
+.home-footer a:not(.home-logo):focus-visible::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -244,6 +245,7 @@
 @media (prefers-reduced-motion: reduce) {
   .home-desktop-nav a::after,
   .home-desktop-actions a:not([aria-label])::after,
+  .home-footer a:not(.home-logo)::after,
   .home-desktop-actions a[aria-label] {
     transition: none;
   }
