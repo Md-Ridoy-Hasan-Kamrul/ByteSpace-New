@@ -168,9 +168,10 @@
   background: var(--home-canvas);
 }
 
-/* Topic row (55:1819): the home pills, spread across the 1200px row. */
+/* Topic row (55:1819): the home pills, 16px apart. They wrap on narrower screens, so they start at
+   the left edge there and only spread across the row once all nine fit on one line (1280px+). */
 .search-page .search-topics {
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1rem;
   max-width: none;
   margin: 2rem 0 0;
@@ -259,6 +260,10 @@
   .search-page .search-results {
     width: 1199px;
     margin-left: 1px;
+  }
+
+  .search-page .search-topics {
+    justify-content: space-between;
   }
 }
 
