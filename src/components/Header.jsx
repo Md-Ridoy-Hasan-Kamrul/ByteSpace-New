@@ -158,7 +158,7 @@ const MobileMenu = memo(({ onNavigate }) => {
 MobileMenu.displayName = 'MobileMenu';
 
 // `overHero`: on the home page the header sits over the hero artboard from tablet up; on the other
-// pages it stays in the flow until laptop.
+// pages it stays in the flow. Both show the full nav from tablet up.
 const HEADER = {
   hero: {
     bar: 'relative z-2 mx-auto flex min-h-20 w-[min(100%_-_2rem,_75rem)] items-center justify-between gap-4 py-4 sm:w-[min(100%_-_2.5rem,_75rem)] md:absolute md:inset-x-0 md:top-0 md:z-4 md:min-h-0 md:py-0 md:max-lg:h-[88px] lg:h-[calc(120_/_1024_*_100%)]',
@@ -166,9 +166,9 @@ const HEADER = {
     menuButton: 'md:hidden',
   },
   page: {
-    bar: 'relative z-2 mx-auto flex min-h-20 w-[min(100%_-_2rem,_75rem)] items-center justify-between gap-4 py-4 sm:w-[min(100%_-_2.5rem,_75rem)] lg:h-[120px] lg:min-h-0 lg:py-0',
-    group: 'hidden items-center gap-6 lg:flex',
-    menuButton: 'lg:hidden',
+    bar: 'relative z-2 mx-auto flex min-h-20 w-[min(100%_-_2rem,_75rem)] items-center justify-between gap-4 py-4 sm:w-[min(100%_-_2.5rem,_75rem)] md:h-[88px] md:min-h-0 md:py-0 lg:h-[120px]',
+    group: 'hidden items-center gap-6 md:flex',
+    menuButton: 'md:hidden',
   },
 };
 
