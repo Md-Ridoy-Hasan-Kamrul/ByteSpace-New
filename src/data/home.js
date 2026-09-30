@@ -94,7 +94,8 @@ export const HERO_EDGE_ORNAMENTS = [
   {
     id: 'squiggle-left',
     src: asset('ornament-ring.png'),
-    className: 'home-ornament-squiggle-left',
+    className:
+      'hidden absolute isolate pointer-events-none md:block md:z-2 md:left-[calc(-118_/_1440_*_min(100%,_90rem))] md:top-[calc(221_/_1024_*_100%)] md:w-[calc(385_/_1440_*_min(100%,_90rem))] md:aspect-[1/1] md:max-lg:h-auto',
     tone: ORNAMENT_TONE_LIME,
     width: 385,
     height: 385,
@@ -102,7 +103,9 @@ export const HERO_EDGE_ORNAMENTS = [
   {
     id: 'cylinder',
     src: asset('cone-b.png'),
-    className: 'home-ornament-cone home-ornament-cylinder',
+    className:
+      'hidden absolute isolate pointer-events-none md:block md:z-2 md:right-[calc(-161_/_1440_*_min(100%,_90rem))] md:top-[calc(221_/_1024_*_100%)] md:w-[calc(370_/_1440_*_min(100%,_90rem))] md:aspect-[1/1] md:max-lg:h-auto',
+    cone: true,
     tone: ORNAMENT_TONE_LIME,
     width: 370,
     height: 370,
@@ -113,7 +116,8 @@ export const HERO_ORNAMENTS = [
   {
     id: 'squiggle-mid',
     src: asset('ornament-ring.png'),
-    className: 'home-ornament-squiggle-mid',
+    className:
+      'block absolute isolate pointer-events-none [transform:scaleX(-1)] z-3 left-[calc(50%_-_min(100vw_-_4rem,_21rem)_*_0.5_-_0.25rem)] w-12 max-lg:aspect-[1/1] max-md:bottom-[calc(min(100vw_-_4rem,_21rem)_*_0.49)] md:z-2 md:left-[calc(50%_-_318px)] md:w-[76px] md:max-lg:top-[386px] md:max-lg:h-auto lg:left-[calc(183_/_1440_*_100%)] lg:w-[calc(175_/_1440_*_100%)] lg:top-[calc(477_/_1024_*_100%)] lg:h-[calc(175_/_1024_*_100%)]',
     tone: ORNAMENT_TONE_PAPER,
     width: 175,
     height: 175,
@@ -121,7 +125,9 @@ export const HERO_ORNAMENTS = [
   {
     id: 'ring',
     src: asset('cone-a.png'),
-    className: 'home-ornament-cone home-ornament-ring',
+    className:
+      'hidden absolute isolate pointer-events-none md:block md:z-2 md:max-lg:left-[calc(50%_-_426px)] md:max-lg:top-[712px] md:max-lg:w-[132px] md:max-lg:h-auto md:max-lg:aspect-[1/1] lg:left-[calc(18_/_1440_*_100%)] lg:top-[calc(682_/_1024_*_100%)] lg:w-[calc(342_/_1440_*_100%)] lg:h-[calc(342_/_1024_*_100%)]',
+    cone: true,
     tone: ORNAMENT_TONE_PAPER,
     width: 342,
     height: 342,
@@ -129,7 +135,9 @@ export const HERO_ORNAMENTS = [
   {
     id: 'prism',
     src: asset('cone-c.png'),
-    className: 'home-ornament-cone home-ornament-prism',
+    className:
+      'block absolute isolate pointer-events-none z-3 left-[calc(50%_+_min(100vw_-_4rem,_21rem)_*_0.26)] w-13 max-lg:aspect-[1/1] max-md:bottom-[calc(min(100vw_-_4rem,_21rem)_*_0.62)] md:z-2 md:left-[calc(50%_+_236px)] md:w-[96px] md:max-lg:top-[404px] md:max-lg:h-auto lg:left-[calc(1106_/_1440_*_100%)] lg:w-[calc(188_/_1440_*_100%)] lg:top-[calc(464_/_1024_*_100%)] lg:h-[calc(188_/_1024_*_100%)]',
+    cone: true,
     tone: ORNAMENT_TONE_PAPER,
     width: 188,
     height: 188,
@@ -137,7 +145,8 @@ export const HERO_ORNAMENTS = [
   {
     id: 'squiggle-right',
     src: asset('ornament-squiggle.png'),
-    className: 'home-ornament-squiggle-right',
+    className:
+      'hidden absolute isolate pointer-events-none md:block md:z-2 md:max-lg:left-[calc(50%_+_250px)] md:max-lg:top-[652px] md:max-lg:w-[110px] md:max-lg:h-auto md:max-lg:aspect-[1/1] lg:left-[calc(1127_/_1440_*_100%)] lg:top-[calc(672_/_1024_*_100%)] lg:w-[calc(330_/_1440_*_100%)] lg:h-[calc(330_/_1024_*_100%)]',
     tone: ORNAMENT_TONE_PAPER,
     width: 330,
     height: 330,
@@ -150,7 +159,8 @@ export const GROWTH_ORNAMENTS = {
     {
       id: 'growth-squiggle-course',
       src: asset('ornament-squiggle.png'),
-      className: 'home-growth-squiggle-course',
+      className:
+      'block absolute isolate pointer-events-none top-[67px] left-[406px] w-[215px] h-[215px] lg:z-2',
       tone: ORNAMENT_TONE_LIME,
       width: 215,
       height: 215,
@@ -160,7 +170,8 @@ export const GROWTH_ORNAMENTS = {
     {
       id: 'growth-squiggle-creator',
       src: asset('ornament-ring.png'),
-      className: 'home-growth-squiggle-creator',
+      className:
+      'block absolute isolate pointer-events-none top-[114px] left-[305px] w-[215px] h-[215px] lg:z-2',
       tone: ORNAMENT_TONE_LIME,
       width: 215,
       height: 215,
@@ -169,30 +180,41 @@ export const GROWTH_ORNAMENTS = {
 };
 
 // Figma CTA_Frame "Group 6", in Figma paint order.
-const ctaOrnament = (id, fileName, tone, size, className = '') => ({
+const CTA_ORNAMENT_CLASSES = {
+  'prism': 'hidden absolute isolate pointer-events-none lg:block lg:right-[calc(172_*_min(100cqw,_90rem)_/_1440)] lg:z-2 lg:w-[calc(188_*_min(100cqw,_90rem)_/_1440)] lg:aspect-[1/1] lg:top-[calc(0_*_min(100cqw,_90rem)_/_1440)]',
+  'coil-right': 'hidden absolute isolate pointer-events-none lg:block lg:right-[calc(0_*_min(100cqw,_90rem)_/_1440)] lg:z-2 lg:w-[calc(330_*_min(100cqw,_90rem)_/_1440)] lg:aspect-[1/1] lg:top-[calc(289_*_min(100cqw,_90rem)_/_1440)]',
+  'coil-left': 'hidden absolute isolate pointer-events-none lg:block lg:left-[calc(-118_*_min(100cqw,_90rem)_/_1440)] lg:z-2 lg:w-[calc(385_*_min(100cqw,_90rem)_/_1440)] lg:aspect-[1/1] lg:top-[calc(-162_*_min(100cqw,_90rem)_/_1440)]',
+  'coil-small': 'hidden absolute isolate pointer-events-none lg:block lg:left-[calc(178_*_min(100cqw,_90rem)_/_1440)] lg:[transform:scaleX(-1)] lg:z-2 lg:w-[calc(175_*_min(100cqw,_90rem)_/_1440)] lg:aspect-[1/1] lg:top-[calc(5_*_min(100cqw,_90rem)_/_1440)]',
+  'cone': 'hidden absolute isolate pointer-events-none lg:block lg:left-[calc(-48_*_min(100cqw,_90rem)_/_1440)] lg:z-2 lg:w-[calc(188_*_min(100cqw,_90rem)_/_1440)] lg:aspect-[1/1] lg:top-[calc(225_*_min(100cqw,_90rem)_/_1440)]',
+  'ring': 'hidden absolute isolate pointer-events-none lg:block lg:left-[calc(20_*_min(100cqw,_90rem)_/_1440)] lg:z-2 lg:w-[calc(342_*_min(100cqw,_90rem)_/_1440)] lg:aspect-[1/1] lg:top-[calc(299_*_min(100cqw,_90rem)_/_1440)]',
+  'cylinder': 'hidden absolute isolate pointer-events-none lg:block lg:right-[calc(-156_*_min(100cqw,_90rem)_/_1440)] lg:z-2 lg:w-[calc(370_*_min(100cqw,_90rem)_/_1440)] lg:aspect-[1/1] lg:top-[calc(6_*_min(100cqw,_90rem)_/_1440)]',
+};
+
+const ctaOrnament = (id, fileName, tone, size, cone = false) => ({
   id,
   src: asset(fileName),
-  className: `${className} home-cta-${id}`.trim(),
+  className: CTA_ORNAMENT_CLASSES[id],
+  cone,
   tone,
   width: size,
   height: size,
 });
 
 export const CTA_ORNAMENTS = [
-  ctaOrnament('prism', 'cone-c.png', ORNAMENT_TONE_LIME, 188, 'home-ornament-cone'),
+  ctaOrnament('prism', 'cone-c.png', ORNAMENT_TONE_LIME, 188, true),
   ctaOrnament('coil-right', 'ornament-squiggle.png', ORNAMENT_TONE_LIME, 330),
   ctaOrnament('coil-left', 'ornament-ring.png', ORNAMENT_TONE_LIME, 385),
   ctaOrnament('coil-small', 'ornament-ring.png', ORNAMENT_TONE_PAPER, 175),
-  ctaOrnament('cone', 'cone-d.png', ORNAMENT_TONE_PAPER, 188, 'home-ornament-cone'),
-  ctaOrnament('ring', 'cone-a.png', ORNAMENT_TONE_LIME, 342, 'home-ornament-cone'),
-  ctaOrnament('cylinder', 'cone-b.png', ORNAMENT_TONE_PAPER, 370, 'home-ornament-cone'),
+  ctaOrnament('cone', 'cone-d.png', ORNAMENT_TONE_PAPER, 188, true),
+  ctaOrnament('ring', 'cone-a.png', ORNAMENT_TONE_LIME, 342, true),
+  ctaOrnament('cylinder', 'cone-b.png', ORNAMENT_TONE_PAPER, 370, true),
 ];
 
 // Figma Testimonials_Frame blurred ellipses.
 export const COMMUNITY_GLOWS = [
-  { id: 'lime', src: asset('glow-lime.svg') },
-  { id: 'soft', src: asset('glow-soft.svg') },
-  { id: 'blue', src: asset('glow-blue.svg') },
+  { id: 'lime', src: asset('glow-lime.svg'), className: 'top-[-281px] left-[calc(50%_+_82px)] h-[1217px] w-[1217px]' },
+  { id: 'soft', src: asset('glow-soft.svg'), className: 'top-[-178px] left-[calc(50%_-_365px)] h-[752px] w-[752px]' },
+  { id: 'blue', src: asset('glow-blue.svg'), className: 'top-[109px] left-[calc(50%_-_1202px)] h-[1217px] w-[1217px]' },
 ];
 
 export const FEATURED_TOPIC = 'Featured';

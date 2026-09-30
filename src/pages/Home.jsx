@@ -9,13 +9,12 @@ import { PartnerStrip } from '../components/home/PartnerStrip';
 import { Testimonials } from '../components/home/Testimonials';
 import { HOME_COURSES, SEO_HOME } from '../data/home';
 import { useSEO } from '../hooks/useSEO';
-import '../styles/home.css';
 
 const HomeContent = memo(() => {
   const catalog = useHomeCatalog(HOME_COURSES);
 
   return (
-    <div className="home-page">
+    <div className="w-full bg-white text-ink font-body">
       <HomeHero />
       <PartnerStrip />
       <CourseDiscovery catalog={catalog} />

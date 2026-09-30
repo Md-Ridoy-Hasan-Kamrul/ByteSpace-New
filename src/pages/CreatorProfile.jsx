@@ -15,7 +15,6 @@ import {
 } from '../data/creator';
 import { ALL_CATEGORIES, ALL_LEVELS, SORT_RELEVANT } from '../data/search';
 import { useSEO } from '../hooks/useSEO';
-import '../styles/creator.css';
 
 const useCreatorCatalog = (courses) => {
   const [level, setLevel] = useState(ALL_LEVELS);
@@ -68,8 +67,8 @@ const useCreatorFollow = () => {
 };
 
 const CreatorStat = memo(({ stat }) => (
-  <p className="creator-stat">
-    <span>{stat.count}</span>
+  <p className="py-3 px-6 gap-2 rounded-[1.5rem] inline-flex items-center bg-white text-ink text-[1rem] font-medium leading-[1.2] md:text-[1.125rem]">
+    <span className="text-brand-blue">{stat.count}</span>
     {stat.label}
   </p>
 ));
@@ -77,20 +76,20 @@ const CreatorStat = memo(({ stat }) => (
 CreatorStat.displayName = 'CreatorStat';
 
 const CreatorIdentity = memo(({ creator }) => (
-  <div className="creator-identity">
+  <div className="gap-6 flex flex-wrap items-center">
     <img
-      className="creator-portrait"
+      className="rounded-[1.5rem] w-24 h-24 grow-0 shrink-0 basis-auto object-cover"
       src={creator.portrait}
       alt=""
       width={PORTRAIT_SIZE}
       height={PORTRAIT_SIZE}
     />
-    <div className="creator-identity-copy">
-      <div className="creator-name-row">
-        <h1>{creator.name}</h1>
-        <span className="creator-badge">{creator.badge}</span>
+    <div className="gap-2 grid">
+      <div className="gap-2 flex flex-wrap items-start">
+        <h1 className="font-display font-semibold tracking-[-0.36px] leading-[1.2] text-canvas text-[clamp(1.625rem,_7.5vw,_1.875rem)] md:text-[2.25rem]">{creator.name}</h1>
+        <span className="py-2 px-6 rounded-[1.5rem] inline-flex items-center justify-center bg-brand-lime text-ink text-[1rem] font-medium leading-[1.2]">{creator.badge}</span>
       </div>
-      <p>{creator.role}</p>
+      <p className="text-canvas text-[1rem] font-normal leading-[29px] md:text-[1.125rem]">{creator.role}</p>
     </div>
   </div>
 ));
@@ -98,9 +97,9 @@ const CreatorIdentity = memo(({ creator }) => (
 CreatorIdentity.displayName = 'CreatorIdentity';
 
 const CreatorBio = memo(({ paragraphs }) => (
-  <div className="creator-bio">
+  <div className="grid max-w-[74.8125rem]">
     {paragraphs.map((paragraph) => (
-      <p key={paragraph}>{paragraph}</p>
+      <p className="text-canvas text-[1rem] font-normal leading-[29px] md:text-[1.125rem]" key={paragraph}>{paragraph}</p>
     ))}
   </div>
 ));
@@ -108,13 +107,13 @@ const CreatorBio = memo(({ paragraphs }) => (
 CreatorBio.displayName = 'CreatorBio';
 
 const CreatorActions = memo(({ stats, following, onFollow }) => (
-  <div className="creator-actions">
-    <div className="creator-stats">
+  <div className="gap-4 flex flex-wrap items-center justify-between">
+    <div className="gap-4 flex flex-wrap">
       {stats.map((stat) => (
         <CreatorStat key={stat.id} stat={stat} />
       ))}
     </div>
-    <button type="button" className="creator-follow" aria-pressed={following} onClick={onFollow}>
+    <button type="button" className="py-3 px-6 rounded-[1.5rem] border-none bg-brand-lime text-ink-deep text-[1rem] font-medium leading-[1.2] cursor-pointer md:text-[1.125rem] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-lime focus-visible:outline-offset-[3px]" aria-pressed={following} onClick={onFollow}>
       {FOLLOW_LABEL}
     </button>
   </div>
@@ -123,7 +122,7 @@ const CreatorActions = memo(({ stats, following, onFollow }) => (
 CreatorActions.displayName = 'CreatorActions';
 
 const CreatorIntro = memo(({ creator, following, onFollow }) => (
-  <div className="creator-intro">
+  <div className="gap-10 grid mt-10 text-canvas lg:mt-[52px] lg:mr-0 lg:mb-0 lg:ml-[2px]">
     <CreatorIdentity creator={creator} />
     <CreatorBio paragraphs={creator.bio} />
     <CreatorActions stats={creator.stats} following={following} onFollow={onFollow} />
@@ -140,7 +139,7 @@ const CreatorProfileContent = memo(({ creator }) => {
     <SitePage
       name="creator"
       hero={
-        <div className="home-wrap">
+        <div className="mx-auto w-[min(100%_-_2rem,_75rem)] sm:w-[min(100%_-_2.5rem,_75rem)]">
           <CreatorIntro
             creator={creator}
             following={follow.following}
@@ -149,8 +148,8 @@ const CreatorProfileContent = memo(({ creator }) => {
         </div>
       }
     >
-      <section className="creator-catalog">
-        <div className="home-wrap">
+      <section className="pt-10 pb-[61px] lg:pt-[62px]">
+        <div className="mx-auto w-[min(100%_-_2rem,_75rem)] sm:w-[min(100%_-_2.5rem,_75rem)]">
           <CatalogToolbar
             variant="creator"
             level={catalog.level}
@@ -164,8 +163,7 @@ const CreatorProfileContent = memo(({ creator }) => {
           <CourseGrid
             courses={catalog.visibleCourses}
             emptyMessage={EMPTY_COURSES_MESSAGE}
-            className="home-figma-card"
-            emptyClassName="creator-empty"
+            variant="creator"
           />
         </div>
       </section>

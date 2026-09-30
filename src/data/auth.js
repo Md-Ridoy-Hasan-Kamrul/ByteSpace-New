@@ -102,7 +102,8 @@ export const REGISTER_ORNAMENTS = [
   {
     id: 'coil',
     src: asset('ornament-ring.png'),
-    className: 'register-ornament-coil',
+    className:
+      'hidden absolute isolate pointer-events-none lg:block lg:z-2 lg:top-[506px] lg:left-[348px] lg:w-[175px] lg:h-[175px] lg:[transform:scaleX(-1)] lg:right-auto lg:bottom-auto',
     tone: ORNAMENT_TONE_PAPER,
     width: 175,
     height: 175,
@@ -110,7 +111,9 @@ export const REGISTER_ORNAMENTS = [
   {
     id: 'ring',
     src: asset('cone-a.png'),
-    className: 'home-ornament-cone register-ornament-ring',
+    className:
+      'hidden absolute isolate pointer-events-none lg:block lg:z-2 lg:top-[200px] lg:left-[29px] lg:w-[146px] lg:h-[146px] lg:right-auto lg:bottom-auto',
+    cone: true,
     tone: ORNAMENT_TONE_LIME,
     width: 146,
     height: 146,
@@ -118,7 +121,9 @@ export const REGISTER_ORNAMENTS = [
   {
     id: 'prism',
     src: asset('cone-c.png'),
-    className: 'home-ornament-cone register-ornament-prism',
+    className:
+      'hidden absolute isolate pointer-events-none lg:block lg:z-2 lg:top-[582px] lg:left-[-25px] lg:w-[188px] lg:h-[188px] lg:right-auto lg:bottom-auto',
+    cone: true,
     tone: ORNAMENT_TONE_LIME,
     width: 188,
     height: 188,

@@ -21,8 +21,8 @@ const Register = lazy(() => import('./pages/Register'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 const PageLoader = () => (
-  <div className="page-loader" role="status" aria-label="Loading">
-    <span />
+  <div className="flex min-h-screen items-center justify-center" role="status" aria-label="Loading">
+    <span className="h-8 w-8 animate-spin rounded-[999px] border-4 border-solid border-brand-blue border-t-transparent" />
   </div>
 );
 

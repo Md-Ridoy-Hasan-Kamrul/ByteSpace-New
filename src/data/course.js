@@ -130,11 +130,11 @@ export const REVIEW_COPY = {
 };
 
 export const RATING_ROWS = [
-  { id: 'rating-5', count: '720', fillClass: 'course-rating-fill-5' },
-  { id: 'rating-4', count: '120', fillClass: 'course-rating-fill-4' },
-  { id: 'rating-3', count: '21', fillClass: 'course-rating-fill-3' },
-  { id: 'rating-2', count: '12', fillClass: 'course-rating-fill-2' },
-  { id: 'rating-1', count: '16', fillClass: 'course-rating-fill-1' },
+  { id: 'rating-5', count: '720', fillClass: 'w-[92.28%]' },
+  { id: 'rating-4', count: '120', fillClass: 'w-[36.49%]' },
+  { id: 'rating-3', count: '21', fillClass: 'w-[9.47%]' },
+  { id: 'rating-2', count: '12', fillClass: 'w-[3.51%]' },
+  { id: 'rating-1', count: '16', fillClass: 'w-[5.26%]' },
 ];
 
 export const COURSE_REVIEWS = [

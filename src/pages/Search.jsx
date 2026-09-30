@@ -24,7 +24,6 @@ import {
 } from '../data/search';
 import { useSEO } from '../hooks/useSEO';
 import { smoothScrollTo } from '../hooks/useSmoothScroll';
-import '../styles/search.css';
 
 const EMPTY_QUERY = '';
 
@@ -121,13 +120,13 @@ const useSearchCatalog = (courses) => {
 };
 
 const SearchHero = memo(({ query, onQueryChange, onSubmit }) => (
-  <div className="search-hero-copy">
-    <h1>{SEARCH_TITLE}</h1>
-    <form className="search-bar" role="search" onSubmit={onSubmit}>
-      <label className="search-field" htmlFor="search-course-query">
-        <img src={ICON_SEARCH} alt="" width={ICON_SIZE} height={ICON_SIZE} />
+  <div className="mx-auto relative z-2 w-[min(100%_-_2rem,_39rem)] mt-4 text-center sm:mt-6 lg:w-auto lg:mt-[44px]">
+    <h1 className="font-display font-semibold tracking-[-0.01em] leading-[1.2] text-canvas text-[clamp(1.5rem,_7vw,_1.625rem)] sm:text-[clamp(1.75rem,_4vw,_2.25rem)]">{SEARCH_TITLE}</h1>
+    <form className="gap-2.5 flex items-stretch mt-5 max-sm:flex-col sm:gap-4 sm:items-start sm:mt-8 lg:justify-center" role="search" onSubmit={onSubmit}>
+      <label className="transition-[box-shadow] duration-[180ms] ease-[ease] px-4.5 gap-2 rounded-[1.5rem] flex grow-0 shrink-0 basis-auto items-center h-12 bg-white sm:px-6 sm:grow sm:shrink sm:basis-[0%] sm:h-13 lg:grow-0 lg:shrink-0 lg:basis-auto lg:w-[461px] focus-within:shadow-[0_0_0_3px_#d4fb20]" htmlFor="search-course-query">
+        <img className="max-sm:w-5 max-sm:h-5" src={ICON_SEARCH} alt="" width={ICON_SIZE} height={ICON_SIZE} />
         <span className="sr-only">{SEARCH_FIELD_LABEL}</span>
-        <input
+        <input className="border-none w-full text-ink text-[1rem] leading-[1.6] outline-none md:text-[1.125rem] focus-visible:outline-offset-[3px]"
           id="search-course-query"
           type="search"
           placeholder={SEARCH_FIELD_LABEL}
@@ -135,7 +134,7 @@ const SearchHero = memo(({ query, onQueryChange, onSubmit }) => (
           onChange={onQueryChange}
         />
       </label>
-      <button type="submit">
+      <button className="whitespace-nowrap px-5 gap-2 rounded-[1.5rem] border-none inline-flex items-center justify-center bg-brand-lime text-ink text-[1rem] font-medium leading-[1.2] cursor-pointer max-sm:min-h-12 sm:py-[12px] sm:px-[24px] md:text-[1.125rem] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-white focus-visible:outline-offset-[2px]" type="submit">
         {SEARCH_SCOPE_LABEL}
         <img src={SEARCH_ICONS.chevronDown} alt="" width={ICON_SIZE} height={ICON_SIZE} />
       </button>
@@ -151,7 +150,7 @@ const TopicButton = memo(({ topic, isSelected, onSelect }) => {
   }, [onSelect, topic]);
 
   return (
-    <button type="button" className="home-topic" aria-pressed={isSelected} onClick={handleSelect}>
+    <button type="button" className="cursor-pointer rounded-[1.5rem] border-none bg-canvas px-3.5 py-2 font-body text-[0.875rem] leading-[1.2] font-medium whitespace-nowrap text-body aria-pressed:bg-brand-lime aria-pressed:text-ink sm:py-2.5 md:px-4 md:py-3 md:text-[1rem] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-lime focus-visible:outline-offset-[3px]" aria-pressed={isSelected} onClick={handleSelect}>
       {topic}
     </button>
   );
@@ -160,7 +159,7 @@ const TopicButton = memo(({ topic, isSelected, onSelect }) => {
 TopicButton.displayName = 'TopicButton';
 
 const SearchTopicList = memo(({ topic, onSelect }) => (
-  <ul className="home-topics search-topics">
+  <ul className="gap-2 flex flex-wrap justify-start max-w-none mt-5 sm:gap-4 sm:mt-8 xl:justify-between">
     {SEARCH_TOPICS.map((courseTopic) => (
       <li key={courseTopic}>
         <TopicButton topic={courseTopic} isSelected={courseTopic === topic} onSelect={onSelect} />
@@ -182,7 +181,7 @@ const PageButton = memo(({ page, isCurrent, onPageChange }) => {
   return (
     <button
       type="button"
-      className="search-page-number"
+      className="cursor-pointer border-none font-display text-[1.125rem] leading-[28px] font-semibold tracking-[-0.01em] text-ink aria-[current=page]:text-line md:text-[1.25rem] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]"
       aria-label={`Page ${page}`}
       aria-current={isCurrent ? 'page' : undefined}
       onClick={handleChange}
@@ -194,6 +193,9 @@ const PageButton = memo(({ page, isCurrent, onPageChange }) => {
 
 PageButton.displayName = 'PageButton';
 
+const PAGE_ARROW =
+  'grid cursor-pointer items-center justify-items-center rounded-[1.5rem] border border-solid border-line bg-white px-[13px] py-[9px] disabled:cursor-default md:px-[15px] md:py-[11px] focus-visible:outline-solid focus-visible:outline-[2px] focus-visible:outline-brand-blue focus-visible:outline-offset-[2px]';
+
 const SearchPagination = memo(({ page, pageCount, onPageChange }) => {
   const handlePrevious = useCallback(() => {
     onPageChange(page - FIRST_PAGE);
@@ -204,9 +206,10 @@ const SearchPagination = memo(({ page, pageCount, onPageChange }) => {
   }, [onPageChange, page]);
 
   return (
-    <nav className="search-pagination" aria-label="Pages">
+    <nav className="gap-3 flex justify-center items-center mt-10 xs:gap-4 md:gap-[24px] md:mt-18" aria-label="Pages">
       <button
         type="button"
+        className={PAGE_ARROW}
         aria-label={PREVIOUS_PAGE_LABEL}
         onClick={handlePrevious}
         disabled={page === FIRST_PAGE}
@@ -223,6 +226,7 @@ const SearchPagination = memo(({ page, pageCount, onPageChange }) => {
       ))}
       <button
         type="button"
+        className={PAGE_ARROW}
         aria-label={NEXT_PAGE_LABEL}
         onClick={handleNext}
         disabled={page === pageCount}
@@ -249,8 +253,8 @@ const SearchContent = memo(() => {
         />
       }
     >
-      <section id="courses" className="home-section">
-        <div className="home-wrap">
+      <section id="courses" className="pt-8 pb-12 sm:pt-18 md:pb-18">
+        <div className="mx-auto w-[min(100%_-_2rem,_75rem)] sm:w-[min(100%_-_2.5rem,_75rem)]">
           <CatalogToolbar
             variant="search"
             level={catalog.level}
@@ -265,7 +269,7 @@ const SearchContent = memo(() => {
           <CourseGrid
             courses={catalog.visibleCourses}
             emptyMessage={EMPTY_RESULTS_MESSAGE}
-            className="search-results"
+            variant="search"
           />
           <SearchPagination
             page={catalog.page}
