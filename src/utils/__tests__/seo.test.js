@@ -3,7 +3,7 @@ import { generateMetadata, generateStructuredData, updateMetaTags } from '../seo
 describe('generateMetadata', () => {
   it('formats the title as "Page | SiteName" when title is provided', () => {
     const meta = generateMetadata({ title: 'About Us', description: 'Learn about us' });
-    // Default site name from SEO_CONFIG (Gairewele)
+    // Default site name from SEO_CONFIG (ByteSpace New)
     expect(meta.title).toMatch(/About Us \|/);
   });
 
@@ -67,9 +67,7 @@ describe('generateStructuredData', () => {
   });
 
   it('merges extra data fields', () => {
-    const parsed = JSON.parse(
-      generateStructuredData('Product', { name: 'Widget', price: 9.99 }),
-    );
+    const parsed = JSON.parse(generateStructuredData('Product', { name: 'Widget', price: 9.99 }));
     expect(parsed.name).toBe('Widget');
     expect(parsed.price).toBe(9.99);
   });

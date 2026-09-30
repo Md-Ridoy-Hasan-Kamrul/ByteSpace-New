@@ -245,19 +245,19 @@ export const selectCourseDetails = (courseId) => {
 };
 
 export const courseSeo = (course) => ({
-  title: `${course.title} | ByteSpace`,
+  title: course.title,
   description: course.subtitle,
   keywords: ['ByteSpace', 'course', course.title],
 });
 
 export const SEO_MISSING_COURSE = {
-  title: 'Course not found | ByteSpace',
+  title: 'Course not found',
   description: MISSING_COURSE_MESSAGE,
   keywords: ['ByteSpace', 'course'],
 };
 
 export const SEO_COURSE_DETAILS = {
-  title: `${COURSE_DETAILS.title} | ByteSpace`,
+  title: COURSE_DETAILS.title,
   description: COURSE_DETAILS.subtitle,
   keywords: ['ByteSpace', 'course', COURSE_DETAILS.title],
 };

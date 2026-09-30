@@ -43,7 +43,7 @@ export const SIGN_IN_FIELDS = [
 ];
 
 export const SEO_SIGN_IN = {
-  title: 'Sign In | ByteSpace',
+  title: 'Sign In',
   description: SIGN_IN_BODY,
   keywords: ['ByteSpace', 'sign in', 'login', 'courses'],
 };

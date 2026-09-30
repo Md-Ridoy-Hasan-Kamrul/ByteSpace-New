@@ -65,7 +65,7 @@ export const SHOWCASE_COURSE_LAYOUT = [
 export const REGISTER_STUDENT_AVATARS = HERO_STUDENT_AVATARS;
 
 export const SEO_REGISTER = {
-  title: 'Create an Account | ByteSpace',
+  title: 'Create an Account',
   description: SIGN_UP_BODY,
   keywords: ['ByteSpace', 'register', 'create account', 'courses'],
 };

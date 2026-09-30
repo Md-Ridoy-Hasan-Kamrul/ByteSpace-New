@@ -34,13 +34,13 @@ export const CREATOR_PROFILE = {
 };
 
 export const SEO_CREATOR = {
-  title: 'PurePearl Studio | ByteSpace',
+  title: 'PurePearl Studio',
   description: CREATOR_BIO[0],
   keywords: ['ByteSpace', 'PurePearl Studio', 'creator'],
 };
 
 export const SEO_MISSING_CREATOR = {
-  title: 'Creator not found | ByteSpace',
+  title: 'Creator not found',
   description: MISSING_CREATOR_MESSAGE,
   keywords: ['ByteSpace', 'creator'],
 };

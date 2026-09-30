@@ -54,7 +54,7 @@ export const SEARCH_ICONS = {
 };
 
 export const SEO_SEARCH = {
-  title: 'Find Your Next Course | ByteSpace',
+  title: 'Find Your Next Course',
   description: 'Search ByteSpace courses by topic, level, and category.',
   keywords: ['ByteSpace', 'search', 'courses'],
 };

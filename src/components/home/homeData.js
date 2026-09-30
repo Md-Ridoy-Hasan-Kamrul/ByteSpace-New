@@ -255,8 +255,8 @@ export const LEGAL_LINKS = [
 
 export const HERO_AVATARS = HERO_STUDENT_AVATARS;
 
+// No page title: the home tab shows just the site name.
 export const SEO_HOME = {
-  title: 'ByteSpace Courses',
   description: HERO_SUBTITLE,
   keywords: ['bytespace', 'courses', 'creators', 'learning'],
 };
