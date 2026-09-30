@@ -63,7 +63,7 @@
   --course-count-width: 2.5rem;
   --course-review-avatar: 3.25rem;
   --course-review-copy: 40.1875rem;
-  --course-review-line: 1.5;
+  --course-review-line: 1.625;
   --course-rating-fill-5: 92.28%;
   --course-rating-fill-4: 36.49%;
   --course-rating-fill-3: 9.47%;
@@ -87,6 +87,7 @@
   --course-share-overhang: 85px;
   --course-share-edge: 35px;
   --course-lesson-line: 19px;
+  --course-rating-badge-width: 129px;
 }
 
 /* Hero (55:4160): blue band with the 120px page grid, header on top. */
@@ -723,6 +724,7 @@
 .course-rating-filters {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: var(--course-tab-gap);
   width: min(100%, var(--course-main-width));
 }
@@ -786,9 +788,12 @@
   object-fit: cover;
 }
 
+/* Reviewer names are Label L (Satoshi Medium 18), not the Poppins heading face h3 inherits. */
 .course-review-person h3 {
   margin: 0;
   color: var(--home-ink);
+  font-family: var(--home-font-body);
+  letter-spacing: normal;
   font-size: var(--course-label);
   font-weight: var(--course-weight);
   line-height: var(--course-title-line);
@@ -818,9 +823,10 @@
 }
 
 @media (min-width: 425px) {
+  /* 40px inset with the 1px border inside it, as in Figma (60:1294, 60:1373). */
   .course-rating-summary,
   .course-review-card {
-    padding: var(--course-pad);
+    padding: calc(var(--course-pad) - var(--course-hairline));
   }
 }
 
@@ -828,6 +834,12 @@
   .course-rating-summary {
     flex-direction: row;
     align-items: center;
+  }
+
+  /* Ratings badge (60:1295) is a fixed 129px column, so the bars start at x 193. */
+  .course-rating-badge {
+    flex-basis: var(--course-rating-badge-width);
+    width: var(--course-rating-badge-width);
   }
 
   .course-peeks {
@@ -879,6 +891,12 @@
   }
 
   /* Course Lessons (60:104): tabs 79px under the hero, footer 83px under the progress card. */
+  /* Course Reviews (60:683): same top as Lessons, footer 91px under the last review. */
+  .course-body[data-tab='Reviews'] {
+    --course-body-top: 79px;
+    --course-body-bottom: 91px;
+  }
+
   .course-body[data-tab='Lesson'] {
     --course-body-top: 79px;
     --course-body-bottom: 83px;
