@@ -50,6 +50,15 @@
   outline-offset: var(--register-focus);
 }
 
+/* Mobile (320-767px): slightly smaller Facebook / Google buttons - 48px with 20px icons. */
+@media (max-width: 767.98px) {
+  .sign-in-social {
+    --sign-in-social-size: 3rem;
+    --sign-in-social-icon: 1.25rem;
+    --sign-in-social-radius: 0.875rem;
+  }
+}
+
 /* Login form, Figma "Login" Register_Frame (49:220): a 683px content column, split into the form
    (370px), the social block (141px) and the "New user?" line (26px) with 73px between them. */
 @media (min-width: 1280px) {
