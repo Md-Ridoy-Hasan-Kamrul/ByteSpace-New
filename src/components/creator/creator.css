@@ -241,6 +241,19 @@
   margin-top: var(--creator-stack);
 }
 
+/* Mobile type scale (320-767px): 26-30px name, 16px bio / stats / Follow, 14px filter pills. */
+@media (max-width: 767.98px) {
+  .creator-page {
+    --creator-name: clamp(1.625rem, 7.5vw, 1.875rem);
+    --creator-lead: 1rem;
+  }
+
+  .creator-page .creator-filter,
+  .creator-page .creator-select > button {
+    font-size: 0.875rem;
+  }
+}
+
 @media (min-width: 1020px) {
   .creator-hero {
     height: var(--creator-hero-height);

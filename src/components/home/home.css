@@ -3096,3 +3096,60 @@
     width: calc(var(--hero-students-width) * 1px);
   }
 }
+
+/* Mobile type scale (320-767px), shared by every page that uses these home styles:
+   page title 26-30px, section title 24-28px, card title 18-20px, body 16px, secondary 14px,
+   buttons 16px. Kept last so it wins over the base rules above. */
+@media (max-width: 767.98px) {
+  .home-page .home-hero-copy h1 {
+    font-size: clamp(1.625rem, 7.5vw, 1.875rem);
+  }
+
+  .home-page .home-hero-copy p {
+    font-size: 1rem;
+  }
+
+  .home-page .home-section-copy h2,
+  .home-page .home-paths h2,
+  .home-page .home-growth-copy h2,
+  .home-page .home-cta h2,
+  .home-page .home-community h2 {
+    font-size: clamp(1.5rem, 6.5vw, 1.75rem);
+    line-height: 1.25;
+  }
+
+  .home-page .home-section-copy p,
+  .home-page .home-growth-copy p,
+  .home-page .home-cta p,
+  .home-page .home-community p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .home-page .home-cta p {
+    margin-top: 1.25rem;
+  }
+
+  .home-page .home-cta .home-button {
+    margin-top: 1.75rem;
+  }
+
+  .home-page .home-testimonial h3,
+  .home-page .home-category-card {
+    font-size: 1.125rem;
+  }
+
+  .home-page .home-testimonial div > p {
+    font-size: 0.875rem;
+  }
+
+  .home-page .home-topic,
+  .home-page .home-topic-more {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+  }
+
+  .home-page .home-button {
+    font-size: 1rem;
+  }
+}

@@ -57,6 +57,10 @@
     --sign-in-social-icon: 1.25rem;
     --sign-in-social-radius: 0.875rem;
   }
+
+  .sign-in-divider {
+    font-size: 0.875rem;
+  }
 }
 
 /* Login form, Figma "Login" Register_Frame (49:220): a 683px content column, split into the form

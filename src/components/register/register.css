@@ -210,6 +210,14 @@
   }
 }
 
+/* Mobile type scale (320-767px): 26-30px page title, 16px inputs / eyebrow / buttons. */
+@media (max-width: 767.98px) {
+  .register-page {
+    --register-title: clamp(1.625rem, 7.5vw, 1.875rem);
+    --register-input-size: 1rem;
+  }
+}
+
 @media (min-width: 768px) {
   .register-page {
     --register-shell-pad: 2rem;

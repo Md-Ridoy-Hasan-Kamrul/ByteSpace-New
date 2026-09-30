@@ -126,6 +126,14 @@
   text-decoration: none;
 }
 
+/* Mobile type scale (320-767px): 26-30px title, 16px hint and button. */
+@media (max-width: 767.98px) {
+  .not-found-page {
+    --not-found-title: clamp(1.625rem, 7.5vw, 1.875rem);
+    --not-found-hint: 1rem;
+  }
+}
+
 @media (min-width: 1020px) {
   .not-found-hero {
     height: var(--not-found-hero);

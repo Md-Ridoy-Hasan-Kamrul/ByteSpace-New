@@ -367,6 +367,21 @@
   .search-pagination > button:not(.search-page-number) {
     padding: 9px 13px;
   }
+
+  .search-page-number {
+    font-size: 1.125rem;
+  }
+
+  /* Mobile type scale: 16px buttons, 14px filter pills (as on Mobile M / S). */
+  .search-bar button,
+  .search-field input {
+    font-size: 1rem;
+  }
+
+  .search-filter,
+  .search-select > button {
+    font-size: 0.875rem;
+  }
 }
 
 @media (max-width: 374.98px) {

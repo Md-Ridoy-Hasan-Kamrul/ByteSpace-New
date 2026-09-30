@@ -842,6 +842,17 @@
     height: auto;
     aspect-ratio: var(--course-peek-width) / var(--course-peek-height);
   }
+
+  /* Mobile type scale: 26-30px title, 18px subtitle, 16px labels / buttons, 32px price. */
+  .course-page {
+    --course-title: clamp(1.625rem, 7.5vw, 1.875rem);
+    --course-label: 1rem;
+    --course-price: 2rem;
+  }
+
+  .course-page .course-subtitle {
+    font-size: 1.125rem;
+  }
 }
 
 @media (min-width: 768px) {
